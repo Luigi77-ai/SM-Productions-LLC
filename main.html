@@ -315,76 +315,109 @@
     }
 
     @keyframes wordFade {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.36;
-      }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.36; }
     }
 
-    .white-word {
+    .white-word { color: var(--white); }
+    .gold-word { color: var(--gold); }
+
+    .w1 { top: 0%; left: 2%; font-size: clamp(2.6rem, 5vw, 5.6rem); animation-delay: 0s; }
+    .w2 { top: 12%; right: 2%; font-size: clamp(2.4rem, 4.6vw, 5.1rem); animation-delay: 0.4s; }
+    .w3 { top: 25%; left: 8%; font-size: clamp(2.1rem, 4vw, 4.4rem); animation-delay: 0.8s; }
+    .w4 { top: 38%; right: 10%; font-size: clamp(2.3rem, 4.4vw, 4.8rem); animation-delay: 1.2s; }
+    .w5 { top: 49%; left: 0%; font-size: clamp(2rem, 3.9vw, 4.1rem); animation-delay: 1.6s; }
+    .w6 { top: 63%; right: 3%; font-size: clamp(2.2rem, 4.2vw, 4.6rem); animation-delay: 2s; }
+    .w7 { bottom: 10%; left: 14%; font-size: clamp(2.1rem, 4vw, 4.3rem); animation-delay: 2.4s; }
+    .w8 { bottom: 0%; right: 0%; font-size: clamp(2.5rem, 5vw, 5.4rem); animation-delay: 2.8s; }
+
+    .services-section {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .services-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -8%;
+      width: 54%;
+      height: 100%;
+      background:
+        linear-gradient(270deg, rgba(21,21,21,0.08) 0%, rgba(21,21,21,0.58) 42%, rgba(21,21,21,0.96) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .services-video {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 48%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+      filter: grayscale(1) contrast(1.05) brightness(0.42);
+      opacity: 0.55;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .services-intro {
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .services-title {
+      max-width: 12ch;
+    }
+
+    .services-links {
+      margin-top: 42px;
+      display: grid;
+      gap: 18px;
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
       color: var(--white);
+      transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
-    .gold-word {
+    .service-link:hover {
       color: var(--gold);
+      border-color: rgba(214,164,58,0.45);
+      transform: translateX(6px);
     }
 
-    .w1 {
-      top: 0%;
-      left: 2%;
-      font-size: clamp(2.6rem, 5vw, 5.6rem);
-      animation-delay: 0s;
+    .service-name {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 4vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
     }
 
-    .w2 {
-      top: 12%;
-      right: 2%;
-      font-size: clamp(2.4rem, 4.6vw, 5.1rem);
-      animation-delay: 0.4s;
+    .service-desc {
+      max-width: 28ch;
+      text-align: right;
+      color: rgba(244,239,228,0.72);
+      font-size: 0.98rem;
+      transition: color 0.25s ease;
     }
 
-    .w3 {
-      top: 25%;
-      left: 8%;
-      font-size: clamp(2.1rem, 4vw, 4.4rem);
-      animation-delay: 0.8s;
-    }
-
-    .w4 {
-      top: 38%;
-      right: 10%;
-      font-size: clamp(2.3rem, 4.4vw, 4.8rem);
-      animation-delay: 1.2s;
-    }
-
-    .w5 {
-      top: 49%;
-      left: 0%;
-      font-size: clamp(2rem, 3.9vw, 4.1rem);
-      animation-delay: 1.6s;
-    }
-
-    .w6 {
-      top: 63%;
-      right: 3%;
-      font-size: clamp(2.2rem, 4.2vw, 4.6rem);
-      animation-delay: 2s;
-    }
-
-    .w7 {
-      bottom: 10%;
-      left: 14%;
-      font-size: clamp(2.1rem, 4vw, 4.3rem);
-      animation-delay: 2.4s;
-    }
-
-    .w8 {
-      bottom: 0%;
-      right: 0%;
-      font-size: clamp(2.5rem, 5vw, 5.4rem);
-      animation-delay: 2.8s;
+    .service-link:hover .service-desc {
+      color: rgba(214,164,58,0.92);
     }
 
     .two-col {
@@ -443,7 +476,6 @@
       font-size: 0.95rem;
     }
 
-    .services-grid,
     .events-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -542,7 +574,6 @@
     @media (max-width: 980px) {
       .identity-grid,
       .two-col,
-      .services-grid,
       .events-grid,
       .events-media-grid {
         grid-template-columns: 1fr;
@@ -563,6 +594,25 @@
       .word-cloud-inner {
         min-height: 420px;
       }
+
+      .services-video {
+        width: 100%;
+        opacity: 0.18;
+      }
+
+      .services-section::before {
+        width: 100%;
+        right: 0;
+      }
+
+      .service-link {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .service-desc {
+        text-align: left;
+      }
     }
 
     @media (max-width: 640px) {
@@ -581,6 +631,10 @@
 
       .word-cloud-inner {
         min-height: 360px;
+      }
+
+      .service-name {
+        font-size: clamp(1.7rem, 10vw, 3rem);
       }
     }
   </style>
@@ -684,35 +738,32 @@
       </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section services-section" id="services">
+      <video class="services-video" autoplay muted loop playsinline>
+        <source src="./assets/video.mp4" type="video/mp4" />
+      </video>
+
       <div class="container">
-        <span class="eyebrow">What we do</span>
-        <h2 class="display-wide">BUILT FOR <span class="gold">BRANDS</span>, MODELS, MEDIA AND LIVE AUDIENCES.</h2>
+        <div class="services-intro">
+          <span class="eyebrow">What we do</span>
+          <h2 class="display-wide services-title">BUILT FOR BRANDS, MODELS AND PHOTOGRAPHERS.</h2>
+        </div>
 
-        <div class="services-grid">
-          <article class="card">
-            <span class="card-tag">01 / Production</span>
-            <h3><span class="gold">Fashion</span> show production</h3>
-            <p>
-              Curated runway events with designers, talent, media support and audience-facing energy that turns a showcase into an experience.
-            </p>
-          </article>
+        <div class="services-links">
+          <a class="service-link" href="./brands-coming-soon.html">
+            <span class="service-name">Brands</span>
+            <span class="service-desc">For sponsors and brands who want visibility, partnerships and event presence.</span>
+          </a>
 
-          <article class="card">
-            <span class="card-tag">02 / Casting</span>
-            <h3>Model <span class="gold">opportunities</span></h3>
-            <p>
-              Events are presented as exposure opportunities for models and talent, giving SM Productions a clear casting and discovery role.
-            </p>
-          </article>
+          <a class="service-link" href="https://wkf.ms/3VYxr8B" target="_blank" rel="noopener noreferrer">
+            <span class="service-name">Models</span>
+            <span class="service-desc">For women who want to apply to model and be considered for upcoming productions.</span>
+          </a>
 
-          <article class="card">
-            <span class="card-tag">03 / Visibility</span>
-            <h3>Brand <span class="gold">activations</span></h3>
-            <p>
-              Sponsors, brands and collaborators are repeatedly integrated into the production story, making each event a visibility platform as much as a show.
-            </p>
-          </article>
+          <a class="service-link" href="https://wkf.ms/4nZF3nK" target="_blank" rel="noopener noreferrer">
+            <span class="service-name">Photographers</span>
+            <span class="service-desc">For photographers who want media access and event shooting opportunities.</span>
+          </a>
         </div>
       </div>
     </section>
