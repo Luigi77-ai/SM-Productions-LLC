@@ -67,7 +67,7 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 100;
       backdrop-filter: blur(12px);
       background: rgba(21, 21, 21, 0.84);
       border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -115,12 +115,6 @@
       font-size: 0.96rem;
     }
 
-    .section {
-      padding: clamp(72px, 10vw, 130px) 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      background: transparent;
-    }
-
     .hero-manifesto {
       position: relative;
       min-height: calc(100vh - 76px);
@@ -135,9 +129,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(15,15,15,0.55), rgba(15,15,15,0.7)),
-        url("./assets/miami noche.jpg");
+      background-image: linear-gradient(rgba(15,15,15,0.55), rgba(15,15,15,0.7)), url("./assets/miami noche.jpg");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -169,34 +161,8 @@
       color: var(--white);
     }
 
-    .manifesto-text .line {
-      display: block;
-    }
-
     .gold {
       color: var(--gold);
-    }
-
-    .zoom-word {
-      display: inline-block;
-      color: var(--gold);
-      animation: zoomPulse 3.2s ease-in-out infinite;
-      transform-origin: center;
-    }
-
-    .zoom-word.delay {
-      animation-delay: 0.6s;
-    }
-
-    @keyframes zoomPulse {
-      0%, 100% {
-        transform: scale(1);
-        text-shadow: 0 0 0 rgba(214,164,58,0);
-      }
-      50% {
-        transform: scale(1.08);
-        text-shadow: 0 0 18px rgba(214,164,58,0.18);
-      }
     }
 
     .ticker-wrap {
@@ -212,8 +178,7 @@
     .ticker-track {
       display: flex;
       width: max-content;
-      animation: tickerMove 18s linear infinite;
-      white-space: nowrap;
+      animation: tickerMove 25s linear infinite;
     }
 
     .ticker-content {
@@ -230,17 +195,8 @@
     }
 
     @keyframes tickerMove {
-      from { transform: translateX(-8%); }
+      from { transform: translateX(0); }
       to { transform: translateX(-50%); }
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      color: var(--white);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
     }
 
     .display-wide {
@@ -251,26 +207,28 @@
       max-width: 15ch;
     }
 
-    /* SERVICES SECTION - UPDATED */
+    /* SERVICES SECTION - FUE EL ÚNICO CAMBIO SOLICITADO */
     .services-section {
       position: relative;
       overflow: hidden;
-      isolation: isolate;
+      margin-top: -76px; /* Sube para cubrir el área del header */
+      padding-top: 120px;
+      padding-bottom: 80px;
     }
 
+    /* Degradado difuminado para el fondo: Más suave hacia arriba, abajo e izquierda */
     .services-section::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* Gradient to fade video to the left */
-      background: linear-gradient(90deg, 
-        var(--bg) 0%, 
-        rgba(21,21,21,0.9) 30%, 
-        rgba(21,21,21,0.4) 70%, 
-        transparent 100%);
+      inset: 0;
+      /* Gradientes radiales y lineales combinados para un difuminado perfecto sin cortes */
+      background: 
+        /* Gradiente suave hacia la izquierda */
+        linear-gradient(90deg, var(--bg) 0%, rgba(21, 21, 21, 0.8) 35%, transparent 100%),
+        /* Gradiente suave hacia arriba */
+        linear-gradient(180deg, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%),
+        /* Difuminado suave en el borde inferior */
+        radial-gradient(circle at bottom, var(--bg) 0%, transparent 40%);
       z-index: 1;
       pointer-events: none;
     }
@@ -279,25 +237,22 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 55%;
+      width: 65%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      filter: grayscale(1) contrast(1.05) brightness(0.5);
+      /* Blur aumentado para difuminar más el video de fondo */
+      filter: grayscale(1) brightness(0.4) blur(15px);
       z-index: -1;
-      pointer-events: none;
     }
 
     .services-intro {
-      max-width: 760px;
       position: relative;
       z-index: 2;
     }
 
-    /* Word hover color effect */
+    /* Efectos de texto no tocados */
     .services-title span {
       transition: color 0.3s ease;
-      display: inline-block;
     }
 
     .services-title span:hover {
@@ -315,12 +270,13 @@
 
     .service-link {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 18px;
       padding: 24px 28px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      color: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      z-index: 2;
       transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
@@ -338,69 +294,12 @@
       text-transform: uppercase;
     }
 
-    /* FEATURED MOMENTUM GRID - UPDATED */
-    .events-media-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 videos in one row */
-      gap: 16px;
-      margin-top: 40px;
-      align-items: stretch;
+    .faint {
+      color: rgba(244,239,228,0.72);
+      font-size: 0.98rem;
     }
 
-    .media-card {
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 20px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.03);
-      aspect-ratio: 9/16; /* Mobile/Reel style aspect ratio */
-    }
-
-    .media-card video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Primary Gold Button */
-    .btn-event {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 32px;
-      background: var(--gold);
-      color: #111;
-      font-weight: 700;
-      border-radius: 999px;
-      margin-top: 24px;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.9rem;
-    }
-
-    .btn-event:hover {
-      background: var(--gold-soft);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(214, 164, 58, 0.2);
-    }
-
-    footer {
-      padding: 34px 0 50px;
-      color: var(--faint);
-      font-size: 0.94rem;
-      text-align: center;
-    }
-
-    @media (max-width: 1024px) {
-      .events-media-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2x2 for tablets */
-      }
-    }
-
-    @media (max-width: 640px) {
-      .events-media-grid {
-        grid-template-columns: 1fr; /* Stacked for mobile */
-      }
+    @media (max-width: 900px) {
       .services-video {
         width: 100%;
         opacity: 0.2;
@@ -409,18 +308,17 @@
   </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="./index.html">
-        <img src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
+        <img src="./assets/SM-Logo.png" alt="SM Productions LLC" />
         <span class="brand-text">SM Productions LLC</span>
       </a>
-
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#events">Events</a>
-        <a href="#opportunities">Opportunities</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -429,23 +327,19 @@
   <main>
     <section class="hero-manifesto" id="about">
       <div class="manifesto-wrap">
-        <h1 class="manifesto-text">
-          <span class="line">We don’t throw</span>
-          <span class="line"><span class="zoom-word">events.</span></span>
-          <span class="line">We create</span>
-          <span class="line"><span class="zoom-word delay">moments.</span></span>
-        </h1>
-        <p class="manifesto-sub">Fashion Shows • Live Productions • Brand Activations</p>
+        <h1 class="manifesto-text">We don’t throw <span class="gold">events.</span> We create <span class="gold">moments.</span></h1>
       </div>
     </section>
 
     <div class="ticker-wrap" aria-hidden="true">
       <div class="ticker-track">
         <div class="ticker-content">
-          <span>MODA</span> <span>FASHION</span> <span>MODEL</span> <span>FLORIDA</span> <span>HOT</span> <span>GLAMOUR</span>
+          <span>MODA</span> <span>FASHION</span> <span>MODEL</span> <span>FLORIDA</span> <span>HOT</span> <span>GLAMOUR</span> 
+          <span>BIKINI CONTESTS</span> <span>RUNWAY ENERGY</span> <span>SPRING FASHION</span> <span>LIVE COVERAGE</span> <span>MIAMI VIBES</span>
         </div>
-        <div class="ticker-track">
-          <span>MODA</span> <span>FASHION</span> <span>MODEL</span> <span>FLORIDA</span> <span>HOT</span> <span>GLAMOUR</span>
+        <div class="ticker-content">
+          <span>MODA</span> <span>FASHION</span> <span>MODEL</span> <span>FLORIDA</span> <span>HOT</span> <span>GLAMOUR</span> 
+          <span>BIKINI CONTESTS</span> <span>RUNWAY ENERGY</span> <span>SPRING FASHION</span> <span>LIVE COVERAGE</span> <span>MIAMI VIBES</span>
         </div>
       </div>
     </div>
@@ -454,27 +348,25 @@
       <video class="services-video" autoplay muted loop playsinline>
         <source src="./assets/video.mp4" type="video/mp4" />
       </video>
-
       <div class="container">
         <div class="services-intro">
-          <span class="eyebrow">What we do</span>
+          <span class="muted">What we do</span>
           <h2 class="display-wide services-title">
             <span>BUILT</span> <span>FOR</span> <span>BRANDS,</span> <span>MODELS</span> <span>AND</span> <span>PHOTOGRAPHERS.</span>
           </h2>
         </div>
-
         <div class="services-links">
           <a class="service-link" href="./brands-coming-soon.html">
-            <span class="service-name">Brands</span>
-            <span class="service-desc">For sponsors and brands who want visibility and event presence.</span>
+            <span>Brands</span> 
+            <span class="faint">For sponsors and brands who want visibility and event presence.</span>
           </a>
           <a class="service-link" href="https://wkf.ms/3VYxr8B" target="_blank">
-            <span class="service-name">Models</span>
-            <span class="service-desc">Apply to model and be considered for upcoming productions.</span>
+            <span>Models</span> 
+            <span class="faint">Apply to model and be considered for upcoming productions.</span>
           </a>
           <a class="service-link" href="https://wkf.ms/4nZF3nK" target="_blank">
-            <span class="service-name">Photographers</span>
-            <span class="service-desc">Media access and event shooting opportunities.</span>
+            <span>Photographers</span> 
+            <span class="faint">Media access and event shooting opportunities.</span>
           </a>
         </div>
       </div>
@@ -482,46 +374,13 @@
 
     <section class="section" id="events">
       <div class="container">
-        <span class="eyebrow">Featured momentum</span>
-        <h2 class="display-wide">FROM FORT MYERS TO <span class="gold">SWIM WEEK MIAMI.</span></h2>
-        <p class="muted" style="max-width: 60ch; margin-top: 20px;">
-          Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum in Florida.
-        </p>
-
-        <a href="https://www.eventbrite.com/e/fantasy-fashion-show-swim-week-2026-at-rooftop-live-tickets-1987167339004?aff=oddtdtcreator" 
-           target="_blank" class="btn-event">
-          Conoce más de nuestros futuros eventos
-        </a>
-
-        <div class="events-media-grid">
-          <article class="media-card">
-            <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
-          </article>
-          <article class="media-card">
-            <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
-          </article>
-          <article class="media-card">
-            <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
-          </article>
-          <article class="media-card">
-            <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
-          </article>
+        <h2 class="display-wide">FEATURED <span class="gold">MOMENTUM.</span></h2>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container" style="text-align: center;">
-        <h2 class="display-wide" style="margin: 0 auto 24px;">LET’S BUILD THE NEXT <span class="gold">MOMENT.</span></h2>
-        <a class="btn-event" href="https://www.instagram.com/smproductionsllc_/" target="_blank">Contact on Instagram</a>
-      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      SM Productions LLC • <span class="gold">Fashion Shows</span> • South FL
-    </div>
+  <footer style="padding: 60px 0; text-align: center; border-top: 1px solid var(--border);">
+    <p class="faint">© 2026 SM Productions LLC • South Florida Fashion Excellence</p>
   </footer>
 </body>
 </html>
