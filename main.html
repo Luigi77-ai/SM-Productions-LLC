@@ -20,6 +20,7 @@
       --surface: rgba(255,255,255,0.04);
       --border: rgba(255,255,255,0.1);
       --text: #f4efe4;
+      --white: #ffffff;
       --muted: rgba(244,239,228,0.76);
       --faint: rgba(244,239,228,0.44);
       --gold: #d6a43a;
@@ -66,7 +67,7 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 40;
       backdrop-filter: blur(12px);
       background: rgba(21, 21, 21, 0.84);
       border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -121,11 +122,34 @@
     }
 
     .hero-manifesto {
+      position: relative;
       min-height: calc(100vh - 76px);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: transparent;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-manifesto::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(15,15,15,0.55), rgba(15,15,15,0.7)),
+        url("./assets/miami noche.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: -2;
+    }
+
+    .hero-manifesto::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0.52) 100%);
+      z-index: -1;
     }
 
     .manifesto-wrap {
@@ -142,6 +166,7 @@
       text-transform: uppercase;
       max-width: 12ch;
       margin: 0 auto;
+      color: var(--white);
     }
 
     .manifesto-text .line {
@@ -152,10 +177,32 @@
       color: var(--gold);
     }
 
+    .zoom-word {
+      display: inline-block;
+      color: var(--gold);
+      animation: zoomPulse 3.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .zoom-word.delay {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes zoomPulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 rgba(214,164,58,0);
+      }
+      50% {
+        transform: scale(1.08);
+        text-shadow: 0 0 18px rgba(214,164,58,0.18);
+      }
+    }
+
     .manifesto-sub {
       margin-top: 26px;
       font-size: clamp(1rem, 1.3vw, 1.2rem);
-      color: var(--muted);
+      color: var(--white);
       text-align: center;
     }
 
@@ -164,9 +211,9 @@
       overflow: hidden;
       transform: rotate(-2.5deg);
       margin: 14px 0 48px;
-      border-top: 1px solid rgba(214,164,58,0.3);
-      border-bottom: 1px solid rgba(214,164,58,0.3);
-      background: rgba(214,164,58,0.1);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
     }
 
     .ticker-track {
@@ -201,7 +248,7 @@
     .eyebrow {
       display: inline-block;
       margin-bottom: 16px;
-      color: var(--gold);
+      color: var(--white);
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -237,8 +284,9 @@
 
     .identity-copy {
       max-width: 58ch;
-      color: var(--muted);
+      color: var(--white);
       font-size: clamp(1rem, 1.2vw, 1.12rem);
+      margin-top: 26px;
     }
 
     .word-cloud {
@@ -262,64 +310,81 @@
       text-transform: uppercase;
       line-height: 0.9;
       letter-spacing: -0.04em;
-      opacity: 0.96;
       white-space: nowrap;
+      animation: wordFade 4.8s ease-in-out infinite;
+    }
+
+    @keyframes wordFade {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.36;
+      }
+    }
+
+    .white-word {
+      color: var(--white);
+    }
+
+    .gold-word {
+      color: var(--gold);
     }
 
     .w1 {
       top: 0%;
       left: 2%;
       font-size: clamp(2.6rem, 5vw, 5.6rem);
-      color: var(--gold-light);
+      animation-delay: 0s;
     }
 
     .w2 {
       top: 12%;
       right: 2%;
       font-size: clamp(2.4rem, 4.6vw, 5.1rem);
-      color: var(--gold);
+      animation-delay: 0.4s;
     }
 
     .w3 {
       top: 25%;
       left: 8%;
       font-size: clamp(2.1rem, 4vw, 4.4rem);
-      color: var(--yellow-soft);
+      animation-delay: 0.8s;
     }
 
     .w4 {
       top: 38%;
       right: 10%;
       font-size: clamp(2.3rem, 4.4vw, 4.8rem);
-      color: var(--gold-deep);
+      animation-delay: 1.2s;
     }
 
     .w5 {
       top: 49%;
       left: 0%;
       font-size: clamp(2rem, 3.9vw, 4.1rem);
-      color: var(--gold-soft);
+      animation-delay: 1.6s;
     }
 
     .w6 {
       top: 63%;
       right: 3%;
       font-size: clamp(2.2rem, 4.2vw, 4.6rem);
-      color: var(--gold-light);
+      animation-delay: 2s;
     }
 
     .w7 {
       bottom: 10%;
       left: 14%;
       font-size: clamp(2.1rem, 4vw, 4.3rem);
-      color: var(--gold);
+      animation-delay: 2.4s;
     }
 
     .w8 {
       bottom: 0%;
       right: 0%;
       font-size: clamp(2.5rem, 5vw, 5.4rem);
-      color: var(--yellow-soft);
+      animation-delay: 2.8s;
     }
 
     .two-col {
@@ -543,15 +608,13 @@
       <div class="manifesto-wrap">
         <h1 class="manifesto-text">
           <span class="line">We don’t throw</span>
-          <span class="line gold">events.</span>
+          <span class="line"><span class="zoom-word">events.</span></span>
           <span class="line">We create</span>
-          <span class="line gold">moments.</span>
+          <span class="line"><span class="zoom-word delay">moments.</span></span>
         </h1>
 
         <p class="manifesto-sub">
-          <span class="gold">Fashion Shows</span> •
-          <span class="gold">Live Productions</span> •
-          <span class="gold">Brand Activations</span>
+          Fashion Shows • Live Productions • Brand Activations
         </p>
       </div>
     </section>
@@ -607,14 +670,14 @@
 
           <div class="word-cloud" aria-hidden="true">
             <div class="word-cloud-inner">
-              <span class="word w1">Fashion Shows</span>
-              <span class="word w2">Live Productions</span>
-              <span class="word w3">Brand Activations</span>
-              <span class="word w4">Model Casting</span>
-              <span class="word w5">Media Access</span>
-              <span class="word w6">Sponsor Visibility</span>
-              <span class="word w7">South Florida</span>
-              <span class="word w8">Swim Week</span>
+              <span class="word w1 gold-word">Fashion Shows</span>
+              <span class="word w2 white-word">Live Productions</span>
+              <span class="word w3 gold-word">Brand Activations</span>
+              <span class="word w4 white-word">Model Casting</span>
+              <span class="word w5 gold-word">Media Access</span>
+              <span class="word w6 white-word">Sponsor Visibility</span>
+              <span class="word w7 gold-word">South Florida</span>
+              <span class="word w8 white-word">Swim Week</span>
             </div>
           </div>
         </div>
