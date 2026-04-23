@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SM Productions LLC | Main</title>
+  <meta
+    name="description"
+    content="SM Productions LLC creates fashion shows, live productions, brand activations, model opportunities, media access, and sponsor visibility across South Florida."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #05070c;
+      --surface: #0a0d14;
+      --surface-2: #101521;
+      --border: rgba(255,255,255,0.1);
+      --text: #f5f7fb;
+      --muted: rgba(245,247,251,0.72);
+      --faint: rgba(245,247,251,0.44);
+      --max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: rgba(5, 7, 12, 0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 32px), 1320px);
+      margin: 0 auto;
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: "Outfit", sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.96rem;
+    }
+
+    .section {
+      padding: clamp(72px, 10vw, 130px) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--faint);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .display {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.6rem, 7vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+
+    .display-wide {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.2rem, 6vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      max-width: 15ch;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 70ch;
+      margin-top: 22px;
+      font-size: clamp(1rem, 1.2vw, 1.12rem);
+    }
+
+    .stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .statement-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .chip {
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.82);
+      font-size: 0.94rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.025));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 30px;
+    }
+
+    .panel h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.6rem, 2vw, 2.4rem);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: var(--muted);
+    }
+
+    .list {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .list-item {
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .list-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .services-grid,
+    .events-grid,
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 28px;
+      padding: 28px;
+      background: rgba(255,255,255,0.03);
+      min-height: 260px;
+    }
+
+    .card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .card-tag {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--faint);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .feature-lines {
+      display: grid;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .feature-lines div {
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      color: rgba(255,255,255,0.9);
+    }
+
+    .manifesto {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .manifesto div {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: clamp(42px, 6vw, 70px);
+      border-radius: 34px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .cta-box h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      max-width: 64ch;
+      margin: 0 auto 28px;
+      color: var(--muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #0b0d12;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 34px 0 50px;
+      color: var(--faint);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 980px) {
+      .statement-grid,
+      .two-col,
+      .services-grid,
+      .events-grid,
+      .quote-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./index.html">SM Productions LLC</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#events">Events</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="about">
+      <div class="container statement-grid">
+        <div>
+          <span class="eyebrow">SM Productions LLC</span>
+          <h1 class="display">WE DON’T THROW EVENTS. WE CREATE MOMENTS.</h1>
+          <p class="lead">
+            SM Productions LLC builds fashion shows, live productions and brand activations that bring together models, designers, media teams, sponsors and audiences across South Florida. [page:1]
+          </p>
+        </div>
+
+        <div class="stack">
+          <div class="panel">
+            <h3>South Florida based.</h3>
+            <p>
+              The brand presents itself as a South FL production company focused on fashion shows, live productions and brand activations. [page:1]
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Built for visibility.</h3>
+            <p>
+              Across recent posts, the company repeatedly positions its events as showcasing opportunities for models, designers, sponsors, photographers and media collaborators. [page:1]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Identity</span>
+        <h2 class="display-wide">RUNWAY ENERGY. LIVE PRODUCTION. BRAND EXPOSURE.</h2>
+        <p class="lead">
+          This company is not selling a generic party. It is selling the feeling of being part of a visible cultural moment — a stage where fashion, nightlife, media and promotion meet. [page:1]
+        </p>
+
+        <div class="chips">
+          <span class="chip">Fashion Shows</span>
+          <span class="chip">Live Productions</span>
+          <span class="chip">Brand Activations</span>
+          <span class="chip">Model Casting</span>
+          <span class="chip">Media Access</span>
+          <span class="chip">Sponsor Visibility</span>
+          <span class="chip">South Florida</span>
+          <span class="chip">Swim Week</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <span class="eyebrow">What we do</span>
+        <h2 class="display-wide">BUILT FOR BRANDS, MODELS, MEDIA AND LIVE AUDIENCES.</h2>
+
+        <div class="services-grid">
+          <article class="card">
+            <span class="card-tag">01 / Production</span>
+            <h3>Fashion show production</h3>
+            <p>
+              Curated runway events with designers, talent, media support and audience-facing energy that turns a showcase into an experience. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">02 / Casting</span>
+            <h3>Model opportunities</h3>
+            <p>
+              Events are presented as exposure opportunities for models and talent, giving SM Productions a clear casting and discovery role. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">03 / Visibility</span>
+            <h3>Brand activations</h3>
+            <p>
+              Sponsors, brands and collaborators are repeatedly integrated into the production story, making each event a visibility platform as much as a show. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">04 / Media</span>
+            <h3>Media access</h3>
+            <p>
+              Photographers, videographers and event media are central to how these productions are documented, amplified and remembered. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">05 / Community</span>
+            <h3>Audience experience</h3>
+            <p>
+              The brand voice emphasizes support, community, turnout and memorable shared experiences, not just attendance numbers. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">06 / Growth</span>
+            <h3>Sponsor opportunities</h3>
+            <p>
+              Multiple event captions invite sponsors and collaborators to join, showing that partner integration is part of the business model. [page:1]
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="events">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">Featured momentum</span>
+          <h2 class="display-wide">FROM FORT MYERS TO SWIM WEEK MIAMI.</h2>
+          <p class="lead">
+            Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum in Florida. [page:1]
+          </p>
+
+          <div class="feature-lines">
+            <div>Fantasy Fashion Show / Swim Week positioning. [page:1]</div>
+            <div>Runway collaborations with designers and media teams. [page:1]</div>
+            <div>Production visibility across South Florida venues. [page:1]</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>What brands buy into</h3>
+          <p>
+            A brand working with SM Productions is buying more than an event slot. It is buying atmosphere, visual documentation, audience energy, association with fashion culture and placement inside a curated experience. [page:1]
+          </p>
+
+          <div class="list">
+            <div class="list-item">
+              <strong>For designers</strong>
+              Exposure, runway presentation and visual storytelling. [page:1]
+            </div>
+            <div class="list-item">
+              <strong>For models</strong>
+              Opportunity, visibility and event participation. [page:1]
+            </div>
+            <div class="list-item">
+              <strong>For sponsors</strong>
+              Presence inside a live cultural moment. [page:1]
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="opportunities">
+      <div class="container">
+        <span class="eyebrow">Why it matters</span>
+        <h2 class="display-wide">A PLATFORM FOR PEOPLE WHO WANT TO BE SEEN.</h2>
+        <p class="lead">
+          Across its messaging, SM Productions keeps returning to one promise: these productions create opportunity. Models, sponsors, designers and media are invited because the event is built as a stage for exposure and participation. [page:1]
+        </p>
+
+        <div class="events-grid">
+          <article class="card">
+            <span class="card-tag">Models</span>
+            <h3>Walk the moment</h3>
+            <p>
+              Join productions where talent is part of a larger visual story built for runway, reels, photography and event presence. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Media</span>
+            <h3>Capture the energy</h3>
+            <p>
+              Be part of documenting fashion culture in motion, from backstage and runway footage to sponsor and crowd coverage. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Sponsors</span>
+            <h3>Show up where attention is</h3>
+            <p>
+              Be seen inside a creative environment where brands are integrated into the event, not treated like an afterthought. [page:1]
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">Operating principles</span>
+          <div class="manifesto">
+            <div>Create moments.</div>
+            <div>Build visibility.</div>
+            <div>Make the event feel cinematic.</div>
+            <div>Turn attendance into memory.</div>
+            <div>Give brands and talent a stage.</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>What makes the brand different</h3>
+          <p>
+            The Instagram presence frames SM Productions as a builder of memorable, visually driven live moments rather than a generic promoter. That distinction is the core of its premium positioning. [page:1]
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Social proof</span>
+        <h2 class="display-wide">THE BRAND ALREADY LOOKS LIKE A MOVEMENT.</h2>
+        <p class="lead">
+          The page’s recent captions show recurring collaborations, audience support, sponsor mentions, designer participation and gratitude messaging that all reinforce momentum and community. [page:1]
+        </p>
+
+        <div class="quote-grid">
+          <article class="card">
+            <span class="card-tag">Proof</span>
+            <h3>Collaborative network</h3>
+            <p>
+              Posts repeatedly mention designers, photographers, media pages, venues and co-producers, signaling that SM Productions operates inside an active creative ecosystem. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Proof</span>
+            <h3>Event consistency</h3>
+            <p>
+              The account documents multiple fashion-related productions and not just one isolated launch, which supports brand legitimacy. [page:1]
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="card-tag">Proof</span>
+            <h3>Audience energy</h3>
+            <p>
+              The tone of the captions emphasizes turnout, gratitude, support and community, which makes the company feel alive and active rather than staged. [page:1]
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>LET’S BUILD THE NEXT MOMENT.</h2>
+          <p>
+            Whether you are a model, sponsor, media creative, designer or event partner, SM Productions LLC is building experiences designed to be seen, remembered and shared. [page:1]
+          </p>
+
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="https://www.instagram.com/smproductionsllc_/" target="_blank" rel="noopener noreferrer">
+              Contact on Instagram
+            </a>
+            <a class="btn" href="./index.html">
+              Back to Hero
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      SM Productions LLC • Fashion Shows • Live Productions • Brand Activations • South FL [page:1]
+    </div>
+  </footer>
+</body>
+</html>
