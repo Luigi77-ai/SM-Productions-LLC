@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SM PRODUCTIONS | Hero</title>
+  <meta
+    name="description"
+    content="SM Productions intro hero with video background and links to the main landing page."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #04070d;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero-screen {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px 20px;
+      overflow: hidden;
+    }
+
+    .hero-screen video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+    }
+
+    .hero-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.46) 0%, rgba(3,8,18,0.78) 100%),
+        rgba(3, 8, 18, 0.18);
+      z-index: -2;
+    }
+
+    .hero-content {
+      width: min(100%, 980px);
+    }
+
+    .hero-title {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.3rem, 6vw, 4.9rem);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .hero-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      font-size: 0.98rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .hero-nav a:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        overflow: auto;
+      }
+
+      .hero-screen {
+        padding: 28px 18px;
+      }
+
+      .hero-nav {
+        gap: 10px;
+      }
+
+      .hero-nav a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-screen">
+    <video autoplay muted loop playsinline>
+      <source src="./assets/Inicialscreen.mp4" type="video/mp4" />
+    </video>
+
+    <div class="hero-content">
+      <h1 class="hero-title">SM PRODUCTIONS</h1>
+
+      <p class="hero-text">
+        Cinematic fashion experiences, model casting, and high-impact event production in Hollywood, FL.
+      </p>
+
+      <nav class="hero-nav" aria-label="Hero navigation">
+        <a href="./main.html#upcoming">Comming events</a>
+        <a href="./main.html#models">Model sign up</a>
+        <a href="./main.html#media">Media Photographer Sign-up</a>
+        <a href="./main.html#contact">Contact</a>
+      </nav>
+    </div>
+  </section>
+</body>
+</html>
