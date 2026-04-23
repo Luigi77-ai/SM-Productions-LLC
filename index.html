@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SM Productions LLC | Swim Week 2026</title>
+  <meta
+    name="description"
+    content="SM Productions LLC presents Fantasy Fashion Show - Swim Week 2026. Explore the event, sign up as a model or media photographer, and discover upcoming productions."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #05070c;
+      --bg-soft: #0b1020;
+      --surface: rgba(255,255,255,0.04);
+      --surface-2: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --text: #f5f7fb;
+      --muted: rgba(245,247,251,0.72);
+      --faint: rgba(245,247,251,0.48);
+      --accent: #9fd0ff;
+      --accent-strong: #ffffff;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+
+      --radius-sm: 14px;
+      --radius-md: 24px;
+      --radius-lg: 36px;
+      --radius-full: 999px;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+      --space-32: 128px;
+
+      --text-xs: clamp(0.75rem, 0.72rem + 0.2vw, 0.875rem);
+      --text-sm: clamp(0.9rem, 0.84rem + 0.2vw, 1rem);
+      --text-base: clamp(1rem, 0.96rem + 0.3vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.7vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+      --text-2xl: clamp(2.4rem, 1.5rem + 3vw, 4.8rem);
+      --text-hero: clamp(4rem, 2rem + 9vw, 9rem);
+
+      --content: 1180px;
+      --content-wide: 1320px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(31, 74, 136, 0.22), transparent 28%),
+        linear-gradient(180deg, #03050a 0%, #07101f 30%, #05070c 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    .button {
+      border: none;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .container,
+    .container-wide {
+      width: min(calc(100% - 32px), var(--content));
+      margin: 0 auto;
+    }
+
+    .container-wide {
+      width: min(calc(100% - 32px), var(--content-wide));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--faint);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: rgba(255,255,255,0.28);
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 30;
+      background: linear-gradient(180deg, rgba(0,0,0,0.58), rgba(0,0,0,0));
+      padding: 16px 0;
+      transition: background 0.25s ease, backdrop-filter 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      background: rgba(6, 10, 18, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 32px), 1380px);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header-brand {
+      font-family: "Outfit", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 30px);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .header-nav a {
+      font-size: var(--text-sm);
+      color: rgba(255,255,255,0.82);
+      position: relative;
+    }
+
+    .header-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+
+    .header-nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-full);
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .header-cta:hover,
+    .primary-btn:hover,
+    .secondary-btn:hover,
+    .card-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(2,7,17,0.38) 26%, rgba(3,7,15,0.64) 100%),
+        linear-gradient(0deg, rgba(7,17,36,0.65) 0%, rgba(7,17,36,0.65) 100%);
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background: linear-gradient(180deg, rgba(5,7,12,0) 0%, rgba(5,7,12,1) 100%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      width: min(calc(100% - 40px), 1400px);
+      padding-top: 120px;
+      padding-bottom: 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .hero-kicker {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 18px;
+    }
+
+    .hero-logo {
+      font-family: "Outfit", sans-serif;
+      font-size: var(--text-hero);
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      text-transform: lowercase;
+      text-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .hero-subtitle {
+      margin-top: 22px;
+      max-width: 760px;
+      font-size: var(--text-lg);
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero-nav {
+      margin-top: 58px;
+      display: flex;
+      justify-content: center;
+      gap: clamp(18px, 2vw, 44px);
+      flex-wrap: wrap;
+    }
+
+    .hero-nav a {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1rem, 0.9rem + 0.4vw, 1.3rem);
+      font-weight: 400;
+      color: rgba(255,255,255,0.96);
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .hero-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.9);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.25s ease;
+    }
+
+    .hero-nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .hero-actions {
+      margin-top: 40px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: var(--radius-full);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .primary-btn {
+      background: #ffffff;
+      color: #07101f;
+      font-weight: 700;
+    }
+
+    .secondary-btn {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .hero-social {
+      margin-top: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .section {
+      padding: clamp(80px, 10vw, 140px) 0;
+      position: relative;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .section h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: var(--text-2xl);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      margin-top: 20px;
+      max-width: 11ch;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: var(--text-base);
+      max-width: 62ch;
+    }
+
+    .statement {
+      padding-top: 120px;
+    }
+
+    .statement-copy {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .statement-large {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 1.1rem + 3vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+
+    .statement-note {
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .event-panel {
+      margin-top: 42px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 44px);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+    }
+
+    .event-title {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 1.2rem + 2vw, 3.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin: 12px 0 16px;
+      max-width: 10ch;
+    }
+
+    .event-meta {
+      display: grid;
+      gap: 14px;
+      color: var(--muted);
+      font-size: var(--text-base);
+    }
+
+    .meta-item {
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .event-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .signups {
+      background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cards {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 320px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-index {
+      font-size: var(--text-xs);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.6rem, 1.2rem + 1vw, 2.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 34ch;
+    }
+
+    .card-link {
+      margin-top: auto;
+      width: fit-content;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .production-layout {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .production-video,
+    .production-copy {
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .production-video iframe {
+      width: 100%;
+      min-height: 520px;
+      border: 0;
+    }
+
+    .production-copy {
+      padding: clamp(24px, 4vw, 42px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .production-copy h3,
+    .upcoming-card h3,
+    .contact-box h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.8rem, 1.2rem + 1.5vw, 3rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .upcoming-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .upcoming-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 28px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .upcoming-meta {
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+      font-size: var(--text-sm);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.9);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .contact-box {
+      margin-top: 42px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 36px;
+      padding: clamp(28px, 5vw, 56px);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 28px 0 40px;
+      color: var(--faint);
+      font-size: var(--text-sm);
+    }
+
+    .footer-inner {
+      width: min(calc(100% - 32px), 1320px);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+    }
+
+    @media (max-width: 1100px) {
+      .section-grid,
+      .event-panel,
+      .production-layout,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .upcoming-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        padding: 12px 0;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-nav {
+        gap: 12px 18px;
+      }
+
+      .hero-logo {
+        font-size: clamp(3.6rem, 14vw, 6.5rem);
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-nav {
+        gap: 12px 18px;
+      }
+
+      .cards,
+      .upcoming-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .production-video iframe {
+        min-height: 360px;
+      }
+
+      .card,
+      .upcoming-card,
+      .production-copy,
+      .contact-box,
+      .event-panel {
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#top" class="header-brand">SM Productions LLC</a>
+
+      <nav class="header-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#event">Event</a>
+        <a href="#sign-up">Sign Up</a>
+        <a href="#production">Last Production</a>
+        <a href="#upcoming">Upcoming Events</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a
+        class="header-cta"
+        href="https://www.instagram.com/smproductionsllc_/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <video autoplay muted loop playsinline>
+        <source src="./Inicialscreen.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-content">
+        <span class="hero-kicker">Fashion • Media • Production • Events</span>
+
+        <h1 class="hero-logo">sm productions</h1>
+
+        <p class="hero-subtitle">
+          Building cinematic fashion experiences, model opportunities, and media access
+          for bold productions that live both on stage and across social.
+        </p>
+
+        <nav class="hero-nav" aria-label="Hero navigation">
+          <a href="#event">event</a>
+          <a href="#sign-up">models</a>
+          <a href="#sign-up">media</a>
+          <a href="#production">production</a>
+          <a href="#upcoming">upcoming</a>
+          <a href="#contact">contact</a>
+        </nav>
+
+        <div class="hero-actions">
+          <a
+            class="primary-btn"
+            href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Event Tickets
+          </a>
+
+          <a
+            class="secondary-btn"
+            href="https://www.instagram.com/smproductionsllc_/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Follow on Instagram
+          </a>
+        </div>
+
+        <a
+          class="hero-social"
+          href="https://www.instagram.com/smproductionsllc_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit SM Productions on Instagram"
+        >
+          ◎
+        </a>
+      </div>
+    </section>
+
+    <section class="section statement" id="about">
+      <div class="container-wide">
+        <div class="section-grid">
+          <div>
+            <span class="eyebrow">Creative direction</span>
+            <h2>Where fashion casting, media access, and event energy come together.</h2>
+          </div>
+
+          <div class="statement-copy">
+            <p class="statement-large">
+              A visual-first landing page built to showcase the event, capture talent,
+              and move people directly into action.
+            </p>
+            <p class="statement-note">
+              SM Productions LLC creates production moments that connect models,
+              photographers, creatives, and audiences through high-impact live events,
+              cinematic presentation, and social-first storytelling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="event">
+      <div class="container-wide">
+        <div class="section-grid">
+          <div>
+            <span class="eyebrow">Featured event</span>
+            <h2>Swim Week 2026 headline production.</h2>
+          </div>
+
+          <div class="section-copy">
+            <p>
+              The landing highlights the main event first, giving visitors a direct path
+              to see the details, secure tickets, and understand the opportunity behind
+              the production. Fantasy Fashion Show – Swim Week 2026 is listed on
+              Eventbrite as taking place at Rooftop Live in Hollywood, Florida, on
+              Saturday, May 30 through Sunday, May 31 from 8 PM to 2 AM. [web:42]
+            </p>
+          </div>
+        </div>
+
+        <div class="event-panel">
+          <div>
+            <span class="pill">Main event</span>
+            <h3 class="event-title">Fantasy Fashion Show — Swim Week 2026</h3>
+            <p class="section-copy">
+              An immersive fashion production by SM Productions designed to bring together
+              runway talent, media creatives, and a high-energy audience under one
+              premium event experience.
+            </p>
+
+            <div class="event-actions">
+              <a
+                class="primary-btn"
+                href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Eventbrite
+              </a>
+
+              <a
+                class="secondary-btn"
+                href="#sign-up"
+              >
+                Join the Production
+              </a>
+            </div>
+          </div>
+
+          <div class="event-meta">
+            <div class="meta-item">
+              <strong>Date</strong><br />
+              Saturday, May 30 – Sunday, May 31
+            </div>
+            <div class="meta-item">
+              <strong>Time</strong><br />
+              8:00 PM – 2:00 AM
+            </div>
+            <div class="meta-item">
+              <strong>Location</strong><br />
+              Rooftop Live, Hollywood, Florida
+            </div>
+            <div class="meta-item">
+              <strong>Presented by</strong><br />
+              SM Productions LLC
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section signups" id="sign-up">
+      <div class="container-wide">
+        <div class="section-grid">
+          <div>
+            <span class="eyebrow">Apply & collaborate</span>
+            <h2>Sign-up links for models and media teams.</h2>
+          </div>
+
+          <div class="section-copy">
+            <p>
+              This section is built as the action hub of the page. It gives separate
+              entry points for models and media photographers so visitors can self-select
+              the right path immediately after learning about the production.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-index">01 / Models</div>
+            <h3>Model sign-up</h3>
+            <p>
+              For models interested in being considered for upcoming castings,
+              fashion events, and production opportunities with SM Productions.
+            </p>
+            <a
+              class="card-link"
+              href="https://wkf.ms/3VYxr8B"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Model Form
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-index">02 / Media</div>
+            <h3>Media photographer sign-up</h3>
+            <p>
+              For photographers, videographers, and media creatives who want
+              credentials or collaboration access for upcoming productions.
+            </p>
+            <a
+              class="card-link"
+              href="https://wkf.ms/4nZF3nK"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Media Form
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-index">03 / Tickets</div>
+            <h3>Event access & calendar</h3>
+            <p>
+              Direct visitors to the live event listing to review details, secure
+              tickets, and add the production to their schedule through Eventbrite.
+            </p>
+            <a
+              class="card-link"
+              href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Event Calendar
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="production">
+      <div class="container-wide">
+        <div class="section-grid">
+          <div>
+            <span class="eyebrow">Latest production</span>
+            <h2>Show the energy of the last production.</h2>
+          </div>
+
+          <div class="section-copy">
+            <p>
+              This area gives the page proof of execution. Instead of only promising
+              a strong event, it shows visitors what SM Productions has already produced
+              and drives them into a real social media highlight.
+            </p>
+          </div>
+        </div>
+
+        <div class="production-layout">
+          <div class="production-video">
+            <iframe
+              src="https://www.instagram.com/reel/DW4j1FiCcD6/embed"
+              allowtransparency="true"
+              allowfullscreen="true"
+              title="Last production Instagram reel"
+            ></iframe>
+          </div>
+
+          <div class="production-copy">
+            <div>
+              <span class="pill">Instagram reel</span>
+              <h3>Our last production</h3>
+              <p class="section-copy" style="margin-top: 16px;">
+                Use this section to create social proof, visual confidence, and
+                anticipation for the next event. It anchors the landing page in
+                real production work instead of only event promotion.
+              </p>
+            </div>
+
+            <div class="event-actions">
+              <a
+                class="primary-btn"
+                href="https://www.instagram.com/reel/DW4j1FiCcD6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch the Reel
+              </a>
+
+              <a
+                class="secondary-btn"
+                href="https://www.instagram.com/smproductionsllc_/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="upcoming">
+      <div class="container-wide">
+        <div class="section-grid">
+          <div>
+            <span class="eyebrow">Upcoming events</span>
+            <h2>Build anticipation for what’s next.</h2>
+          </div>
+
+          <div class="section-copy">
+            <p>
+              The upcoming events section gives your landing page long-term value.
+              Even if visitors are not ready for the current event, they can stay
+              connected to future productions and opportunities.
+            </p>
+          </div>
+        </div>
+
+        <div class="upcoming-grid">
+          <article class="upcoming-card">
+            <div>
+              <span class="pill">Confirmed</span>
+              <h3 style="margin-top: 18px;">Fantasy Fashion Show</h3>
+              <div class="upcoming-meta" style="margin-top: 14px;">
+                <span>Swim Week 2026</span>
+                <span>May 30 – May 31</span>
+                <span>Rooftop Live • Hollywood, FL</span>
+              </div>
+            </div>
+
+            <a
+              class="card-link"
+              href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View event
+            </a>
+          </article>
+
+          <article class="upcoming-card">
+            <div>
+              <span class="pill">Coming soon</span>
+              <h3 style="margin-top: 18px;">Casting call</h3>
+              <div class="upcoming-meta" style="margin-top: 14px;">
+                <span>Model applications</span>
+                <span>Future production opportunities</span>
+                <span>Submit early to be considered</span>
+              </div>
+            </div>
+
+            <a
+              class="card-link"
+              href="https://wkf.ms/3VYxr8B"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apply now
+            </a>
+          </article>
+
+          <article class="upcoming-card">
+            <div>
+              <span class="pill">Media access</span>
+              <h3 style="margin-top: 18px;">Photo & media team</h3>
+              <div class="upcoming-meta" style="margin-top: 14px;">
+                <span>Photographers & content teams</span>
+                <span>Production coverage opportunities</span>
+                <span>Register for future access</span>
+              </div>
+            </div>
+
+            <a
+              class="card-link"
+              href="https://wkf.ms/4nZF3nK"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Join media list
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container-wide">
+        <div class="contact-box">
+          <div>
+            <span class="eyebrow">Contact & social</span>
+            <h3 style="margin-top: 20px;">Ready to be part of the next production?</h3>
+            <p class="section-copy" style="margin-top: 18px;">
+              Whether you are a model, photographer, creative partner, or event guest,
+              this page is designed to guide you directly to the right action and keep
+              you connected to SM Productions.
+            </p>
+          </div>
+
+          <div class="contact-list">
+            <div>
+              <strong>Instagram</strong><br />
+              <a
+                href="https://www.instagram.com/smproductionsllc_/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @smproductionsllc_
+              </a>
+            </div>
+
+            <div>
+              <strong>Tickets</strong><br />
+              <a
+                href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Eventbrite event page
+              </a>
+            </div>
+
+            <div>
+              <strong>Model sign-up</strong><br />
+              <a
+                href="https://wkf.ms/3VYxr8B"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open form
+              </a>
+            </div>
+
+            <div>
+              <strong>Media sign-up</strong><br />
+              <a
+                href="https://wkf.ms/4nZF3nK"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open form
+              </a>
+            </div>
+
+            <div class="event-actions" style="margin-top: 10px;">
+              <a
+                class="primary-btn"
+                href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Reserve your spot
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>SM Productions LLC</span>
+      <span>Fashion • Media • Production • Events</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById("siteHeader");
+
+    const onScroll = () => {
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+  </script>
+</body>
+</html>
