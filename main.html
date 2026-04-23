@@ -11,18 +11,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <style>
     :root {
-      --bg: #05070c;
-      --surface: #0a0d14;
-      --surface-2: #101521;
+      --bg: #111111;
+      --bg-soft: #171717;
+      --surface: rgba(255,255,255,0.04);
       --border: rgba(255,255,255,0.1);
-      --text: #f5f7fb;
-      --muted: rgba(245,247,251,0.72);
-      --faint: rgba(245,247,251,0.44);
+      --text: #f4efe4;
+      --muted: rgba(244,239,228,0.76);
+      --faint: rgba(244,239,228,0.44);
+      --accent-1: #f2b632;
+      --accent-2: #00a67d;
+      --accent-3: #f3bfd3;
+      --accent-4: #ff5a36;
       --max: 1240px;
     }
 
@@ -64,26 +68,38 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(12px);
-      background: rgba(5, 7, 12, 0.8);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(17, 17, 17, 0.84);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .header-inner {
       width: min(calc(100% - 32px), 1320px);
       margin: 0 auto;
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
 
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand img {
+      width: auto;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .brand-text {
       font-family: "Outfit", sans-serif;
-      letter-spacing: 0.14em;
       text-transform: uppercase;
-      font-size: 0.92rem;
-      font-weight: 700;
+      letter-spacing: 0.14em;
+      font-size: 0.82rem;
+      color: var(--faint);
     }
 
     .nav {
@@ -94,13 +110,65 @@
     }
 
     .nav a {
-      color: rgba(255,255,255,0.82);
+      color: rgba(244,239,228,0.84);
       font-size: 0.96rem;
     }
 
     .section {
       padding: clamp(72px, 10vw, 130px) 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hero-manifesto {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #161616;
+    }
+
+    .manifesto-wrap {
+      width: min(calc(100% - 32px), 1180px);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .manifesto-logo {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 50px;
+    }
+
+    .manifesto-logo img {
+      height: 74px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .manifesto-text {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.8rem, 7vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+      max-width: 12ch;
+      margin: 0 auto;
+    }
+
+    .manifesto-text .line {
+      display: block;
+    }
+
+    .manifesto-text .accent-1 { color: var(--accent-1); }
+    .manifesto-text .accent-2 { color: var(--accent-2); }
+    .manifesto-text .accent-3 { color: var(--accent-3); }
+    .manifesto-text .accent-4 { color: var(--accent-4); }
+
+    .manifesto-sub {
+      margin-top: 26px;
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      color: var(--muted);
+      text-align: center;
     }
 
     .eyebrow {
@@ -110,14 +178,6 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-    }
-
-    .display {
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(2.6rem, 7vw, 7rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      max-width: 12ch;
     }
 
     .display-wide {
@@ -135,18 +195,6 @@
       font-size: clamp(1rem, 1.2vw, 1.12rem);
     }
 
-    .stack {
-      display: grid;
-      gap: 18px;
-    }
-
-    .statement-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.9fr;
-      gap: 40px;
-      align-items: start;
-    }
-
     .chips {
       display: flex;
       flex-wrap: wrap;
@@ -159,7 +207,7 @@
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.03);
-      color: rgba(255,255,255,0.82);
+      color: rgba(244,239,228,0.82);
       font-size: 0.94rem;
     }
 
@@ -188,60 +236,6 @@
       color: var(--muted);
     }
 
-    .list {
-      display: grid;
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .list-item {
-      padding-top: 14px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .list-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1rem;
-    }
-
-    .services-grid,
-    .events-grid,
-    .quote-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 36px;
-    }
-
-    .card {
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 28px;
-      padding: 28px;
-      background: rgba(255,255,255,0.03);
-      min-height: 260px;
-    }
-
-    .card h3 {
-      font-family: "Outfit", sans-serif;
-      font-size: 1.5rem;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: var(--muted);
-    }
-
-    .card-tag {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: var(--faint);
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
     .feature-lines {
       display: grid;
       gap: 14px;
@@ -252,7 +246,7 @@
       padding: 18px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
       font-size: clamp(1.1rem, 2vw, 1.45rem);
-      color: rgba(255,255,255,0.9);
+      color: rgba(244,239,228,0.9);
     }
 
     .events-media-grid {
@@ -294,21 +288,44 @@
     .media-caption {
       padding: 16px 18px;
       border-top: 1px solid rgba(255,255,255,0.08);
-      color: rgba(245,247,251,0.72);
+      color: rgba(244,239,228,0.72);
       font-size: 0.95rem;
     }
 
-    .manifesto {
+    .services-grid,
+    .events-grid {
       display: grid;
-      gap: 8px;
-      margin-top: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 36px;
     }
 
-    .manifesto div {
+    .card {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 28px;
+      padding: 28px;
+      background: rgba(255,255,255,0.03);
+      min-height: 260px;
+    }
+
+    .card h3 {
       font-family: "Outfit", sans-serif;
-      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      font-size: 1.5rem;
       line-height: 1;
-      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .card-tag {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--faint);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
     }
 
     .cta-box {
@@ -359,7 +376,7 @@
 
     .btn-primary {
       background: #ffffff;
-      color: #0b0d12;
+      color: #111111;
       font-weight: 700;
     }
 
@@ -370,11 +387,9 @@
     }
 
     @media (max-width: 980px) {
-      .statement-grid,
       .two-col,
       .services-grid,
       .events-grid,
-      .quote-grid,
       .events-media-grid {
         grid-template-columns: 1fr;
       }
@@ -383,9 +398,29 @@
         display: none;
       }
 
+      .manifesto-logo {
+        justify-content: center;
+      }
+
+      .manifesto-text {
+        max-width: 100%;
+      }
+
       .media-card.large,
       .media-card.small {
         min-height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .brand img,
+      .manifesto-logo img {
+        height: 56px;
+      }
+
+      .hero-manifesto {
+        min-height: auto;
+        padding: 90px 0;
       }
     }
   </style>
@@ -393,7 +428,11 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="./index.html">SM Productions LLC</a>
+      <a class="brand" href="./index.html">
+        <img src="./assets/logo.png" alt="SM Productions LLC logo" />
+        <span class="brand-text">SM Productions LLC</span>
+      </a>
+
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -405,31 +444,22 @@
   </header>
 
   <main>
-    <section class="section" id="about">
-      <div class="container statement-grid">
-        <div>
-          <span class="eyebrow">SM Productions LLC</span>
-          <h1 class="display">WE DON’T THROW EVENTS. WE CREATE MOMENTS.</h1>
-          <p class="lead">
-            SM Productions LLC builds fashion shows, live productions and brand activations that bring together models, designers, media teams, sponsors and audiences across South Florida.
-          </p>
+    <section class="hero-manifesto" id="about">
+      <div class="manifesto-wrap">
+        <div class="manifesto-logo">
+          <img src="./assets/logo.png" alt="SM Productions LLC logo" />
         </div>
 
-        <div class="stack">
-          <div class="panel">
-            <h3>South Florida based.</h3>
-            <p>
-              The brand presents itself as a South FL production company focused on fashion shows, live productions and brand activations. [page:1]
-            </p>
-          </div>
+        <h1 class="manifesto-text">
+          <span class="line">We don’t throw</span>
+          <span class="line accent-1">events.</span>
+          <span class="line">We create</span>
+          <span class="line accent-4">moments.</span>
+        </h1>
 
-          <div class="panel">
-            <h3>Built for visibility.</h3>
-            <p>
-              Across recent posts, the company repeatedly positions its events as showcasing opportunities for models, designers, sponsors, photographers and media collaborators. [page:1]
-            </p>
-          </div>
-        </div>
+        <p class="manifesto-sub">
+          Fashion Shows • Live Productions • Brand Activations
+        </p>
       </div>
     </section>
 
@@ -483,30 +513,6 @@
               Sponsors, brands and collaborators are repeatedly integrated into the production story, making each event a visibility platform as much as a show. [page:1]
             </p>
           </article>
-
-          <article class="card">
-            <span class="card-tag">04 / Media</span>
-            <h3>Media access</h3>
-            <p>
-              Photographers, videographers and event media are central to how these productions are documented, amplified and remembered. [page:1]
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">05 / Community</span>
-            <h3>Audience experience</h3>
-            <p>
-              The brand voice emphasizes support, community, turnout and memorable shared experiences, not just attendance numbers. [page:1]
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">06 / Growth</span>
-            <h3>Sponsor opportunities</h3>
-            <p>
-              Multiple event captions invite sponsors and collaborators to join, showing that partner integration is part of the business model. [page:1]
-            </p>
-          </article>
         </div>
       </div>
     </section>
@@ -547,26 +553,13 @@
               </article>
 
               <article class="media-card small">
-                <img
-                  src="./assets/imagen 5.jpeg"
-                  alt="SM Productions event visual"
-                />
+                <img src="./assets/imagen 5.jpeg" alt="SM Productions event visual" />
                 <div class="media-caption">
                   Upcoming-event visual used to support the production story and build anticipation. [page:61]
                 </div>
               </article>
             </div>
           </div>
-
-          <article class="media-card" style="margin-top: 24px;">
-            <img
-              src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png"
-              alt="SM Productions promotional visual"
-            />
-            <div class="media-caption">
-              Promotional artwork supporting the visual identity of the event campaign. [page:61]
-            </div>
-          </article>
         </div>
 
         <div class="panel">
@@ -574,21 +567,6 @@
           <p>
             A brand working with SM Productions is buying more than an event slot. It is buying atmosphere, visual documentation, audience energy, association with fashion culture and placement inside a curated experience. [page:1]
           </p>
-
-          <div class="list">
-            <div class="list-item">
-              <strong>For designers</strong>
-              Exposure, runway presentation and visual storytelling. [page:1]
-            </div>
-            <div class="list-item">
-              <strong>For models</strong>
-              Opportunity, visibility and event participation. [page:1]
-            </div>
-            <div class="list-item">
-              <strong>For sponsors</strong>
-              Presence inside a live cultural moment. [page:1]
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -623,64 +601,6 @@
             <h3>Show up where attention is</h3>
             <p>
               Be seen inside a creative environment where brands are integrated into the event, not treated like an afterthought. [page:1]
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container two-col">
-        <div>
-          <span class="eyebrow">Operating principles</span>
-          <div class="manifesto">
-            <div>Create moments.</div>
-            <div>Build visibility.</div>
-            <div>Make the event feel cinematic.</div>
-            <div>Turn attendance into memory.</div>
-            <div>Give brands and talent a stage.</div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h3>What makes the brand different</h3>
-          <p>
-            The Instagram presence frames SM Productions as a builder of memorable, visually driven live moments rather than a generic promoter. That distinction is the core of its premium positioning. [page:1]
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">Social proof</span>
-        <h2 class="display-wide">THE BRAND ALREADY LOOKS LIKE A MOVEMENT.</h2>
-        <p class="lead">
-          The page’s recent captions show recurring collaborations, audience support, sponsor mentions, designer participation and gratitude messaging that all reinforce momentum and community. [page:1]
-        </p>
-
-        <div class="quote-grid">
-          <article class="card">
-            <span class="card-tag">Proof</span>
-            <h3>Collaborative network</h3>
-            <p>
-              Posts repeatedly mention designers, photographers, media pages, venues and co-producers, signaling that SM Productions operates inside an active creative ecosystem. [page:1]
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">Proof</span>
-            <h3>Event consistency</h3>
-            <p>
-              The account documents multiple fashion-related productions and not just one isolated launch, which supports brand legitimacy. [page:1]
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-tag">Proof</span>
-            <h3>Audience energy</h3>
-            <p>
-              The tone of the captions emphasizes turnout, gratitude, support and community, which makes the company feel alive and active rather than staged. [page:1]
             </p>
           </article>
         </div>
