@@ -281,37 +281,33 @@
             isolation: isolate;
         }
 
+        .about-brand-video {
+            position: absolute;
+            inset: -8% -10% -18% -10%;
+            width: 120%;
+            height: 130%;
+            object-fit: cover;
+            object-position: center;
+            filter: grayscale(1) contrast(1.06) brightness(0.6);
+            z-index: -2;
+            pointer-events: none;
+        }
+
         .about-brand-section::before {
             content: "";
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(90deg,
-                    rgba(21,21,21,0.9) 0%,
-                    rgba(21,21,21,0.78) 12%,
-                    rgba(21,21,21,0.5) 30%,
-                    rgba(21,21,21,0.24) 55%,
-                    rgba(21,21,21,0.1) 78%,
-                    rgba(21,21,21,0.7) 100%),
                 linear-gradient(180deg,
-                    rgba(21,21,21,0.9) 0%,
-                    rgba(21,21,21,0.55) 20%,
-                    rgba(21,21,21,0.16) 46%,
-                    rgba(21,21,21,0.3) 78%,
-                    rgba(21,21,21,0.9) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .about-brand-video {
-            position: absolute;
-            top: -14%;
-            left: -8%;
-            width: 70%;
-            height: 125%;
-            object-fit: cover;
-            object-position: top left;
-            filter: grayscale(1) contrast(1.06) brightness(0.6) blur(5px);
+                    rgba(21,21,21,0.45) 0%,
+                    rgba(21,21,21,0.25) 35%,
+                    rgba(21,21,21,0.6) 78%,
+                    rgba(21,21,21,0.98) 100%),
+                linear-gradient(90deg,
+                    rgba(21,21,21,0.8) 0%,
+                    rgba(21,21,21,0.4) 34%,
+                    rgba(21,21,21,0.14) 64%,
+                    rgba(21,21,21,0.8) 100%);
             z-index: -1;
             pointer-events: none;
         }
@@ -322,7 +318,7 @@
             gap: 34px;
             align-items: start;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
         .about-brand-copy p {
@@ -641,11 +637,11 @@
             }
 
             .about-brand-video {
-                width: 100%;
-                left: 0;
+                width: 120%;
+                left: -10%;
                 top: -6%;
-                height: 108%;
-                opacity: 0.26;
+                height: 120%;
+                opacity: 0.35;
             }
 
             .ticker-content {
