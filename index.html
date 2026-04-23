@@ -1,265 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SM PRODUCTIONS</title>
-  <meta
-    name="description"
-    content="SM Productions hero page with video background and intro navigation."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SM Productions LLC | Main</title>
+    <meta name="description" content="SM Productions LLC creates fashion shows, live productions, brand activations, model opportunities, media access, and sponsor visibility across South Florida." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #151515;
+            --surface: rgba(255,255,255,0.04);
+            --border: rgba(255,255,255,0.1);
+            --text: #f4efe4;
+            --white: #ffffff;
+            --muted: rgba(244,239,228,0.76);
+            --faint: rgba(244,239,228,0.44);
+            --gold: #d6a43a;
+            --gold-soft: #e1b85a;
+            --gold-light: #f0cf78;
+            --gold-deep: #b98518;
+            --yellow-soft: #f5dd8a;
+            --max: 1240px;
+        }
 
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: "Inter", sans-serif;
-      background: #02050b;
-      color: #ffffff;
-      overflow: hidden;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-    .hero-page {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      padding: 40px 20px;
-      background: #02050b;
-    }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
+        img, video {
+            display: block;
+            max-width: 100%;
+        }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.58) 0%, rgba(1,8,20,0.76) 100%),
-        rgba(0, 8, 20, 0.2);
-      z-index: 1;
-    }
+        .container {
+            width: min(calc(100% - 32px), var(--max));
+            margin: 0 auto;
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(100%, 1180px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(12px);
+            background: rgba(21, 21, 21, 0.84);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-    .hero-title {
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(2.8rem, 7vw, 6.8rem);
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      line-height: 1;
-      margin-bottom: 26px;
-      text-align: center;
-    }
+        .header-inner {
+            width: min(calc(100% - 32px), 1320px);
+            margin: 0 auto;
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-    .hero-text {
-      max-width: 760px;
-      margin: 0 auto 34px;
-      font-size: clamp(1rem, 1.3vw, 1.28rem);
-      line-height: 1.65;
-      color: rgba(255,255,255,0.88);
-      text-align: center;
-    }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+        }
 
-    .hero-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
+        .brand img {
+            width: auto;
+            height: 54px;
+            object-fit: contain;
+        }
 
-    .hero-nav a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      min-height: 52px;
-      border-radius: 999px;
-      border: 1px solid rgba(240,207,120,0.4);
-      background: rgba(10, 14, 24, 0.32);
-      color: #f0cf78; /* texto amarillo */
-      font-size: 1rem;
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-      backdrop-filter: blur(8px);
-    }
+        .brand-text {
+            font-family: "Outfit", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-size: 0.82rem;
+            color: var(--faint);
+        }
 
-    .hero-nav a:hover {
-      transform: translateY(-2px);
-      background: rgba(240,207,120,0.12);
-      border-color: rgba(240,207,120,0.8);
-      color: #fffbea;
-    }
+        .nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
 
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 28px;
-      min-height: 58px;
-      border-radius: 999px;
-      background: #f0cf78; /* amarillo */
-      color: #0a0d14;
-      font-size: 1.05rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-      margin-bottom: 26px;
-    }
+        .nav a {
+            color: rgba(244,239,228,0.84);
+            font-size: 0.96rem;
+        }
 
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      opacity: 0.96;
-      background: #f5dd8a;
-      box-shadow: 0 10px 22px rgba(240,207,120,0.35);
-    }
+        .section {
+            padding: clamp(72px, 10vw, 130px) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: transparent;
+        }
 
-    .instagram-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(10, 14, 24, 0.28);
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-      backdrop-filter: blur(8px);
-    }
+        .hero-manifesto {
+            position: relative;
+            min-height: calc(100vh - 76px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            isolation: isolate;
+        }
 
-    .instagram-link:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.28);
-    }
+        .hero-manifesto::before {
+            content: "";
+            position: absolute;
+            inset: -12% -8% -18% -8%;
+            background-image: linear-gradient(rgba(15,15,15,0.52), rgba(15,15,15,0.66)), url("./assets/miami noche.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: -3;
+            transform: scale(1.18);
+        }
 
-    .instagram-link svg {
-      width: 24px;
-      height: 24px;
-    }
+        .hero-manifesto::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg,
+                    rgba(10,10,10,0.12) 0%,
+                    rgba(10,10,10,0.18) 42%,
+                    rgba(10,10,10,0.38) 68%,
+                    rgba(10,10,10,0.76) 88%,
+                    rgba(21,21,21,0.98) 100%);
+            z-index: -2;
+        }
 
-    @media (max-width: 900px) {
-      .hero-title {
-        letter-spacing: 0.12em;
-      }
+        .hero-manifesto .hero-bottom-blend {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            height: 180px;
+            background: linear-gradient(180deg, rgba(21,21,21,0) 0%, rgba(21,21,21,0.34) 38%, rgba(21,21,21,0.78) 70%, rgba(21,21,21,1) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
 
-      .hero-nav {
-        max-width: 760px;
-      }
-    }
+        .manifesto-wrap {
+            width: min(calc(100% - 32px), 1180px);
+            margin: 0 auto;
+            text-align: center;
+        }
 
-    @media (max-width: 640px) {
-      body {
-        overflow: auto;
-      }
+        .manifesto-text {
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(2.8rem, 7vw, 7rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            max-width: 12ch;
+            margin: 0 auto;
+            color: var(--white);
+        }
 
-      .hero-page {
-        padding: 28px 18px;
-      }
+        .manifesto-sub {
+            margin-top: 20px;
+            color: var(--white);
+            font-size: 1rem;
+            letter-spacing: 0.04em;
+        }
 
-      .hero-title {
-        font-size: clamp(2rem, 12vw, 3.5rem);
-        margin-bottom: 20px;
-      }
+        .manifesto-text .line {
+            display: block;
+        }
 
-      .hero-text {
-        font-size: 1rem;
-        margin-bottom: 26px;
-      }
+        .gold {
+            color: var(--gold);
+        }
 
-      .hero-nav {
-        gap: 10px;
-        width: 100%;
-      }
+        .muted {
+            color: var(--muted);
+        }
 
-      .hero-nav a,
-      .hero-cta {
-        width: 100%;
-      }
+        .zoom-word {
+            display: inline-block;
+            color: var(--gold);
+            animation: zoomPulse 3.2s ease-in-out infinite;
+            transform-origin: center;
+        }
 
-      .instagram-link {
-        width: 56px;
-        height: 56px;
-      }
-    }
-  </style>
+        .zoom-word.delay {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes zoomPulse {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 0 rgba(214,164,58,0);
+            }
+            50% {
+                transform: scale(1.08);
+                text-shadow: 0 0 18px rgba(214,164,58,0.18);
+            }
+        }
+
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            transform: rotate(-2.5deg);
+            margin: -10px 0 56px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.03);
+            position: relative;
+            z-index: 2;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: tickerMove 24s linear infinite;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: flex;
+            align-items: center;
+            gap: 52px;
+            padding: 28px 32px;
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(1.28rem, 2.1vw, 2rem);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        @keyframes tickerMove {
+            from { transform: translateX(-8%); }
+            to { transform: translateX(-50%); }
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 16px;
+            color: var(--white);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        .display-wide {
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(2.2rem, 6vw, 5.8rem);
+            line-height: 0.96;
+            letter-spacing: -0.05em;
+            max-width: 15ch;
+        }
+
+        /* ABOUT BRAND */
+
+        .about-brand-section {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .about-brand-video {
+            position: absolute;
+            inset: -8% -10% -18% -10%;
+            width: 120%;
+            height: 130%;
+            object-fit: cover;
+            object-position: center;
+            filter: grayscale(1) contrast(1.06) brightness(0.6);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .about-brand-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg,
+                    rgba(21,21,21,0.2) 0%,
+                    rgba(21,21,21,0.28) 28%,
+                    rgba(21,21,21,0.65) 72%,
+                    rgba(21,21,21,0.98) 100%),
+                linear-gradient(90deg,
+                    rgba(21,21,21,0.75) 0%,
+                    rgba(21,21,21,0.45) 30%,
+                    rgba(21,21,21,0.18) 60%,
+                    rgba(21,21,21,0.85) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .about-brand-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 34px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-brand-copy p {
+            max-width: 58ch;
+            color: var(--muted);
+            margin-top: 18px;
+        }
+
+        .about-brand-cards {
+            display: grid;
+            gap: 16px;
+        }
+
+        .about-card {
+            padding: 24px 24px;
+            border: 1px solid rgba(255,255,255,0.09);
+            background: rgba(255,255,255,0.03);
+            border-radius: 22px;
+            backdrop-filter: blur(6px);
+        }
+
+        .about-card h3 {
+            font-family: "Outfit", sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+
+        .about-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .highlight-box {
+            border-top: 1px solid rgba(214,164,58,0.4);
+            padding-top: 16px;
+        }
+
+        .highlight-box strong {
+            display: block;
+            font-family: "Outfit", sans-serif;
+            font-size: 1.7rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .highlight-box span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* SERVICES (OPPORTUNITIES) */
+
+        .services-section {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .services-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(21,21,21,1) 0%,
+                    rgba(21,21,21,1) 16%,
+                    rgba(21,21,21,0.96) 28%,
+                    rgba(21,21,21,0.86) 40%,
+                    rgba(21,21,21,0.66) 54%,
+                    rgba(21,21,21,0.32) 72%,
+                    rgba(21,21,21,0) 100%),
+                linear-gradient(180deg,
+                    rgba(21,21,21,1) 0%,
+                    rgba(21,21,21,0.85) 10%,
+                    rgba(21,21,21,0.42) 24%,
+                    rgba(21,21,21,0.10) 38%,
+                    rgba(21,21,21,0.10) 62%,
+                    rgba(21,21,21,0.46) 78%,
+                    rgba(21,21,21,0.88) 92%,
+                    rgba(21,21,21,1) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .services-video {
+            position: absolute;
+            top: -8%;
+            right: -6%;
+            width: 64%;
+            height: 116%;
+            object-fit: cover;
+            object-position: center;
+            filter: grayscale(1) contrast(1.02) brightness(0.46) blur(5px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .services-intro {
+            max-width: 760px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-title span {
+            transition: color 0.3s ease;
+            display: inline-block;
+        }
+
+        .services-title span:hover {
+            color: var(--gold);
+        }
+
+        .services-links {
+            margin-top: 42px;
+            display: grid;
+            gap: 18px;
+            max-width: 760px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 24px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .service-link:hover {
+            color: var(--gold);
+            border-color: rgba(214,164,58,0.45);
+            transform: translateX(6px);
+        }
+
+        .service-name {
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(2rem, 4vw, 4.4rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+        }
+
+        /* EVENTS */
+
+        .events-showcase {
+            margin-top: 34px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .event-feature,
+        .event-stack-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.09);
+            background: rgba(255,255,255,0.03);
+            min-height: 420px;
+        }
+
+        .event-feature img,
+        .event-stack-card img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .event-feature img {
+            object-fit: contain;
+            object-position: center;
+            background: #111;
+        }
+
+        .event-stack-card img {
+            object-fit: contain;
+            object-position: center;
+            background: #111;
+        }
+
+        .event-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 26px;
+            background: linear-gradient(180deg, rgba(10,10,10,0.04) 0%, rgba(10,10,10,0.16) 36%, rgba(10,10,10,0.88) 100%);
+        }
+
+        .event-overlay h3 {
+            font-family: "Outfit", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: clamp(1.3rem, 2vw, 2rem);
+            margin-bottom: 8px;
+        }
+
+        .event-overlay p {
+            color: var(--muted);
+            max-width: 48ch;
+        }
+
+        .event-stack {
+            display: grid;
+            gap: 20px;
+        }
+
+        .event-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            margin-bottom: 12px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(214,164,58,0.14);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .events-media-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+            align-items: stretch;
+        }
+
+        .media-card {
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.03);
+            aspect-ratio: 9/16;
+        }
+
+        .media-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-event {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: var(--gold);
+            color: #111;
+            font-weight: 700;
+            border-radius: 999px;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+        }
+
+        .btn-event:hover {
+            background: var(--gold-soft);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(214, 164, 58, 0.2);
+        }
+
+        footer {
+            padding: 34px 0 50px;
+            color: var(--faint);
+            font-size: 0.94rem;
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .about-brand-grid,
+            .events-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .events-media-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .events-media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-video {
+                width: 100%;
+                right: 0;
+                top: -4%;
+                height: 108%;
+                opacity: 0.26;
+            }
+
+            .about-brand-video {
+                width: 130%;
+                left: -15%;
+                top: -6%;
+                height: 120%;
+                opacity: 0.35;
+            }
+
+            .ticker-content {
+                gap: 40px;
+                padding: 24px 26px;
+                font-size: clamp(1.05rem, 4.5vw, 1.4rem);
+            }
+
+            .hero-manifesto .hero-bottom-blend {
+                height: 140px;
+            }
+
+            .service-link {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-  <section class="hero-page">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="./assets/video.mp4" type="video/mp4" />
-    </video>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="./index.html">
+                <img src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
+                <span class="brand-text">SM Productions LLC</span>
+            </a>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#services">Opportunities</a>
+                <a href="#events">Events</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-    <div class="hero-overlay"></div>
+    <main>
+        <section class="hero-manifesto" id="about">
+            <div class="hero-bottom-blend" aria-hidden="true"></div>
+            <div class="manifesto-wrap">
+                <h1 class="manifesto-text">
+                    <span class="line">We don’t throw</span>
+                    <span class="line"><span class="zoom-word">events.</span></span>
+                    <span class="line">We create</span>
+                    <span class="line"><span class="zoom-word delay">moments.</span></span>
+                </h1>
+                <p class="manifesto-sub">Fashion Shows • Live Productions • Brand Activations</p>
+            </div>
+        </section>
 
-    <div class="hero-content">
-      <h1 class="hero-title">SM PRODUCTIONS</h1>
+        <div class="ticker-wrap" aria-hidden="true">
+            <div class="ticker-track">
+                <div class="ticker-content">
+                    <span>MODA</span>
+                    <span>FASHION</span>
+                    <span>MODEL</span>
+                    <span>FLORIDA</span>
+                    <span>HOT</span>
+                    <span>GLAMOUR</span>
+                    <span>RUNWAY</span>
+                    <span>CASTING</span>
+                    <span>SPONSORS</span>
+                    <span>MEDIA</span>
+                    <span>PRODUCTIONS</span>
+                    <span>SWIM WEEK</span>
+                    <span>BRANDING</span>
+                    <span>SPOTLIGHT</span>
+                    <span>TALENT</span>
+                    <span>BACKSTAGE</span>
+                </div>
+                <div class="ticker-content">
+                    <span>MODA</span>
+                    <span>FASHION</span>
+                    <span>MODEL</span>
+                    <span>FLORIDA</span>
+                    <span>HOT</span>
+                    <span>GLAMOUR</span>
+                    <span>RUNWAY</span>
+                    <span>CASTING</span>
+                    <span>SPONSORS</span>
+                    <span>MEDIA</span>
+                    <span>PRODUCTIONS</span>
+                    <span>SWIM WEEK</span>
+                    <span>BRANDING</span>
+                    <span>SPOTLIGHT</span>
+                    <span>TALENT</span>
+                    <span>BACKSTAGE</span>
+                </div>
+            </div>
+        </div>
 
-      <p class="hero-text">
-        Cinematic fashion experiences, model casting, and high-impact event production in Hollywood, FL.
-      </p>
+        <section class="section about-brand-section">
+            <video class="about-brand-video" autoplay muted loop playsinline>
+                <source src="./assets/video (2).mp4" type="video/mp4" />
+            </video>
+            <div class="container">
+                <span class="eyebrow">About the brand</span>
+                <div class="about-brand-grid">
+                    <div class="about-brand-copy">
+                        <h2 class="display-wide">A SOUTH FLORIDA PLATFORM FOR <span class="gold">FASHION, VISIBILITY AND LIVE IMPACT.</span></h2>
+                        <p>
+                            SM Productions LLC creates fashion shows, live productions and brand activations designed to turn visibility into memorable moments.
+                        </p>
+                        <p>
+                            The brand brings together models, photographers, sponsors and audiences inside one production-driven experience rooted in South Florida energy.
+                        </p>
 
-      <nav class="hero-nav" aria-label="Hero navigation">
-        <a href="./main.html#events">Coming events</a>
-        <a href="./main.html#opportunities">Model sign up</a>
-        <a href="./main.html#opportunities">Media photographer sign-up</a>
-        <a href="./main.html#contact">Contact</a>
-      </nav>
+                        <div class="about-highlights">
+                            <div class="highlight-box">
+                                <strong>Fashion Shows</strong>
+                                <span>Runway-led productions built around presence, styling and audience experience.</span>
+                            </div>
+                            <div class="highlight-box">
+                                <strong>Brand Activations</strong>
+                                <span>Visibility-focused moments for sponsors and collaborators inside live events.</span>
+                            </div>
+                            <div class="highlight-box">
+                                <strong>South Florida</strong>
+                                <span>A local positioning tied to the region’s nightlife, fashion and event culture.</span>
+                            </div>
+                        </div>
+                    </div>
 
-      <a class="hero-cta" href="./main.html#about">Let’s go</a>
+                    <div class="about-brand-cards">
+                        <article class="about-card">
+                            <h3>Who we are</h3>
+                            <p>SM Productions LLC is a production-driven fashion brand focused on creating moments, not just events.</p>
+                        </article>
+                        <article class="about-card">
+                            <h3>What we do</h3>
+                            <p>We build fashion shows, live productions and brand activations with space for models, photographers and sponsors.</p>
+                        </article>
+                        <article class="about-card">
+                            <h3>Why it matters</h3>
+                            <p>Every production is designed to feel visible, elevated and connected to the energy of South Florida.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <a
-        class="instagram-link"
-        href="https://www.instagram.com/p/DXPU64DgloZ/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open Instagram"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-          <circle cx="12" cy="12" r="4.2"></circle>
-          <circle cx="17.3" cy="6.7" r="1"></circle>
-        </svg>
-      </a>
-    </div>
-  </section>
+        <section class="section services-section" id="services">
+            <video class="services-video" autoplay muted loop playsinline>
+                <source src="./assets/video.mp4" type="video/mp4" />
+            </video>
+            <div class="container">
+                <div class="services-intro">
+                    <span class="eyebrow">What we do</span>
+                    <h2 class="display-wide services-title">
+                        <span>BUILT</span> <span>FOR</span> <span>BRANDS,</span> <span>MODELS</span> <span>AND</span> <span>PHOTOGRAPHERS.</span>
+                    </h2>
+                </div>
+                <div class="services-links">
+                    <a class="service-link" href="./brands-coming-soon.html">
+                        <span class="service-name">Brands</span>
+                        <span class="service-desc">For sponsors and brands who want visibility and event presence.</span>
+                    </a>
+                    <a class="service-link" href="https://wkf.ms/3VYxr8B" target="_blank" rel="noopener noreferrer">
+                        <span class="service-name">Models</span>
+                        <span class="service-desc">Apply to model and be considered for upcoming productions.</span>
+                    </a>
+                    <a class="service-link" href="https://wkf.ms/4nZF3nK" target="_blank" rel="noopener noreferrer">
+                        <span class="service-name">Photographers</span>
+                        <span class="service-desc">Media access and event shooting opportunities.</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="events">
+            <div class="container">
+                <span class="eyebrow">Featured momentum</span>
+                <h2 class="display-wide">FROM FORT MYERS TO <span class="gold">SWIM WEEK MIAMI.</span></h2>
+                <p class="muted" style="max-width: 60ch; margin-top: 20px;">
+                    Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum in Florida.
+                </p>
+                <a href="https://www.eventbrite.com/e/fantasy-fashion-show-swim-week-2026-at-rooftop-live-tickets-1987167339004?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn-event">
+                    EVENTS
+                </a>
+
+                <div class="events-showcase">
+                    <article class="event-feature">
+                        <img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="Upcoming featured SM Productions event visual" />
+                        <div class="event-overlay">
+                            <span class="event-tag">Upcoming spotlight</span>
+                            <h3>Fantasy Fashion Show • Swim Week 2026</h3>
+                            <p>This next-wave presentation connects the brand with runway visibility, swimwear energy and destination fashion audiences.</p>
+                        </div>
+                    </article>
+
+                    <div class="event-stack">
+                        <article class="event-stack-card">
+                            <img src="./assets/imagen 5.jpeg" alt="Upcoming SM Productions event campaign art" />
+                            <div class="event-overlay">
+                                <span class="event-tag">Next event energy</span>
+                                <h3>South Florida casting and live production momentum</h3>
+                                <p>Upcoming events are designed to feel like both a public showpiece and a creative entry point for models, media and collaborators.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="events-media-grid">
+                    <article class="media-card">
+                        <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
+                    </article>
+                    <article class="media-card">
+                        <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
+                    </article>
+                    <article class="media-card">
+                        <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
+                    </article>
+                    <article class="media-card">
+                        <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container" style="text-align: center;">
+                <h2 class="display-wide" style="margin: 0 auto 24px;">LET’S BUILD THE NEXT <span class="gold">MOMENT.</span></h2>
+                <a class="btn-event" href="https://www.instagram.com/smproductionsllc_/" target="_blank" rel="noopener noreferrer">Contact on Instagram</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            SM Productions LLC • <span class="gold">Fashion Shows</span> • South FL
+        </div>
+    </footer>
 </body>
 </html>
