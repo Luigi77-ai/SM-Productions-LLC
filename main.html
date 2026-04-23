@@ -283,9 +283,9 @@
 
         .about-brand-video {
             position: absolute;
-            inset: -8% -10% -18% -10%;
-            width: 120%;
-            height: 130%;
+            inset: -12% -14% -22% -14%;
+            width: 130%;
+            height: 140%;
             object-fit: cover;
             object-position: center;
             filter: grayscale(1) contrast(1.06) brightness(0.6);
@@ -298,16 +298,20 @@
             position: absolute;
             inset: 0;
             background:
+                /* oscurecido y blur arriba y abajo */
                 linear-gradient(180deg,
-                    rgba(21,21,21,0.2) 0%,
-                    rgba(21,21,21,0.28) 28%,
-                    rgba(21,21,21,0.65) 72%,
+                    rgba(21,21,21,0.55) 0%,
+                    rgba(21,21,21,0.34) 24%,
+                    rgba(21,21,21,0.26) 46%,
+                    rgba(21,21,21,0.55) 78%,
                     rgba(21,21,21,0.98) 100%),
+                /* mucho más blur a derecha e izquierda para tapar líneas */
                 linear-gradient(90deg,
-                    rgba(21,21,21,0.75) 0%,
-                    rgba(21,21,21,0.45) 30%,
-                    rgba(21,21,21,0.18) 60%,
-                    rgba(21,21,21,0.85) 100%);
+                    rgba(21,21,21,0.9) 0%,
+                    rgba(21,21,21,0.54) 26%,
+                    rgba(21,21,21,0.24) 55%,
+                    rgba(21,21,21,0.68) 82%,
+                    rgba(21,21,21,0.98) 100%);
             z-index: -1;
             pointer-events: none;
         }
@@ -637,11 +641,11 @@
             }
 
             .about-brand-video {
-                width: 130%;
-                left: -15%;
-                top: -6%;
-                height: 120%;
-                opacity: 0.35;
+                width: 140%;
+                left: -20%;
+                top: -10%;
+                height: 135%;
+                opacity: 0.38;
             }
 
             .ticker-content {
