@@ -276,6 +276,42 @@
         .about-brand-section {
             position: relative;
             overflow: hidden;
+            isolation: isolate;
+        }
+
+        .about-brand-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg,
+                    rgba(21,21,21,0.96) 0%,
+                    rgba(21,21,21,0.92) 14%,
+                    rgba(21,21,21,0.74) 28%,
+                    rgba(21,21,21,0.42) 48%,
+                    rgba(21,21,21,0.12) 70%,
+                    rgba(21,21,21,0) 100%),
+                linear-gradient(180deg,
+                    rgba(21,21,21,0.94) 0%,
+                    rgba(21,21,21,0.62) 18%,
+                    rgba(21,21,21,0.12) 42%,
+                    rgba(21,21,21,0.18) 74%,
+                    rgba(21,21,21,0.9) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .about-brand-video {
+            position: absolute;
+            top: -16%;
+            left: -12%;
+            width: 56%;
+            height: 122%;
+            object-fit: cover;
+            object-position: top left;
+            filter: grayscale(1) contrast(1.03) brightness(0.4) blur(6px);
+            z-index: -1;
+            pointer-events: none;
         }
 
         .about-brand-grid {
@@ -283,10 +319,12 @@
             grid-template-columns: 1.1fr 0.9fr;
             gap: 34px;
             align-items: start;
+            position: relative;
+            z-index: 2;
         }
 
         .about-brand-copy p {
-            max-width: 62ch;
+            max-width: 58ch;
             color: var(--muted);
             margin-top: 18px;
         }
@@ -301,6 +339,7 @@
             border: 1px solid rgba(255,255,255,0.09);
             background: rgba(255,255,255,0.03);
             border-radius: 22px;
+            backdrop-filter: blur(6px);
         }
 
         .about-card h3 {
@@ -459,7 +498,18 @@
         .event-stack-card img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+        }
+
+        .event-feature img {
+            object-fit: contain;
+            object-position: center;
+            background: #111;
+        }
+
+        .event-stack-card img {
+            object-fit: contain;
+            object-position: center;
+            background: #111;
         }
 
         .event-overlay {
@@ -469,7 +519,7 @@
             flex-direction: column;
             justify-content: flex-end;
             padding: 26px;
-            background: linear-gradient(180deg, rgba(10,10,10,0.08) 0%, rgba(10,10,10,0.24) 38%, rgba(10,10,10,0.88) 100%);
+            background: linear-gradient(180deg, rgba(10,10,10,0.04) 0%, rgba(10,10,10,0.16) 36%, rgba(10,10,10,0.88) 100%);
         }
 
         .event-overlay h3 {
@@ -584,6 +634,14 @@
                 opacity: 0.26;
             }
 
+            .about-brand-video {
+                width: 100%;
+                left: 0;
+                top: -6%;
+                height: 108%;
+                opacity: 0.24;
+            }
+
             .ticker-content {
                 gap: 40px;
                 padding: 24px 26px;
@@ -673,30 +731,33 @@
         </div>
 
         <section class="section about-brand-section">
+            <video class="about-brand-video" autoplay muted loop playsinline>
+                <source src="./assets/video (2).mp4" type="video/mp4" />
+            </video>
             <div class="container">
                 <span class="eyebrow">About the brand</span>
                 <div class="about-brand-grid">
                     <div class="about-brand-copy">
                         <h2 class="display-wide">A SOUTH FLORIDA PLATFORM FOR <span class="gold">FASHION, VISIBILITY AND LIVE IMPACT.</span></h2>
                         <p>
-                            SM Productions LLC presents itself as more than an event name. The brand positions itself around fashion shows, live productions and brand activations designed to create visible moments, connect talent with opportunity, and give audiences a reason to remember what happened on the runway and beyond. [web:12]
+                            SM Productions LLC creates fashion shows, live productions and brand activations designed to turn visibility into memorable moments.
                         </p>
                         <p>
-                            In practical terms, that means building experiences where models, photographers, sponsors and brands all have a role inside the same production ecosystem. The public-facing identity of the brand consistently points to South Florida, fashion energy and live audience presence as the center of that work. [web:12]
+                            The brand brings together models, photographers, sponsors and audiences inside one production-driven experience rooted in South Florida energy.
                         </p>
 
                         <div class="about-highlights">
                             <div class="highlight-box">
                                 <strong>Fashion Shows</strong>
-                                <span>Runway-led productions built around presence, styling and audience experience. [web:12]</span>
+                                <span>Runway-led productions built around presence, styling and audience experience.</span>
                             </div>
                             <div class="highlight-box">
                                 <strong>Brand Activations</strong>
-                                <span>Visibility-focused moments for sponsors and collaborators inside live events. [web:12]</span>
+                                <span>Visibility-focused moments for sponsors and collaborators inside live events.</span>
                             </div>
                             <div class="highlight-box">
                                 <strong>South Florida</strong>
-                                <span>A local positioning tied to the region’s nightlife, fashion and event culture. [web:12]</span>
+                                <span>A local positioning tied to the region’s nightlife, fashion and event culture.</span>
                             </div>
                         </div>
                     </div>
@@ -704,15 +765,15 @@
                     <div class="about-brand-cards">
                         <article class="about-card">
                             <h3>Who we are</h3>
-                            <p>SM Productions LLC is a production-driven fashion brand that frames itself around creating moments rather than simply hosting events, with a visible identity rooted in South Florida. [web:12]</p>
+                            <p>SM Productions LLC is a production-driven fashion brand focused on creating moments, not just events.</p>
                         </article>
                         <article class="about-card">
                             <h3>What we do</h3>
-                            <p>The brand publicly highlights fashion shows, live productions and brand activations, while also creating pathways for models, photographers and sponsor participation. [web:12]</p>
+                            <p>We build fashion shows, live productions and brand activations with space for models, photographers and sponsors.</p>
                         </article>
                         <article class="about-card">
                             <h3>Why it matters</h3>
-                            <p>That positioning aligns naturally with Florida’s runway and swimwear event circuit, where visibility, media content, partnerships and audience energy all matter at once. [web:17][web:20]</p>
+                            <p>Every production is designed to feel visible, elevated and connected to the energy of South Florida.</p>
                         </article>
                     </div>
                 </div>
@@ -764,7 +825,7 @@
                         <div class="event-overlay">
                             <span class="event-tag">Upcoming spotlight</span>
                             <h3>Fantasy Fashion Show • Swim Week 2026</h3>
-                            <p>This next-wave presentation connects the brand with the Swim Week conversation in Miami, a moment shaped by runway visibility, swimwear energy and destination fashion audiences. [web:17][web:20]</p>
+                            <p>This next-wave presentation connects the brand with runway visibility, swimwear energy and destination fashion audiences.</p>
                         </div>
                     </article>
 
@@ -774,7 +835,7 @@
                             <div class="event-overlay">
                                 <span class="event-tag">Next event energy</span>
                                 <h3>South Florida casting and live production momentum</h3>
-                                <p>For a brand centered on fashion shows, live productions and creative opportunity, upcoming events should feel like both a public showpiece and an entry point for models, media and collaborators. [web:12][web:19]</p>
+                                <p>Upcoming events are designed to feel like both a public showpiece and a creative entry point for models, media and collaborators.</p>
                             </div>
                         </article>
                     </div>
