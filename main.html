@@ -64,7 +64,7 @@
     .nav { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
     .nav a { color: rgba(244,239,228,0.84); font-size: 0.96rem; }
 
-    /* HERO MANIFESTO - EFECTOS RESTAURADOS */
+    /* HERO - EFECTO ZOOMPULSE */
     .hero-manifesto {
       position: relative;
       min-height: calc(100vh - 76px);
@@ -81,18 +81,6 @@
       background-image: linear-gradient(rgba(15,15,15,0.55), rgba(15,15,15,0.7)), url("./assets/miami noche.jpg");
       background-size: cover; background-position: center; z-index: -2;
     }
-    .hero-manifesto::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0.52) 100%);
-      z-index: -1;
-    }
-    .manifesto-wrap {
-      width: min(calc(100% - 32px), 1180px);
-      margin: 0 auto;
-      text-align: center;
-    }
     .manifesto-text {
       font-family: "Outfit", sans-serif;
       font-size: clamp(2.8rem, 7vw, 7rem);
@@ -102,10 +90,8 @@
       max-width: 12ch;
       margin: 0 auto;
       color: var(--white);
+      text-align: center;
     }
-    .gold { color: var(--gold); }
-
-    /* Efecto ZoomPulse Restaurado */
     .zoom-word {
       display: inline-block;
       color: var(--gold);
@@ -118,7 +104,7 @@
       50% { transform: scale(1.08); text-shadow: 0 0 18px rgba(214,164,58,0.18); }
     }
 
-    /* TICKER - AHORA POR ENCIMA DEL VIDEO */
+    /* TICKER - SUPERPUESTO */
     .ticker-wrap {
       width: 100%;
       overflow: hidden;
@@ -127,49 +113,35 @@
       border-top: 1px solid rgba(255,255,255,0.08);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.03);
-      position: relative; /* Necesario para z-index */
-      z-index: 10; /* Por encima de la services-section */
+      position: relative;
+      z-index: 10;
     }
     .ticker-track { display: flex; width: max-content; animation: tickerMove 25s linear infinite; }
     .ticker-content {
       display: flex; align-items: center; gap: 40px; padding: 22px 26px;
       font-family: "Outfit", sans-serif; font-size: clamp(1.15rem, 1.8vw, 1.75rem);
-      text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); font-weight: 700;
+      text-transform: uppercase; color: var(--gold); font-weight: 700;
     }
     @keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .display-wide {
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(2.2rem, 6vw, 5.8rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      max-width: 15ch;
-    }
-
-    /* SERVICES SECTION - FONDO MANTENIDO, TEXTOS RESTAURADOS */
+    /* SERVICES - VIDEO BLUR & FADE */
     .services-section {
       position: relative;
       overflow: hidden;
-      margin-top: -76px; /* Sube para cubrir el área del header */
-      padding-top: 120px;
-      padding-bottom: 80px;
-      z-index: 1; /* Por debajo del ticker */
+      margin-top: -100px;
+      padding-top: 150px;
+      padding-bottom: 100px;
+      z-index: 1;
     }
-
-    /* Gradientes de fondo mantenidos (sin cortes) */
     .services-section::before {
       content: "";
       position: absolute;
       inset: 0;
       background: 
         linear-gradient(90deg, var(--bg) 0%, rgba(21, 21, 21, 0.8) 35%, transparent 100%),
-        linear-gradient(180deg, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%),
-        radial-gradient(circle at bottom, var(--bg) 0%, transparent 40%);
+        linear-gradient(180deg, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%);
       z-index: 1;
-      pointer-events: none;
     }
-
-    /* Video no editado */
     .services-video {
       position: absolute;
       top: 0;
@@ -181,43 +153,37 @@
       z-index: -1;
     }
 
-    .services-intro { position: relative; z-index: 2; }
-    .services-title span { transition: color 0.3s ease; }
-    .services-title span:hover { color: var(--gold); }
-
-    .services-links {
-      margin-top: 42px;
-      display: grid;
-      gap: 18px;
-      max-width: 760px;
-      position: relative;
-      z-index: 2;
-    }
-
     .service-link {
-      display: flex; justify-content: space-between; align-items: center; gap: 18px;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 24px 28px; border-bottom: 1px solid var(--border);
-      position: relative; z-index: 2;
-      transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      transition: 0.3s; position: relative; z-index: 2;
     }
-    .service-link:hover { color: var(--gold); border-color: rgba(214,164,58,0.45); transform: translateX(6px); }
+    .service-name { font-family: "Outfit", sans-serif; font-size: clamp(2rem, 4vw, 4.4rem); text-transform: uppercase; }
+    .faint-desc { color: rgba(244,239,228,0.72); font-size: 0.98rem; }
 
-    /* Tamaños de texto restaurados a su original */
-    .service-name {
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(2rem, 4vw, 4.4rem); /* Tamaño original */
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
+    /* UPCOMING EVENTS INNOVADORES */
+    .upcoming-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin: 40px 0; }
+    .event-card {
+      position: relative; border-radius: 30px; overflow: hidden; aspect-ratio: 16/10; border: 1px solid var(--border);
+      transition: 0.5s;
     }
+    .event-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .event-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+    .event-card:hover img { transform: scale(1.1); }
+    .event-info { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent); }
 
-    .faint-desc {
-      color: rgba(244,239,228,0.72);
-      font-size: 0.98rem; /* Tamaño original */
-    }
+    /* MOMENTUM & OPPORTUNITIES (ESTRUCTURA ORIGINAL) */
+    .section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    .video-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px; }
+    .video-card-small { border-radius: 20px; overflow: hidden; aspect-ratio: 9/16; border: 1px solid var(--border); }
+    .video-card-small video { width: 100%; height: 100%; object-fit: cover; }
+
+    .events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+    .card { border: 1px solid var(--border); border-radius: 28px; padding: 28px; background: rgba(255,255,255,0.03); }
+    .btn-gold { display: inline-flex; padding: 18px 36px; background: var(--gold); color: #111; font-weight: 700; border-radius: 999px; text-transform: uppercase; }
 
     @media (max-width: 900px) {
-      .services-video { width: 100%; opacity: 0.2; }
+      .upcoming-grid, .video-row, .events-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -225,26 +191,15 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="./index.html">
-        <img src="./assets/SM-Logo.png" alt="SM Productions LLC" />
-        <span class="brand-text">SM Productions LLC</span>
-      </a>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#events">Events</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <a class="brand" href="./index.html"><img src="./assets/SM-Logo.png" alt="SM Productions" /><span class="brand-text">SM Productions LLC</span></a>
+      <nav class="nav"><a href="#about">About</a><a href="#services">Services</a><a href="#events">Events</a><a href="#contact">Contact</a></nav>
     </div>
   </header>
 
   <main>
     <section class="hero-manifesto" id="about">
       <div class="manifesto-wrap">
-        <h1 class="manifesto-text">
-          We don’t throw <span class="zoom-word">events.</span><br>
-          We create <span class="zoom-word delay">moments.</span>
-        </h1>
+        <h1 class="manifesto-text">We don’t throw <span class="zoom-word">events.</span><br>We create <span class="zoom-word delay">moments.</span></h1>
       </div>
     </section>
 
@@ -262,37 +217,55 @@
     </div>
 
     <section class="section services-section" id="services">
-      <video class="services-video" autoplay muted loop playsinline>
-        <source src="./assets/video.mp4" type="video/mp4" />
-      </video>
+      <video class="services-video" autoplay muted loop playsinline><source src="./assets/video.mp4" type="video/mp4" /></video>
       <div class="container">
         <div class="services-intro">
           <span class="muted">What we do</span>
-          <h2 class="display-wide services-title">
-            <span>BUILT</span> <span>FOR</span> <span>BRANDS,</span> <span>MODELS</span> <span>AND</span> <span>PHOTOGRAPHERS.</span>
-          </h2>
+          <h2 class="display-wide services-title"><span>BUILT</span> <span>FOR</span> <span>BRANDS,</span> <span>MODELS</span> <span>AND</span> <span>PHOTOGRAPHERS.</span></h2>
         </div>
         <div class="services-links">
-          <a class="service-link" href="./brands-coming-soon.html">
-            <span class="service-name">Brands</span> 
-            <span class="faint-desc">For sponsors and brands who want visibility and event presence.</span>
-          </a>
-          <a class="service-link" href="https://wkf.ms/3VYxr8B" target="_blank">
-            <span class="service-name">Models</span> 
-            <span class="faint-desc">Apply to model and be considered for upcoming productions.</span>
-          </a>
-          <a class="service-link" href="https://wkf.ms/4nZF3nK" target="_blank">
-            <span class="service-name">Photographers</span> 
-            <span class="faint-desc">Media access and event shooting opportunities.</span>
-          </a>
+          <a class="service-link" href="./brands-coming-soon.html"><span class="service-name">Brands</span><span class="faint-desc">For sponsors and brands who want visibility and event presence.</span></a>
+          <a class="service-link" href="https://wkf.ms/3VYxr8B" target="_blank"><span class="service-name">Models</span><span class="faint-desc">Apply to model and be considered for upcoming productions.</span></a>
+          <a class="service-link" href="https://wkf.ms/4nZF3nK" target="_blank"><span class="service-name">Photographers</span><span class="faint-desc">Media access and event shooting opportunities.</span></a>
         </div>
       </div>
     </section>
 
     <section class="section" id="events">
       <div class="container">
-        <h2 class="display-wide">FEATURED <span class="gold">MOMENTUM.</span></h2>
+        <span class="eyebrow">The Next Stage</span>
+        <h2 class="display-wide">UPCOMING <span class="gold">PRODUCTIONS.</span></h2>
+        <div class="upcoming-grid">
+          <div class="event-card"><img src="./assets/imagen 5.jpeg" alt="Next Event 1"><div class="event-info"><h3 class="gold">Spring Runway</h3><p>Exclusive Fashion Showcase</p></div></div>
+          <div class="event-card"><img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="Next Event 2"><div class="event-info"><h3 class="gold">Swim Week Miami</h3><p>Fantasy Fashion Show 2026</p></div></div>
         </div>
+        <div style="text-align: center;"><a href="https://www.eventbrite.com/e/fantasy-fashion-show-swim-week-2026-at-rooftop-live-tickets-1987167339004?aff=oddtdtcreator" target="_blank" class="btn-gold">Explore our upcoming events</a></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="display-wide">FROM FORT MYERS TO <span class="gold">SWIM WEEK MIAMI.</span></h2>
+        <p class="muted" style="max-width: 70ch; margin-top: 20px;">Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum in Florida.</p>
+        <div class="video-row">
+          <div class="video-card-small"><video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video></div>
+          <div class="video-card-small"><video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video></div>
+          <div class="video-card-small"><video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video></div>
+          <div class="video-card-small"><video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Why it matters</span>
+        <h2 class="display-wide">A PLATFORM FOR PEOPLE WHO WANT TO BE <span class="gold">SEEN.</span></h2>
+        <div class="events-grid">
+          <article class="card"><h3 class="gold">Models</h3><p>Join productions where talent is part of a larger visual story built for runway and media presence.</p></article>
+          <article class="card"><h3 class="gold">Media</h3><p>Be part of documenting fashion culture in motion, from backstage to runway coverage.</p></article>
+          <article class="card"><h3 class="gold">Sponsors</h3><p>Be seen inside a creative environment where brands are integrated into the event.</p></article>
+        </div>
+      </div>
     </section>
   </main>
 
