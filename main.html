@@ -120,14 +120,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            overflow: visible;
             isolation: isolate;
+            padding-bottom: 60px;
+            margin-bottom: -42px;
         }
 
         .hero-manifesto::before {
             content: "";
             position: absolute;
-            inset: -6% -4% -10% -4%;
+            inset: -6% -4% -90px -4%;
             background-image: linear-gradient(rgba(15,15,15,0.55), rgba(15,15,15,0.7)), url("./assets/miami noche.jpg");
             background-size: cover;
             background-position: center center;
@@ -199,6 +201,8 @@
             border-top: 1px solid rgba(255,255,255,0.08);
             border-bottom: 1px solid rgba(255,255,255,0.08);
             background: rgba(255,255,255,0.03);
+            position: relative;
+            z-index: 3;
         }
 
         .ticker-track {
@@ -387,6 +391,15 @@
             .services-video {
                 width: 100%;
                 opacity: 0.2;
+            }
+
+            .hero-manifesto {
+                padding-bottom: 46px;
+                margin-bottom: -34px;
+            }
+
+            .hero-manifesto::before {
+                inset: -6% -6% -80px -6%;
             }
         }
     </style>
