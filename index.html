@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,28 +26,12 @@
       --text: #f5f7fb;
       --muted: rgba(245,247,251,0.72);
       --faint: rgba(245,247,251,0.48);
-      --accent: #9fd0ff;
-      --accent-strong: #ffffff;
       --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
 
       --radius-sm: 14px;
       --radius-md: 24px;
       --radius-lg: 36px;
       --radius-full: 999px;
-
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-10: 40px;
-      --space-12: 48px;
-      --space-16: 64px;
-      --space-20: 80px;
-      --space-24: 96px;
-      --space-32: 128px;
 
       --text-xs: clamp(0.75rem, 0.72rem + 0.2vw, 0.875rem);
       --text-sm: clamp(0.9rem, 0.84rem + 0.2vw, 1rem);
@@ -91,13 +75,6 @@
     video {
       display: block;
       max-width: 100%;
-    }
-
-    button,
-    .button {
-      border: none;
-      cursor: pointer;
-      font: inherit;
     }
 
     .container,
@@ -190,16 +167,23 @@
       transform: scaleX(1);
     }
 
-    .header-cta {
+    .header-cta,
+    .primary-btn,
+    .secondary-btn,
+    .card-link {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .header-cta {
       padding: 10px 16px;
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: var(--radius-full);
       color: var(--text);
       background: rgba(255,255,255,0.05);
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .header-cta:hover,
@@ -329,13 +313,8 @@
     .primary-btn,
     .secondary-btn,
     .card-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
       padding: 14px 20px;
       border-radius: var(--radius-full);
-      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .primary-btn {
@@ -416,9 +395,8 @@
 
     .event-panel {
       margin-top: 42px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
-      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: var(--radius-lg);
       padding: clamp(24px, 4vw, 44px);
       box-shadow: var(--shadow);
@@ -592,8 +570,7 @@
 
     .contact-box {
       margin-top: 42px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 36px;
       padding: clamp(28px, 5vw, 56px);
