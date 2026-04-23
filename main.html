@@ -31,21 +31,45 @@
       --max: 1240px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    img, video { display: block; max-width: 100%; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-    /* HEADER */
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 40;
       backdrop-filter: blur(12px);
-      background: rgba(21, 21, 21, 0.7);
+      background: rgba(21, 21, 21, 0.84);
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
@@ -56,186 +80,347 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
-    .brand { display: inline-flex; align-items: center; gap: 14px; }
-    .brand img { height: 54px; object-fit: contain; }
-    .brand-text { font-family: "Outfit", sans-serif; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; color: var(--faint); }
-    .nav { display: flex; gap: 18px; }
-    .nav a { color: rgba(244,239,228,0.84); font-size: 0.96rem; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-    /* HERO MANIFESTO */
+    .brand img {
+      width: auto;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      font-family: "Outfit", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.82rem;
+      color: var(--faint);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: rgba(244,239,228,0.84);
+      font-size: 0.96rem;
+    }
+
+    .section {
+      padding: clamp(72px, 10vw, 130px) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: transparent;
+    }
+
     .hero-manifesto {
       position: relative;
-      min-height: 80vh;
+      min-height: calc(100vh - 76px);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       isolation: isolate;
     }
+
     .hero-manifesto::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(15,15,15,0.5), rgba(15,15,15,0.7)), url("./assets/miami noche.jpg");
-      background-size: cover; background-position: center; z-index: -2;
+      background-image:
+        linear-gradient(rgba(15,15,15,0.55), rgba(15,15,15,0.7)),
+        url("./assets/miami noche.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      z-index: -2;
+    }
+
+    .hero-manifesto::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0.52) 100%);
+      z-index: -1;
+    }
+
+    .manifesto-wrap {
+      width: min(calc(100% - 32px), 1180px);
+      margin: 0 auto;
+      text-align: center;
     }
 
     .manifesto-text {
       font-family: "Outfit", sans-serif;
       font-size: clamp(2.8rem, 7vw, 7rem);
       line-height: 0.95;
+      letter-spacing: -0.05em;
       text-transform: uppercase;
-      text-align: center;
+      max-width: 12ch;
+      margin: 0 auto;
       color: var(--white);
     }
-    .gold { color: var(--gold); }
 
-    /* TICKER */
-    .ticker-wrap {
-      width: 100%; overflow: hidden; transform: rotate(-2deg);
-      background: rgba(255,255,255,0.03); border-y: 1px solid var(--border);
-      margin: 20px 0 60px;
+    .manifesto-text .line {
+      display: block;
     }
-    .ticker-track { display: flex; width: max-content; animation: tickerMove 20s linear infinite; }
-    .ticker-content { display: flex; gap: 50px; padding: 20px; font-family: "Outfit", sans-serif; color: var(--gold); font-weight: 800; font-size: 1.5rem; }
-    @keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* SERVICES SECTION - IMPROVED BLUR & INTEGRATION */
+    .gold {
+      color: var(--gold);
+    }
+
+    .zoom-word {
+      display: inline-block;
+      color: var(--gold);
+      animation: zoomPulse 3.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .zoom-word.delay {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes zoomPulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 rgba(214,164,58,0);
+      }
+      50% {
+        transform: scale(1.08);
+        text-shadow: 0 0 18px rgba(214,164,58,0.18);
+      }
+    }
+
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      transform: rotate(-2.5deg);
+      margin: 14px 0 48px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: tickerMove 18s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ticker-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 22px 26px;
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(1.15rem, 1.8vw, 1.75rem);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    @keyframes tickerMove {
+      from { transform: translateX(-8%); }
+      to { transform: translateX(-50%); }
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--white);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .display-wide {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2.2rem, 6vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      max-width: 15ch;
+    }
+
+    /* SERVICES SECTION - UPDATED */
     .services-section {
       position: relative;
-      margin-top: -76px; /* Para que suba hasta el header */
-      padding-top: 150px;
-      padding-bottom: 120px;
       overflow: hidden;
+      isolation: isolate;
     }
 
     .services-section::before {
       content: "";
       position: absolute;
-      inset: 0;
-      /* Difuminado mucho más fuerte hacia la izquierda */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Gradient to fade video to the left */
       background: linear-gradient(90deg, 
         var(--bg) 0%, 
-        var(--bg) 25%, 
-        rgba(21,21,21,0.8) 45%, 
-        rgba(21,21,21,0.2) 75%, 
+        rgba(21,21,21,0.9) 30%, 
+        rgba(21,21,21,0.4) 70%, 
         transparent 100%);
       z-index: 1;
+      pointer-events: none;
     }
 
     .services-video {
       position: absolute;
       top: 0;
       right: 0;
-      width: 70%;
+      width: 55%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(1) blur(8px) brightness(0.4); /* Mas blur solicitado */
+      object-position: center;
+      filter: grayscale(1) contrast(1.05) brightness(0.5);
       z-index: -1;
+      pointer-events: none;
     }
 
-    .services-intro { position: relative; z-index: 2; max-width: 800px; }
-    .services-title span { transition: color 0.3s; cursor: crosshair; }
-    .services-title span:hover { color: var(--gold); }
+    .services-intro {
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Word hover color effect */
+    .services-title span {
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+
+    .services-title span:hover {
+      color: var(--gold);
+    }
+
+    .services-links {
+      margin-top: 42px;
+      display: grid;
+      gap: 18px;
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
 
     .service-link {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 30px; border-bottom: 1px solid var(--border);
-      transition: 0.4s; position: relative; z-index: 2;
-    }
-    .service-link:hover { transform: translateX(15px); color: var(--gold); }
-    .service-name { font-family: "Outfit", sans-serif; font-size: clamp(2rem, 5vw, 4rem); text-transform: uppercase; }
-
-    /* INNOVATIVE UPCOMING EVENTS SECTION */
-    .upcoming-spotlight {
-      padding: 100px 0;
-      background: radial-gradient(circle at top right, rgba(214,164,58,0.05), transparent);
-    }
-
-    .event-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      margin-top: 50px;
-    }
-
-    .event-card-innovative {
-      position: relative;
-      height: 500px;
-      border-radius: 24px;
-      overflow: hidden;
-      transform: skewY(-2deg); /* Inclinación innovadora */
-      transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      border: 1px solid var(--border);
-    }
-
-    .event-card-innovative:hover {
-      transform: skewY(0deg) scale(1.02);
-      z-index: 10;
-      border-color: var(--gold);
-    }
-
-    .event-card-innovative img {
-      width: 100%; height: 100%; object-fit: cover;
-      transform: skewY(2deg) scale(1.2); /* Compensa la inclinación */
-      transition: 0.6s;
-    }
-
-    .event-card-innovative:hover img { transform: skewY(0deg) scale(1); }
-
-    .event-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 60%);
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 40px;
-      opacity: 0.9;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 24px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
-    .event-badge {
-      background: var(--gold); color: #000; padding: 5px 15px;
-      border-radius: 50px; font-weight: 700; font-size: 0.8rem;
-      align-self: flex-start; margin-bottom: 15px; text-transform: uppercase;
+    .service-link:hover {
+      color: var(--gold);
+      border-color: rgba(214,164,58,0.45);
+      transform: translateX(6px);
     }
 
-    /* BUTTONS */
-    .btn-main {
-      display: inline-flex; padding: 18px 35px; background: var(--gold);
-      color: #000; font-weight: 800; border-radius: 100px;
-      text-transform: uppercase; transition: 0.3s; margin-top: 30px;
+    .service-name {
+      font-family: "Outfit", sans-serif;
+      font-size: clamp(2rem, 4vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
     }
-    .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(214,164,58,0.3); background: var(--white); }
 
-    /* FEATURED VIDEOS */
-    .video-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 40px;
+    /* FEATURED MOMENTUM GRID - UPDATED */
+    .events-media-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 videos in one row */
+      gap: 16px;
+      margin-top: 40px;
+      align-items: stretch;
     }
-    .video-item { border-radius: 15px; overflow: hidden; aspect-ratio: 9/16; border: 1px solid var(--border); }
-    .video-item video { width: 100%; height: 100%; object-fit: cover; }
 
-    @media (max-width: 900px) {
-      .event-gallery, .video-grid { grid-template-columns: 1fr; }
-      .event-card-innovative { height: 400px; transform: none; }
-      .event-card-innovative img { transform: none; }
+    .media-card {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      aspect-ratio: 9/16; /* Mobile/Reel style aspect ratio */
+    }
+
+    .media-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Primary Gold Button */
+    .btn-event {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 700;
+      border-radius: 999px;
+      margin-top: 24px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+    }
+
+    .btn-event:hover {
+      background: var(--gold-soft);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(214, 164, 58, 0.2);
+    }
+
+    footer {
+      padding: 34px 0 50px;
+      color: var(--faint);
+      font-size: 0.94rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .events-media-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 for tablets */
+      }
+    }
+
+    @media (max-width: 640px) {
+      .events-media-grid {
+        grid-template-columns: 1fr; /* Stacked for mobile */
+      }
+      .services-video {
+        width: 100%;
+        opacity: 0.2;
+      }
     }
   </style>
 </head>
 <body>
-
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="./index.html">
-        <img src="./assets/SM-Logo.png" alt="SM Productions" />
+        <img src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
         <span class="brand-text">SM Productions LLC</span>
       </a>
+
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#upcoming">Upcoming</a>
+        <a href="#events">Events</a>
+        <a href="#opportunities">Opportunities</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -245,17 +430,22 @@
     <section class="hero-manifesto" id="about">
       <div class="manifesto-wrap">
         <h1 class="manifesto-text">
-          We don’t throw <span class="gold">events.</span><br>
-          We create <span class="gold">moments.</span>
+          <span class="line">We don’t throw</span>
+          <span class="line"><span class="zoom-word">events.</span></span>
+          <span class="line">We create</span>
+          <span class="line"><span class="zoom-word delay">moments.</span></span>
         </h1>
+        <p class="manifesto-sub">Fashion Shows • Live Productions • Brand Activations</p>
       </div>
     </section>
 
-    <div class="ticker-wrap">
+    <div class="ticker-wrap" aria-hidden="true">
       <div class="ticker-track">
         <div class="ticker-content">
-          <span>MIAMI SWIM WEEK 2026</span> • <span>FASHION ENERGY</span> • <span>LIVE PRODUCTIONS</span> • <span>MODELS</span>
-          <span>MIAMI SWIM WEEK 2026</span> • <span>FASHION ENERGY</span> • <span>LIVE PRODUCTIONS</span> • <span>MODELS</span>
+          <span>MODA</span> <span>FASHION</span> <span>MODEL</span> <span>FLORIDA</span> <span>HOT</span> <span>GLAMOUR</span>
+        </div>
+        <div class="ticker-track">
+          <span>MODA</span> <span>FASHION</span> <span>MODEL</span> <span>FLORIDA</span> <span>HOT</span> <span>GLAMOUR</span>
         </div>
       </div>
     </div>
@@ -267,7 +457,7 @@
 
       <div class="container">
         <div class="services-intro">
-          <span class="eyebrow">Expertise</span>
+          <span class="eyebrow">What we do</span>
           <h2 class="display-wide services-title">
             <span>BUILT</span> <span>FOR</span> <span>BRANDS,</span> <span>MODELS</span> <span>AND</span> <span>PHOTOGRAPHERS.</span>
           </h2>
@@ -276,70 +466,62 @@
         <div class="services-links">
           <a class="service-link" href="./brands-coming-soon.html">
             <span class="service-name">Brands</span>
-            <span class="muted">Visibility & Exposure</span>
+            <span class="service-desc">For sponsors and brands who want visibility and event presence.</span>
           </a>
           <a class="service-link" href="https://wkf.ms/3VYxr8B" target="_blank">
             <span class="service-name">Models</span>
-            <span class="muted">Casting & Runway</span>
+            <span class="service-desc">Apply to model and be considered for upcoming productions.</span>
           </a>
           <a class="service-link" href="https://wkf.ms/4nZF3nK" target="_blank">
-            <span class="service-name">Media</span>
-            <span class="muted">Capture the Moment</span>
+            <span class="service-name">Photographers</span>
+            <span class="service-desc">Media access and event shooting opportunities.</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="upcoming-spotlight" id="upcoming">
+    <section class="section" id="events">
       <div class="container">
-        <span class="eyebrow">The Next Stage</span>
-        <h2 class="display-wide">UPCOMING <span class="gold">EXPERIENCES.</span></h2>
-        
-        <div class="event-gallery">
-          <div class="event-card-innovative">
-            <img src="./assets/imagen 5.jpeg" alt="Upcoming Event 1">
-            <div class="event-overlay">
-              <span class="event-badge">New Production</span>
-              <h3 class="display-wide" style="font-size: 2rem;">Bikini Contest Momentum</h3>
-              <p class="muted">Florida's most exclusive runway experiences.</p>
-            </div>
-          </div>
+        <span class="eyebrow">Featured momentum</span>
+        <h2 class="display-wide">FROM FORT MYERS TO <span class="gold">SWIM WEEK MIAMI.</span></h2>
+        <p class="muted" style="max-width: 60ch; margin-top: 20px;">
+          Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum in Florida.
+        </p>
 
-          <div class="event-card-innovative">
-            <img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="Upcoming Event 2">
-            <div class="event-overlay">
-              <span class="event-badge">Swim Week</span>
-              <h3 class="display-wide" style="font-size: 2rem;">Fantasy Fashion Show</h3>
-              <p class="muted">Rooftop Live - The pinnacle of fashion energy.</p>
-            </div>
-          </div>
-        </div>
+        <a href="https://www.eventbrite.com/e/fantasy-fashion-show-swim-week-2026-at-rooftop-live-tickets-1987167339004?aff=oddtdtcreator" 
+           target="_blank" class="btn-event">
+          Conoce más de nuestros futuros eventos
+        </a>
 
-        <div style="text-align: center; margin-top: 40px;">
-          <a href="https://www.eventbrite.com/e/fantasy-fashion-show-swim-week-2026-at-rooftop-live-tickets-1987167339004?aff=oddtdtcreator" 
-             target="_blank" class="btn-main">
-            Explore our upcoming events
-          </a>
+        <div class="events-media-grid">
+          <article class="media-card">
+            <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
+          </article>
+          <article class="media-card">
+            <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
+          </article>
+          <article class="media-card">
+            <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
+          </article>
+          <article class="media-card">
+            <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">Momentum</span>
-        <h2 class="display-wide">REELS & <span class="gold">ENERGY.</span></h2>
-        <div class="video-grid">
-          <div class="video-item"><video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video></div>
-          <div class="video-item"><video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video></div>
-        </div>
+    <section class="section" id="contact">
+      <div class="container" style="text-align: center;">
+        <h2 class="display-wide" style="margin: 0 auto 24px;">LET’S BUILD THE NEXT <span class="gold">MOMENT.</span></h2>
+        <a class="btn-event" href="https://www.instagram.com/smproductionsllc_/" target="_blank">Contact on Instagram</a>
       </div>
     </section>
   </main>
 
-  <footer style="padding: 60px 0; text-align: center; border-top: 1px solid var(--border);">
-    <p class="faint">© 2026 SM Productions LLC • South Florida Fashion Excellence</p>
+  <footer>
+    <div class="container">
+      SM Productions LLC • <span class="gold">Fashion Shows</span> • South FL
+    </div>
   </footer>
 </body>
 </html>
