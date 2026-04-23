@@ -31,38 +31,13 @@
       --max: 1240px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img, video { display: block; max-width: 100%; }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img,
-    video {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
 
     .site-header {
       position: sticky;
@@ -83,38 +58,13 @@
       gap: 20px;
     }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-    }
+    .brand { display: inline-flex; align-items: center; gap: 14px; }
+    .brand img { width: auto; height: 54px; object-fit: contain; }
+    .brand-text { font-family: "Outfit", sans-serif; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; color: var(--faint); }
+    .nav { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav a { color: rgba(244,239,228,0.84); font-size: 0.96rem; }
 
-    .brand img {
-      width: auto;
-      height: 54px;
-      object-fit: contain;
-    }
-
-    .brand-text {
-      font-family: "Outfit", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.82rem;
-      color: var(--faint);
-    }
-
-    .nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      color: rgba(244,239,228,0.84);
-      font-size: 0.96rem;
-    }
-
+    /* HERO MANIFESTO - EFECTOS RESTAURADOS */
     .hero-manifesto {
       position: relative;
       min-height: calc(100vh - 76px);
@@ -124,18 +74,13 @@
       overflow: hidden;
       isolation: isolate;
     }
-
     .hero-manifesto::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image: linear-gradient(rgba(15,15,15,0.55), rgba(15,15,15,0.7)), url("./assets/miami noche.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      z-index: -2;
+      background-size: cover; background-position: center; z-index: -2;
     }
-
     .hero-manifesto::after {
       content: "";
       position: absolute;
@@ -143,13 +88,11 @@
       background: linear-gradient(180deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0.52) 100%);
       z-index: -1;
     }
-
     .manifesto-wrap {
       width: min(calc(100% - 32px), 1180px);
       margin: 0 auto;
       text-align: center;
     }
-
     .manifesto-text {
       font-family: "Outfit", sans-serif;
       font-size: clamp(2.8rem, 7vw, 7rem);
@@ -160,11 +103,22 @@
       margin: 0 auto;
       color: var(--white);
     }
+    .gold { color: var(--gold); }
 
-    .gold {
+    /* Efecto ZoomPulse Restaurado */
+    .zoom-word {
+      display: inline-block;
       color: var(--gold);
+      animation: zoomPulse 3.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+    .zoom-word.delay { animation-delay: 0.6s; }
+    @keyframes zoomPulse {
+      0%, 100% { transform: scale(1); text-shadow: 0 0 0 rgba(214,164,58,0); }
+      50% { transform: scale(1.08); text-shadow: 0 0 18px rgba(214,164,58,0.18); }
     }
 
+    /* TICKER - AHORA POR ENCIMA DEL VIDEO */
     .ticker-wrap {
       width: 100%;
       overflow: hidden;
@@ -173,31 +127,16 @@
       border-top: 1px solid rgba(255,255,255,0.08);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.03);
+      position: relative; /* Necesario para z-index */
+      z-index: 10; /* Por encima de la services-section */
     }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: tickerMove 25s linear infinite;
-    }
-
+    .ticker-track { display: flex; width: max-content; animation: tickerMove 25s linear infinite; }
     .ticker-content {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      padding: 22px 26px;
-      font-family: "Outfit", sans-serif;
-      font-size: clamp(1.15rem, 1.8vw, 1.75rem);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--gold);
-      font-weight: 700;
+      display: flex; align-items: center; gap: 40px; padding: 22px 26px;
+      font-family: "Outfit", sans-serif; font-size: clamp(1.15rem, 1.8vw, 1.75rem);
+      text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); font-weight: 700;
     }
-
-    @keyframes tickerMove {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
+    @keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     .display-wide {
       font-family: "Outfit", sans-serif;
@@ -207,32 +146,30 @@
       max-width: 15ch;
     }
 
-    /* SERVICES SECTION - FUE EL ÚNICO CAMBIO SOLICITADO */
+    /* SERVICES SECTION - FONDO MANTENIDO, TEXTOS RESTAURADOS */
     .services-section {
       position: relative;
       overflow: hidden;
       margin-top: -76px; /* Sube para cubrir el área del header */
       padding-top: 120px;
       padding-bottom: 80px;
+      z-index: 1; /* Por debajo del ticker */
     }
 
-    /* Degradado difuminado para el fondo: Más suave hacia arriba, abajo e izquierda */
+    /* Gradientes de fondo mantenidos (sin cortes) */
     .services-section::before {
       content: "";
       position: absolute;
       inset: 0;
-      /* Gradientes radiales y lineales combinados para un difuminado perfecto sin cortes */
       background: 
-        /* Gradiente suave hacia la izquierda */
         linear-gradient(90deg, var(--bg) 0%, rgba(21, 21, 21, 0.8) 35%, transparent 100%),
-        /* Gradiente suave hacia arriba */
         linear-gradient(180deg, var(--bg) 0%, transparent 15%, transparent 85%, var(--bg) 100%),
-        /* Difuminado suave en el borde inferior */
         radial-gradient(circle at bottom, var(--bg) 0%, transparent 40%);
       z-index: 1;
       pointer-events: none;
     }
 
+    /* Video no editado */
     .services-video {
       position: absolute;
       top: 0;
@@ -240,24 +177,13 @@
       width: 65%;
       height: 100%;
       object-fit: cover;
-      /* Blur aumentado para difuminar más el video de fondo */
       filter: grayscale(1) brightness(0.4) blur(15px);
       z-index: -1;
     }
 
-    .services-intro {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Efectos de texto no tocados */
-    .services-title span {
-      transition: color 0.3s ease;
-    }
-
-    .services-title span:hover {
-      color: var(--gold);
-    }
+    .services-intro { position: relative; z-index: 2; }
+    .services-title span { transition: color 0.3s ease; }
+    .services-title span:hover { color: var(--gold); }
 
     .services-links {
       margin-top: 42px;
@@ -269,41 +195,29 @@
     }
 
     .service-link {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      z-index: 2;
+      display: flex; justify-content: space-between; align-items: center; gap: 18px;
+      padding: 24px 28px; border-bottom: 1px solid var(--border);
+      position: relative; z-index: 2;
       transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
+    .service-link:hover { color: var(--gold); border-color: rgba(214,164,58,0.45); transform: translateX(6px); }
 
-    .service-link:hover {
-      color: var(--gold);
-      border-color: rgba(214,164,58,0.45);
-      transform: translateX(6px);
-    }
-
+    /* Tamaños de texto restaurados a su original */
     .service-name {
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2rem, 4vw, 4.4rem);
+      font-size: clamp(2rem, 4vw, 4.4rem); /* Tamaño original */
       line-height: 0.95;
       letter-spacing: -0.04em;
       text-transform: uppercase;
     }
 
-    .faint {
+    .faint-desc {
       color: rgba(244,239,228,0.72);
-      font-size: 0.98rem;
+      font-size: 0.98rem; /* Tamaño original */
     }
 
     @media (max-width: 900px) {
-      .services-video {
-        width: 100%;
-        opacity: 0.2;
-      }
+      .services-video { width: 100%; opacity: 0.2; }
     }
   </style>
 </head>
@@ -327,7 +241,10 @@
   <main>
     <section class="hero-manifesto" id="about">
       <div class="manifesto-wrap">
-        <h1 class="manifesto-text">We don’t throw <span class="gold">events.</span> We create <span class="gold">moments.</span></h1>
+        <h1 class="manifesto-text">
+          We don’t throw <span class="zoom-word">events.</span><br>
+          We create <span class="zoom-word delay">moments.</span>
+        </h1>
       </div>
     </section>
 
@@ -357,16 +274,16 @@
         </div>
         <div class="services-links">
           <a class="service-link" href="./brands-coming-soon.html">
-            <span>Brands</span> 
-            <span class="faint">For sponsors and brands who want visibility and event presence.</span>
+            <span class="service-name">Brands</span> 
+            <span class="faint-desc">For sponsors and brands who want visibility and event presence.</span>
           </a>
           <a class="service-link" href="https://wkf.ms/3VYxr8B" target="_blank">
-            <span>Models</span> 
-            <span class="faint">Apply to model and be considered for upcoming productions.</span>
+            <span class="service-name">Models</span> 
+            <span class="faint-desc">Apply to model and be considered for upcoming productions.</span>
           </a>
           <a class="service-link" href="https://wkf.ms/4nZF3nK" target="_blank">
-            <span>Photographers</span> 
-            <span class="faint">Media access and event shooting opportunities.</span>
+            <span class="service-name">Photographers</span> 
+            <span class="faint-desc">Media access and event shooting opportunities.</span>
           </a>
         </div>
       </div>
