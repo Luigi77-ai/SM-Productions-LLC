@@ -6,7 +6,7 @@
   <title>SM PRODUCTIONS | Hero</title>
   <meta
     name="description"
-    content="SM Productions intro hero with video background and links to the main landing page."
+    content="SM Productions intro hero with video background and links to the main page."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,8 @@
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       width: 100%;
       min-height: 100%;
     }
@@ -38,7 +39,7 @@
       text-decoration: none;
     }
 
-    .hero-screen {
+    .hero-page {
       position: relative;
       min-height: 100vh;
       display: flex;
@@ -49,7 +50,7 @@
       overflow: hidden;
     }
 
-    .hero-screen video {
+    .hero-page video {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -58,12 +59,12 @@
       z-index: -3;
     }
 
-    .hero-screen::before {
+    .hero-page::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(0,0,0,0.46) 0%, rgba(3,8,18,0.78) 100%),
+        linear-gradient(180deg, rgba(0,0,0,0.42) 0%, rgba(3,8,18,0.82) 100%),
         rgba(3, 8, 18, 0.18);
       z-index: -2;
     }
@@ -74,7 +75,7 @@
 
     .hero-title {
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2.3rem, 6vw, 4.9rem);
+      font-size: clamp(2.2rem, 6vw, 4.6rem);
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -95,6 +96,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 14px;
+      margin-top: 10px;
     }
 
     .hero-nav a {
@@ -119,7 +121,7 @@
         overflow: auto;
       }
 
-      .hero-screen {
+      .hero-page {
         padding: 28px 18px;
       }
 
@@ -134,7 +136,7 @@
   </style>
 </head>
 <body>
-  <section class="hero-screen">
+  <section class="hero-page">
     <video autoplay muted loop playsinline>
       <source src="./assets/Inicialscreen.mp4" type="video/mp4" />
     </video>
