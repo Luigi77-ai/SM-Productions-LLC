@@ -48,7 +48,8 @@
       text-decoration: none;
     }
 
-    img {
+    img,
+    video {
       display: block;
       max-width: 100%;
     }
@@ -254,6 +255,49 @@
       color: rgba(255,255,255,0.9);
     }
 
+    .events-media-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      margin-top: 34px;
+      align-items: stretch;
+    }
+
+    .events-media-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .media-card {
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .media-card video,
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .media-card.large {
+      min-height: 540px;
+    }
+
+    .media-card.small {
+      min-height: 258px;
+    }
+
+    .media-caption {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: rgba(245,247,251,0.72);
+      font-size: 0.95rem;
+    }
+
     .manifesto {
       display: grid;
       gap: 8px;
@@ -330,12 +374,18 @@
       .two-col,
       .services-grid,
       .events-grid,
-      .quote-grid {
+      .quote-grid,
+      .events-media-grid {
         grid-template-columns: 1fr;
       }
 
       .nav {
         display: none;
+      }
+
+      .media-card.large,
+      .media-card.small {
+        min-height: auto;
       }
     }
   </style>
@@ -361,7 +411,7 @@
           <span class="eyebrow">SM Productions LLC</span>
           <h1 class="display">WE DON’T THROW EVENTS. WE CREATE MOMENTS.</h1>
           <p class="lead">
-            SM Productions LLC builds fashion shows, live productions and brand activations that bring together models, designers, media teams, sponsors and audiences across South Florida. [page:1]
+            SM Productions LLC builds fashion shows, live productions and brand activations that bring together models, designers, media teams, sponsors and audiences across South Florida.
           </p>
         </div>
 
@@ -475,6 +525,48 @@
             <div>Runway collaborations with designers and media teams. [page:1]</div>
             <div>Production visibility across South Florida venues. [page:1]</div>
           </div>
+
+          <div class="events-media-grid">
+            <article class="media-card large">
+              <video autoplay muted loop playsinline controls>
+                <source src="./assets/video (2).mp4" type="video/mp4" />
+              </video>
+              <div class="media-caption">
+                Event footage showcasing runway atmosphere, live production energy and audience presence. [page:61]
+              </div>
+            </article>
+
+            <div class="events-media-stack">
+              <article class="media-card small">
+                <video autoplay muted loop playsinline controls>
+                  <source src="./assets/video (3).mp4" type="video/mp4" />
+                </video>
+                <div class="media-caption">
+                  Additional event coverage for social, visual momentum and production proof. [page:61]
+                </div>
+              </article>
+
+              <article class="media-card small">
+                <img
+                  src="./assets/imagen 5.jpeg"
+                  alt="SM Productions event visual"
+                />
+                <div class="media-caption">
+                  Upcoming-event visual used to support the production story and build anticipation. [page:61]
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <article class="media-card" style="margin-top: 24px;">
+            <img
+              src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png"
+              alt="SM Productions promotional visual"
+            />
+            <div class="media-caption">
+              Promotional artwork supporting the visual identity of the event campaign. [page:61]
+            </div>
+          </article>
         </div>
 
         <div class="panel">
