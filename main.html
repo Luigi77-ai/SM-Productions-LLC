@@ -283,14 +283,18 @@
 
         .about-brand-video {
             position: absolute;
-            inset: -16% -20% -26% -20%; /* más grande para cubrir todo */
-            width: 140%;
-            height: 150%;
+            top: -24%;
+            right: -28%;
+            bottom: -30%;
+            left: -16%;
+            width: 148%;
+            height: 162%;
             object-fit: cover;
             object-position: center;
-            filter: grayscale(1) contrast(1.06) brightness(0.6);
-            z-index: -2;
+            filter: grayscale(1) contrast(1.04) brightness(0.56);
+            z-index: -3;
             pointer-events: none;
+            transform: scale(1.08);
         }
 
         .about-brand-section::before {
@@ -298,20 +302,42 @@
             position: absolute;
             inset: 0;
             background:
-                /* MUCHÍSIMO más oscurecido/difuminado arriba y abajo */
                 linear-gradient(180deg,
-                    rgba(21,21,21,0.9) 0%,
-                    rgba(21,21,21,0.6) 22%,
-                    rgba(21,21,21,0.35) 46%,
-                    rgba(21,21,21,0.6) 78%,
+                    rgba(21,21,21,0.98) 0%,
+                    rgba(21,21,21,0.88) 14%,
+                    rgba(21,21,21,0.66) 30%,
+                    rgba(21,21,21,0.36) 48%,
+                    rgba(21,21,21,0.40) 68%,
+                    rgba(21,21,21,0.72) 86%,
                     rgba(21,21,21,0.98) 100%),
-                /* MUCHÍSIMO más oscuro a la derecha e izquierda para tapar cualquier borde */
                 linear-gradient(90deg,
-                    rgba(21,21,21,1) 0%,
-                    rgba(21,21,21,0.7) 20%,
-                    rgba(21,21,21,0.32) 50%,
-                    rgba(21,21,21,0.72) 82%,
+                    rgba(21,21,21,0.98) 0%,
+                    rgba(21,21,21,0.78) 18%,
+                    rgba(21,21,21,0.40) 42%,
+                    rgba(21,21,21,0.52) 60%,
+                    rgba(21,21,21,0.82) 82%,
                     rgba(21,21,21,1) 100%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .about-brand-section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top right,
+                    rgba(21,21,21,0.98) 0%,
+                    rgba(21,21,21,0.92) 16%,
+                    rgba(21,21,21,0.72) 34%,
+                    rgba(21,21,21,0.24) 58%,
+                    rgba(21,21,21,0) 72%),
+                linear-gradient(180deg,
+                    rgba(21,21,21,0.78) 0%,
+                    rgba(21,21,21,0.28) 22%,
+                    rgba(21,21,21,0) 38%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             z-index: -1;
             pointer-events: none;
         }
@@ -383,8 +409,6 @@
             color: var(--muted);
             font-size: 0.95rem;
         }
-
-        /* SERVICES (OPPORTUNITIES) */
 
         .services-section {
             position: relative;
@@ -479,8 +503,6 @@
             letter-spacing: -0.04em;
             text-transform: uppercase;
         }
-
-        /* EVENTS */
 
         .events-showcase {
             margin-top: 34px;
@@ -641,11 +663,14 @@
             }
 
             .about-brand-video {
-                width: 150%;
-                left: -25%;
-                top: -14%;
-                height: 150%;
-                opacity: 0.4;
+                top: -26%;
+                right: -34%;
+                bottom: -34%;
+                left: -22%;
+                width: 165%;
+                height: 178%;
+                transform: scale(1.12);
+                opacity: 0.42;
             }
 
             .ticker-content {
