@@ -12,6 +12,7 @@
         :root {
             --bg: #151515;
             --surface: rgba(255,255,255,0.04);
+            --surface-strong: rgba(255,255,255,0.06);
             --border: rgba(255,255,255,0.1);
             --text: #f4efe4;
             --white: #ffffff;
@@ -52,6 +53,12 @@
             max-width: 100%;
         }
 
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
         .container {
             width: min(calc(100% - 32px), var(--max));
             margin: 0 auto;
@@ -79,21 +86,12 @@
         .brand {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
         }
 
         .brand img {
             width: auto;
             height: 54px;
             object-fit: contain;
-        }
-
-        .brand-text {
-            font-family: "Outfit", sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            font-size: 0.82rem;
-            color: var(--faint);
         }
 
         .nav {
@@ -272,8 +270,6 @@
             letter-spacing: -0.05em;
             max-width: 15ch;
         }
-
-        /* ABOUT BRAND */
 
         .about-brand-section {
             position: relative;
@@ -605,26 +601,137 @@
             object-fit: cover;
         }
 
-        .btn-event {
+        .btn-event,
+        .btn-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 16px 32px;
-            background: var(--gold);
-            color: #111;
-            font-weight: 700;
             border-radius: 999px;
             margin-top: 24px;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .btn-event {
+            background: var(--gold);
+            color: #111;
         }
 
         .btn-event:hover {
             background: var(--gold-soft);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(214, 164, 58, 0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.04);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.14);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.24);
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .contact-form-section {
+            display: none;
+            padding-top: 28px;
+        }
+
+        .contact-form-section.active {
+            display: block;
+        }
+
+        .contact-form-wrap {
+            width: min(100%, 760px);
+            margin: 0 auto;
+            padding: 28px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--surface-strong);
+            backdrop-filter: blur(10px);
+            text-align: left;
+        }
+
+        .contact-form-wrap h3 {
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .contact-form-wrap p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 16px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .form-field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .form-field label {
+            font-size: 0.95rem;
+            color: var(--white);
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.04);
+            color: var(--white);
+            padding: 14px 16px;
+            outline: none;
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: rgba(244,239,228,0.45);
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: rgba(214,164,58,0.65);
+            box-shadow: 0 0 0 3px rgba(214,164,58,0.14);
+        }
+
+        .form-field textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        .form-note {
+            color: var(--faint);
+            font-size: 0.9rem;
         }
 
         footer {
@@ -651,6 +758,10 @@
 
         @media (max-width: 640px) {
             .events-media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -687,15 +798,18 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            .contact-form-wrap {
+                padding: 22px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="site-header">
         <div class="header-inner">
-            <a class="brand" href="./index.html">
+            <a class="brand" href="./index.html" aria-label="Go to home">
                 <img src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
-                <span class="brand-text">SM Productions LLC</span>
             </a>
             <nav class="nav">
                 <a href="#about">About</a>
@@ -847,7 +961,7 @@
                     Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum in Florida.
                 </p>
                 <a href="https://www.eventbrite.com/e/fantasy-fashion-show-swim-week-2026-at-rooftop-live-tickets-1987167339004?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn-event">
-                    EVENTS
+                    Events
                 </a>
 
                 <div class="events-showcase">
@@ -892,7 +1006,55 @@
         <section class="section" id="contact">
             <div class="container" style="text-align: center;">
                 <h2 class="display-wide" style="margin: 0 auto 24px;">LET’S BUILD THE NEXT <span class="gold">MOMENT.</span></h2>
-                <a class="btn-event" href="https://www.instagram.com/smproductionsllc_/" target="_blank" rel="noopener noreferrer">Contact on Instagram</a>
+
+                <div class="contact-actions">
+                    <button class="btn-event" type="button" id="openContactForm">Contact</button>
+                    <a class="btn-secondary" href="https://www.instagram.com/smproductionsllc_/" target="_blank" rel="noopener noreferrer">Follow Us on Instagram</a>
+                </div>
+
+                <div class="contact-form-section" id="contactFormSection">
+                    <div class="contact-form-wrap">
+                        <h3>Contact Form</h3>
+                        <p>Fill out the form below and your email app will open a message addressed to smproductions2026@gmail.com.</p>
+
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" placeholder="Your name" required />
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required />
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" placeholder="How can we help?" value="SM Productions Inquiry" required />
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Tell us about your inquiry..." required></textarea>
+                            </div>
+
+                            <div class="contact-actions" style="justify-content: flex-start; margin-top: 4px;">
+                                <button class="btn-event" type="submit">Send Email</button>
+                            </div>
+
+                            <p class="form-note">This simple form uses your device’s default email app to compose the message.</p>
+                        </form>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -902,5 +1064,44 @@
             SM Productions LLC • <span class="gold">Fashion Shows</span> • South FL
         </div>
     </footer>
+
+    <script>
+        const openContactFormBtn = document.getElementById("openContactForm");
+        const contactFormSection = document.getElementById("contactFormSection");
+        const contactForm = document.getElementById("contactForm");
+
+        openContactFormBtn.addEventListener("click", function () {
+            contactFormSection.classList.toggle("active");
+            if (contactFormSection.classList.contains("active")) {
+                contactFormSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const body = [
+                "Name: " + name,
+                "Email: " + email,
+                "Phone: " + phone,
+                "",
+                "Message:",
+                message
+            ].join("\n");
+
+            const mailtoUrl =
+                "mailto:smproductions2026@gmail.com" +
+                "?subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+
+            window.location.href = mailtoUrl;
+        });
+    </script>
 </body>
 </html>
