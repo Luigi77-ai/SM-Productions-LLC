@@ -80,15 +80,23 @@
       justify-content: center;
     }
 
+    .hero-logo {
+      width: min(220px, 42vw);
+      height: auto;
+      margin: 0 auto 18px;
+      object-fit: contain;
+    }
+
     .hero-title {
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2.8rem, 7vw, 6.8rem);
+      font-size: clamp(2.2rem, 5vw, 5rem);
       font-weight: 600;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       line-height: 1;
       margin-bottom: 26px;
       text-align: center;
+      white-space: nowrap;
     }
 
     .hero-text {
@@ -178,7 +186,9 @@
 
     @media (max-width: 900px) {
       .hero-title {
-        letter-spacing: 0.12em;
+        font-size: clamp(2rem, 7vw, 3.8rem);
+        letter-spacing: 0.08em;
+        white-space: normal;
       }
 
       .hero-nav {
@@ -195,9 +205,16 @@
         padding: 28px 18px;
       }
 
+      .hero-logo {
+        width: min(180px, 48vw);
+        margin-bottom: 14px;
+      }
+
       .hero-title {
-        font-size: clamp(2rem, 12vw, 3.5rem);
+        font-size: clamp(1.9rem, 10vw, 3.1rem);
         margin-bottom: 20px;
+        letter-spacing: 0.06em;
+        white-space: normal;
       }
 
       .hero-text {
@@ -231,6 +248,8 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
+      <img class="hero-logo" src="./assets/SM-Logo.png" alt="SM Productions logo" />
+
       <h1 class="hero-title">SM PRODUCTIONS</h1>
 
       <p class="hero-text">
