@@ -508,6 +508,11 @@
             align-items: stretch;
         }
 
+        .event-link-card {
+            display: block;
+            color: inherit;
+        }
+
         .event-feature,
         .event-stack-card {
             position: relative;
@@ -516,6 +521,14 @@
             border: 1px solid rgba(255,255,255,0.09);
             background: rgba(255,255,255,0.03);
             min-height: 420px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-link-card:hover .event-feature,
+        .event-link-card:hover .event-stack-card {
+            transform: translateY(-4px);
+            border-color: rgba(214,164,58,0.38);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.2);
         }
 
         .event-feature img,
@@ -958,46 +971,58 @@
                 <span class="eyebrow">Featured momentum</span>
                 <h2 class="display-wide">FROM FORT MYERS TO <span class="gold">SWIM WEEK MIAMI.</span></h2>
                 <p class="muted" style="max-width: 60ch; margin-top: 20px;">
-                    Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum in Florida.
+                    Recent SM Productions collaborations and mentions connect the brand to spring fashion events, bikini contests, runway productions and Swim Week momentum.
                 </p>
-                <a href="https://www.eventbrite.com/e/fantasy-fashion-show-swim-week-2026-at-rooftop-live-tickets-1987167339004?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn-event">
+                <a href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn-event">
                     Events
                 </a>
 
                 <div class="events-showcase">
-                    <article class="event-feature">
-                        <img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="Upcoming featured SM Productions event visual" />
-                        <div class="event-overlay">
-                            <span class="event-tag">Upcoming spotlight</span>
-                            <h3>Fantasy Fashion Show • Swim Week 2026</h3>
-                            <p>This next-wave presentation connects the brand with runway visibility, swimwear energy and destination fashion audiences.</p>
-                        </div>
-                    </article>
-
-                    <div class="event-stack">
-                        <article class="event-stack-card">
-                            <img src="./assets/imagen 5.jpeg" alt="Upcoming SM Productions event campaign art" />
+                    <a class="event-link-card" href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" aria-label="Open Fantasy Fashion Show Eventbrite page">
+                        <article class="event-feature">
+                            <img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="Upcoming featured SM Productions event visual" />
                             <div class="event-overlay">
-                                <span class="event-tag">Next event energy</span>
-                                <h3>South Florida casting and live production momentum</h3>
-                                <p>Upcoming events are designed to feel like both a public showpiece and a creative entry point for models, media and collaborators.</p>
+                                <span class="event-tag">Upcoming spotlight</span>
+                                <h3>Fantasy Fashion Show • Swim Week 2026</h3>
+                                <p>This next-wave presentation connects the brand with runway visibility, swimwear energy and destination fashion audiences.</p>
                             </div>
                         </article>
+                    </a>
+
+                    <div class="event-stack">
+                        <a class="event-link-card" href="https://www.eventbrite.com/e/1987167339004?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" aria-label="Open South Florida casting and live production momentum event page">
+                            <article class="event-stack-card">
+                                <img src="./assets/imagen 5.jpeg" alt="Upcoming SM Productions event campaign art" />
+                                <div class="event-overlay">
+                                    <span class="event-tag">Next event energy</span>
+                                    <h3>South Florida casting and live production momentum</h3>
+                                    <p>Upcoming events are designed to feel like both a public showpiece and a creative entry point for models, media and collaborators.</p>
+                                </div>
+                            </article>
+                        </a>
                     </div>
                 </div>
 
                 <div class="events-media-grid">
                     <article class="media-card">
-                        <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
+                        <video autoplay muted loop playsinline>
+                            <source src="./assets/video (2).mp4" type="video/mp4">
+                        </video>
                     </article>
                     <article class="media-card">
-                        <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
+                        <video autoplay muted loop playsinline>
+                            <source src="./assets/video (3).mp4" type="video/mp4">
+                        </video>
                     </article>
                     <article class="media-card">
-                        <video autoplay muted loop playsinline><source src="./assets/video (2).mp4" type="video/mp4"></video>
+                        <video autoplay muted loop playsinline>
+                            <source src="./assets/👙Swim Week Miami Will Be Unforgettable, May 28th & May 30th We Are Presenting Two Fashion Shows.mp4" type="video/mp4">
+                        </video>
                     </article>
                     <article class="media-card">
-                        <video autoplay muted loop playsinline><source src="./assets/video (3).mp4" type="video/mp4"></video>
+                        <video autoplay muted loop playsinline>
+                            <source src="./assets/Your front row at the Fantasy Spring Spring Break Fashion ShowFeaturing- @mcgriddys_swimwear spo.mp4" type="video/mp4">
+                        </video>
                     </article>
                 </div>
             </div>
