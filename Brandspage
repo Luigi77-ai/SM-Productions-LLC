@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SM Productions LLC | Brand Opportunities</title>
+    <meta name="description" content="Brand partnership and sponsorship opportunities with SM Productions LLC in South Florida fashion and live events." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #151515;
+            --surface: rgba(255,255,255,0.04);
+            --surface-strong: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.1);
+            --text: #f4efe4;
+            --white: #ffffff;
+            --muted: rgba(244,239,228,0.76);
+            --faint: rgba(244,239,228,0.44);
+            --gold: #d6a43a;
+            --gold-soft: #e1b85a;
+            --gold-light: #f0cf78;
+            --max: 1240px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .sidebar {
+            width: 280px;
+            padding: 28px 24px;
+            border-right: 1px solid var(--border);
+            background: radial-gradient(circle at top left, rgba(214,164,58,0.14), transparent 58%);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .brand-logo img {
+            height: 46px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .sidebar h1 {
+            font-family: "Outfit", sans-serif;
+            font-size: 1.45rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 10px;
+        }
+
+        .sidebar p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(214,164,58,0.6);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .sidebar-nav a {
+            font-size: 0.92rem;
+            color: var(--muted);
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--gold-light);
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            font-size: 0.8rem;
+            color: var(--faint);
+        }
+
+        .content {
+            flex: 1;
+            padding: 32px 32px 32px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .content-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 18px;
+        }
+
+        .content-title {
+            max-width: 560px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        .display-title {
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+
+        .display-title span {
+            color: var(--gold);
+        }
+
+        .content-sub {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 18px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #111;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-soft);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(214,164,58,0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--muted);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold-light);
+            color: var(--gold-light);
+        }
+
+        .preview-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .pdf-wrapper {
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            overflow: hidden;
+            position: relative;
+            min-height: 420px;
+        }
+
+        .pdf-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0,0,0,0.45);
+        }
+
+        .pdf-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .pdf-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .pdf-dot:first-child {
+            background: #ff5f57;
+        }
+
+        .pdf-dot:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .pdf-dot:nth-child(3) {
+            background: #28c840;
+        }
+
+        .pdf-title {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            border: none;
+            background: #111;
+        }
+
+        .pdf-fallback {
+            padding: 20px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .summary-card {
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            padding: 18px 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .summary-card h2 {
+            font-family: "Outfit", sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--gold-light);
+        }
+
+        .summary-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .summary-list {
+            list-style: none;
+            margin-top: 4px;
+        }
+
+        .summary-list li {
+            font-size: 0.9rem;
+            color: var(--muted);
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .summary-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--gold-soft);
+        }
+
+        .section-footer {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-tag {
+            font-size: 0.85rem;
+            color: var(--faint);
+        }
+
+        .contact-tag a {
+            color: var(--gold-light);
+        }
+
+        @media (max-width: 960px) {
+            .page {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 18px;
+            }
+            .content {
+                padding: 20px 18px 24px;
+            }
+            .preview-layout {
+                grid-template-columns: 1fr;
+            }
+            .pdf-wrapper {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <aside class="sidebar">
+            <a class="brand-logo" href="./main.html">
+                <img src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
+            </a>
+            <div>
+                <span class="badge">Brands & Sponsors</span>
+                <h1>Brand Opportunities</h1>
+                <p>
+                    A concise deck for sponsors and partners who want to understand how SM Productions LLC creates visibility inside South Florida fashion and live events.
+                </p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="./main.html">← Back to Main Site</a>
+                <a href="#pdf">View deck</a>
+                <a href="#summary">Highlights</a>
+            </nav>
+            <div class="sidebar-footer">
+                SM Productions LLC • South Florida • Fashion Shows & Live Productions
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="content-header">
+                <div class="content-title">
+                    <span class="eyebrow">For brands & sponsors</span>
+                    <h2 class="display-title">
+                        Visibility moments that feel <span>live</span>, local and on-brand.
+                    </h2>
+                    <p class="content-sub">
+                        Use this deck to review partnership tiers, brand activation ideas and how your sponsorship shows up in SM Productions experiences.
+                    </p>
+                </div>
+                <div class="actions">
+                    <a class="btn-primary" href="./assets/brands-opportunities.pdf" target="_blank" rel="noopener noreferrer">
+                        View PDF
+                    </a>
+                    <a class="btn-secondary" href="./assets/brands-opportunities.pdf" download>
+                        Download PDF
+                    </a>
+                </div>
+            </header>
+
+            <section id="pdf" class="preview-layout">
+                <div class="pdf-wrapper">
+                    <div class="pdf-header">
+                        <div class="pdf-dots">
+                            <span class="pdf-dot"></span>
+                            <span class="pdf-dot"></span>
+                            <span class="pdf-dot"></span>
+                        </div>
+                        <div class="pdf-title">brands-opportunities.pdf</div>
+                    </div>
+                    <!-- Intento de previsualización: algunos navegadores pueden bloquearlo en GitHub Pages;
+                         por eso también dejamos los botones de ver y descargar arriba. -->
+                    <iframe
+                        class="pdf-frame"
+                        src="./assets/brands-opportunities.pdf"
+                        title="SM Productions LLC Brand Opportunities PDF"
+                    ></iframe>
+                </div>
+
+                <aside id="summary" class="summary-card">
+                    <h2>Inside this deck</h2>
+                    <p>
+                        A quick overview of how SM Productions approaches sponsor visibility,
+                        audience connection and live fashion experiences across South Florida.
+                    </p>
+                    <ul class="summary-list">
+                        <li>Positioning of SM Productions LLC as a South Florida fashion platform.</li>
+                        <li>Concepts for brand activations and sponsor presence.</li>
+                        <li>Audience, event energy and moment-based visibility.</li>
+                        <li>Ways to collaborate on upcoming shows and productions.</li>
+                    </ul>
+                    <div class="section-footer">
+                        <span class="contact-tag">
+                            Ready to talk? Email <a href="mailto:smproductions2026@gmail.com">smproductions2026@gmail.com</a>
+                        </span>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
