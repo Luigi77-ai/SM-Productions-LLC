@@ -284,13 +284,6 @@
             background: #111;
         }
 
-        .pdf-fallback {
-            padding: 20px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
         .summary-card {
             border-radius: 18px;
             border: 1px solid var(--border);
@@ -442,8 +435,6 @@
                         </div>
                         <div class="pdf-title">brands-opportunities.pdf</div>
                     </div>
-                    <!-- Intento de previsualización: algunos navegadores pueden bloquearlo en GitHub Pages;
-                         por eso también dejamos los botones de ver y descargar arriba. -->
                     <iframe
                         class="pdf-frame"
                         src="./assets/brands-opportunities.pdf"
