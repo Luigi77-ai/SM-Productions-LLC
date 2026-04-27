@@ -3,46 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brands Opportunities | SM Productions</title>
+  <title>SM PRODUCTIONS</title>
   <meta
     name="description"
-    content="Brand opportunities with SM Productions. View and download the official sponsorship PDF."
+    content="SM Productions hero page with video background and intro navigation."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
-    :root {
-      --bg: #151515;
-      --surface: rgba(255,255,255,0.04);
-      --surface-strong: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.10);
-      --text: #f4efe4;
-      --white: #ffffff;
-      --muted: rgba(244,239,228,0.76);
-      --faint: rgba(244,239,228,0.44);
-      --gold: #d6a43a;
-      --gold-soft: #e1b85a;
-      --gold-light: #f0cf78;
-      --max: 1240px;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
+    html,
+    body {
+      width: 100%;
+      height: 100%;
     }
 
     body {
       font-family: "Inter", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      background: #02050b;
+      color: #ffffff;
+      overflow: hidden;
     }
 
     a {
@@ -50,306 +39,246 @@
       text-decoration: none;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(12px);
-      background: rgba(21, 21, 21, 0.84);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .header-inner {
-      width: min(calc(100% - 32px), 1320px);
-      margin: 0 auto;
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .brand img {
-      width: auto;
-      height: 54px;
-      object-fit: contain;
-    }
-
-    .nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      color: rgba(244,239,228,0.84);
-      font-size: 0.96rem;
-    }
-
-    .hero {
+    .hero-page {
       position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       overflow: hidden;
-      padding: clamp(84px, 12vw, 150px) 0 60px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      background:
-        radial-gradient(circle at top right, rgba(214,164,58,0.12), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      padding: 40px 20px;
+      background: #02050b;
     }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      color: var(--white);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.58) 0%, rgba(1,8,20,0.76) 100%),
+        rgba(0, 8, 20, 0.2);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 1180px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo {
+      width: min(220px, 42vw);
+      height: auto;
+      margin: 0 auto 18px;
+      object-fit: contain;
     }
 
     .hero-title {
       font-family: "Outfit", sans-serif;
-      font-size: clamp(2.9rem, 7vw, 6.2rem);
-      line-height: 0.94;
-      letter-spacing: -0.05em;
+      font-size: clamp(2.2rem, 5vw, 5rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      max-width: 11ch;
-      color: var(--white);
+      line-height: 1;
+      margin-bottom: 26px;
+      text-align: center;
+      white-space: nowrap;
     }
 
-    .hero-title .gold {
-      color: var(--gold);
+    .hero-text {
+      max-width: 760px;
+      margin: 0 auto 34px;
+      font-size: clamp(1rem, 1.3vw, 1.28rem);
+      line-height: 1.65;
+      color: rgba(255,255,255,0.88);
+      text-align: center;
     }
 
-    .hero-copy {
-      margin-top: 20px;
-      max-width: 64ch;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    .hero-actions {
-      margin-top: 28px;
+    .hero-nav {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 28px;
     }
 
-    .btn-primary,
-    .btn-secondary {
+    .hero-nav a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
-      padding: 15px 26px;
+      padding: 14px 22px;
+      min-height: 52px;
       border-radius: 999px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.9rem;
-      transition: all 0.28s ease;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-soft);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(214,164,58,0.24);
-    }
-
-    .btn-secondary {
       border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      color: var(--white);
+      background: rgba(10, 14, 24, 0.32);
+      color: #ffffff;
+      font-size: 1rem;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+      backdrop-filter: blur(8px);
     }
 
-    .btn-secondary:hover {
+    .hero-nav a:hover {
       transform: translateY(-2px);
       background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.24);
+      color: #ffffff;
     }
 
-    .pdf-section {
-      padding: 42px 0 80px;
-    }
-
-    .pdf-frame-wrap {
-      border: 1px solid rgba(255,255,255,0.09);
-      background: rgba(255,255,255,0.03);
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.16);
-    }
-
-    .pdf-toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.025);
-      flex-wrap: wrap;
-    }
-
-    .pdf-toolbar h2 {
-      font-family: "Outfit", sans-serif;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold-light);
-    }
-
-    .pdf-viewer {
-      width: 100%;
-      height: min(78vh, 980px);
-      background: #1b1b1b;
-    }
-
-    .pdf-viewer object {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .pdf-fallback {
-      padding: 28px;
-      color: var(--muted);
-    }
-
-    .back-link {
+    .hero-cta {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
-      color: var(--muted);
-      font-size: 0.96rem;
+      justify-content: center;
+      padding: 16px 28px;
+      min-height: 58px;
+      border-radius: 999px;
+      background: #f0cf78;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      margin-bottom: 26px;
     }
 
-    footer {
-      padding: 34px 0 50px;
-      color: var(--faint);
-      font-size: 0.94rem;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
+      background: #f5dd8a;
+      box-shadow: 0 10px 22px rgba(240,207,120,0.35);
     }
 
-    @media (max-width: 768px) {
-      .pdf-viewer {
-        height: 72vh;
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(10, 14, 24, 0.28);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .instagram-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.28);
+    }
+
+    .instagram-link svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-title {
+        font-size: clamp(2rem, 7vw, 3.8rem);
+        letter-spacing: 0.08em;
+        white-space: normal;
       }
 
-      .hero-title {
-        max-width: 12ch;
+      .hero-nav {
+        max-width: 760px;
       }
     }
 
     @media (max-width: 640px) {
-      .nav {
-        gap: 12px;
+      body {
+        overflow: auto;
       }
 
-      .pdf-toolbar {
-        align-items: flex-start;
+      .hero-page {
+        padding: 28px 18px;
       }
 
-      .pdf-viewer {
-        height: 68vh;
+      .hero-logo {
+        width: min(180px, 48vw);
+        margin-bottom: 14px;
       }
 
-      .btn-primary,
-      .btn-secondary {
+      .hero-title {
+        font-size: clamp(1.9rem, 10vw, 3.1rem);
+        margin-bottom: 20px;
+        letter-spacing: 0.06em;
+        white-space: normal;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+        margin-bottom: 26px;
+      }
+
+      .hero-nav {
+        gap: 10px;
         width: 100%;
+      }
+
+      .hero-nav a,
+      .hero-cta {
+        width: 100%;
+      }
+
+      .instagram-link {
+        width: 56px;
+        height: 56px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="./index.html" aria-label="Go to home">
-        <img src="./assets/SM-Logo.png" alt="SM Productions logo" />
-      </a>
+  <section class="hero-page">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="./assets/video.mp4" type="video/mp4" />
+    </video>
 
-      <nav class="nav">
-        <a href="./main.html#about">About</a>
-        <a href="./main.html#services">Opportunities</a>
-        <a href="./main.html#events">Events</a>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <img class="hero-logo" src="./assets/SM-Logo.png" alt="SM Productions logo" />
+
+      <h1 class="hero-title">SM PRODUCTIONS</h1>
+
+      <p class="hero-text">
+        Cinematic fashion experiences, model casting, and high-impact event production in Hollywood, FL.
+      </p>
+
+      <nav class="hero-nav" aria-label="Hero navigation">
+        <a href="./main.html#events">Upcoming Events</a>
+        <a href="./main.html#services">Model Sign-Up</a>
+        <a href="./main.html#services">Media photographer sign-up</a>
         <a href="./main.html#contact">Contact</a>
       </nav>
+
+      <a class="hero-cta" href="./main.html#about">Let’s go</a>
+
+      <a
+        class="instagram-link"
+        href="https://www.instagram.com/p/DXPU64DgloZ/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Instagram"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <circle cx="17.3" cy="6.7" r="1"></circle>
+        </svg>
+      </a>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container">
-        <a class="back-link" href="./main.html#services">← Back to opportunities</a>
-
-        <span class="eyebrow">SM Productions</span>
-        <h1 class="hero-title">Brands <span class="gold">Opportunities</span></h1>
-
-        <p class="hero-copy">
-          Explore the official sponsorship and collaboration deck for SM Productions. View the PDF directly on this page or download it to review and share with your team.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn-primary" href="./assets/brands-opportunities.pdf" download>
-            Download PDF
-          </a>
-          <a class="btn-secondary" href="./main.html#contact">Contact Us</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="pdf-section">
-      <div class="container">
-        <div class="pdf-frame-wrap">
-          <div class="pdf-toolbar">
-            <h2>Brand Deck Preview</h2>
-            <a class="btn-secondary" href="./assets/brands-opportunities.pdf" download>
-              Download File
-            </a>
-          </div>
-
-          <div class="pdf-viewer">
-            <object data="./assets/brands-opportunities.pdf" type="application/pdf">
-              <div class="pdf-fallback">
-                <p>Your browser could not display the PDF preview.</p>
-                <p style="margin-top: 18px;">
-                  <a class="btn-primary" href="./assets/brands-opportunities.pdf" download>
-                    Download the PDF
-                  </a>
-                </p>
-              </div>
-            </object>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      SM Productions LLC • <span style="color:#d6a43a;">Brand Partnerships</span> • South FL
-    </div>
-  </footer>
+  </section>
 </body>
 </html>
