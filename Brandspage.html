@@ -21,7 +21,7 @@
             --gold: #d6a43a;
             --gold-soft: #e1b85a;
             --gold-light: #f0cf78;
-            --max: 1240px;
+            --max: 1280px;
         }
 
         * {
@@ -46,7 +46,7 @@
             text-decoration: none;
         }
 
-        img {
+        img, iframe {
             display: block;
             max-width: 100%;
         }
@@ -184,41 +184,38 @@
             letter-spacing: 0.04em;
         }
 
-        .event-list {
+        .deck-list {
             display: grid;
-            gap: 22px;
+            gap: 24px;
         }
 
-        .event-card {
-            display: grid;
-            grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-            gap: 22px;
+        .deck-card {
             border: 1px solid var(--border);
             border-radius: 24px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
             overflow: hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
         }
 
-        .event-media {
-            background: #101010;
-            min-height: 340px;
+        .deck-banner {
+            width: 100%;
+            height: 300px;
+            background: #0f0f0f;
         }
 
-        .event-media img {
+        .deck-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             background: #111;
         }
 
-        .event-body {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
+        .deck-content {
+            padding: 22px;
+            display: grid;
             gap: 14px;
         }
 
-        .event-tag {
+        .deck-tag {
             display: inline-flex;
             align-items: center;
             width: fit-content;
@@ -231,7 +228,7 @@
             letter-spacing: 0.1em;
         }
 
-        .event-title {
+        .deck-title {
             font-family: "Outfit", sans-serif;
             font-size: clamp(1.45rem, 2.3vw, 2rem);
             line-height: 1.02;
@@ -239,27 +236,47 @@
             letter-spacing: -0.03em;
         }
 
-        .event-meta {
+        .deck-meta {
             color: var(--muted);
-            font-size: 0.92rem;
+            font-size: 0.94rem;
         }
 
-        .event-copy {
-            color: var(--muted);
-            font-size: 0.96rem;
+        .pdf-preview {
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            background: #111;
         }
 
-        .event-actions {
+        .pdf-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .pdf-label {
+            font-size: 0.84rem;
+            color: var(--muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 460px;
+            border: none;
+            background: #111;
+        }
+
+        .deck-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: auto;
-            padding-top: 10px;
-        }
-
-        .event-note {
-            font-size: 0.84rem;
-            color: var(--faint);
         }
 
         .footer-note {
@@ -274,17 +291,7 @@
             color: var(--gold-light);
         }
 
-        @media (max-width: 960px) {
-            .event-card {
-                grid-template-columns: 1fr;
-            }
-
-            .event-media {
-                min-height: 280px;
-            }
-        }
-
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             .topbar-inner {
                 padding: 14px 0;
                 min-height: auto;
@@ -293,7 +300,7 @@
             }
 
             .top-actions,
-            .event-actions {
+            .deck-actions {
                 width: 100%;
             }
 
@@ -302,12 +309,12 @@
                 width: 100%;
             }
 
-            .event-body {
-                padding: 18px;
+            .deck-banner {
+                height: 220px;
             }
 
-            .event-media {
-                min-height: 220px;
+            .pdf-frame {
+                height: 340px;
             }
         }
     </style>
@@ -332,7 +339,7 @@
                 <span class="badge">Brands & Sponsors</span>
                 <h1 class="display-title">Upcoming <span>events</span> and sponsor decks.</h1>
                 <p class="hero-copy">
-                    Browse each upcoming event, review its banner, and open or download the corresponding sponsor or vendor PDF when available.
+                    Here you can see each upcoming event with its banner and its corresponding PDF presentation available to open or download.
                 </p>
             </div>
         </section>
@@ -340,64 +347,88 @@
         <main class="section">
             <div class="container">
                 <div class="section-head">
-                    <h2>Event list</h2>
+                    <h2>Available presentations</h2>
                 </div>
 
-                <div class="event-list">
-                    <article class="event-card">
-                        <div class="event-media">
-                            <img src="./assets/pdfbanner.gif" alt="Fantasy Fashion Show sponsor deck visual" />
+                <div class="deck-list">
+                    <article class="deck-card">
+                        <div class="deck-banner">
+                            <img src="./assets/pdfbanner.gif" alt="Fantasy Fashion Show event banner" />
                         </div>
-                        <div class="event-body">
-                            <span class="event-tag">Sponsor deck available</span>
-                            <h3 class="event-title">Fantasy Fashion Show • Swim Week 2026</h3>
-                            <p class="event-meta">Official sponsor presentation available.</p>
-                            <p class="event-copy">
-                                Review the current sponsorship presentation for the Fantasy Fashion Show and access the full PDF directly from this section.
-                            </p>
-                            <div class="event-actions">
+                        <div class="deck-content">
+                            <span class="deck-tag">Sponsor deck available</span>
+                            <h3 class="deck-title">Fantasy Fashion Show • Swim Week 2026</h3>
+                            <p class="deck-meta">Banner and PDF presentation available.</p>
+
+                            <div class="pdf-preview">
+                                <div class="pdf-topbar">
+                                    <span class="pdf-label">brands-opportunities.pdf</span>
+                                </div>
+                                <iframe
+                                    class="pdf-frame"
+                                    src="./assets/brands-opportunities.pdf"
+                                    title="Fantasy Fashion Show Sponsor Deck PDF"
+                                ></iframe>
+                            </div>
+
+                            <div class="deck-actions">
                                 <a class="btn-primary" href="./assets/brands-opportunities.pdf" target="_blank" rel="noopener noreferrer">View PDF</a>
                                 <a class="btn-secondary" href="./assets/brands-opportunities.pdf" download>Download PDF</a>
                             </div>
-                            <p class="event-note">Banner: pdfbanner.gif · PDF: brands-opportunities.pdf</p>
                         </div>
                     </article>
 
-                    <article class="event-card">
-                        <div class="event-media">
+                    <article class="deck-card">
+                        <div class="deck-banner">
                             <img src="./assets/imagen 5.jpeg" alt="Babes Miami 26 event banner" />
                         </div>
-                        <div class="event-body">
-                            <span class="event-tag">Sponsor deck available</span>
-                            <h3 class="event-title">Babes Miami 26</h3>
-                            <p class="event-meta">Dedicated sponsorship deck available.</p>
-                            <p class="event-copy">
-                                This event includes its own sponsorship PDF so brands and collaborators can review the opportunity and download the material.
-                            </p>
-                            <div class="event-actions">
+                        <div class="deck-content">
+                            <span class="deck-tag">Sponsor deck available</span>
+                            <h3 class="deck-title">Babes Miami 26</h3>
+                            <p class="deck-meta">Banner and PDF presentation available.</p>
+
+                            <div class="pdf-preview">
+                                <div class="pdf-topbar">
+                                    <span class="pdf-label">BabesMiami26-KH.pdf</span>
+                                </div>
+                                <iframe
+                                    class="pdf-frame"
+                                    src="./assets/BabesMiami26-KH.pdf"
+                                    title="Babes Miami 26 Sponsor Deck PDF"
+                                ></iframe>
+                            </div>
+
+                            <div class="deck-actions">
                                 <a class="btn-primary" href="./assets/BabesMiami26-KH.pdf" target="_blank" rel="noopener noreferrer">View PDF</a>
                                 <a class="btn-secondary" href="./assets/BabesMiami26-KH.pdf" download>Download PDF</a>
                             </div>
-                            <p class="event-note">Banner: imagen 5.jpeg · PDF: BabesMiami26-KH.pdf</p>
                         </div>
                     </article>
 
-                    <article class="event-card">
-                        <div class="event-media">
-                            <img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="2026 M.I.F.E vendor deck event banner" />
+                    <article class="deck-card">
+                        <div class="deck-banner">
+                            <img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="2026 M.I.F.E event banner" />
                         </div>
-                        <div class="event-body">
-                            <span class="event-tag">Vendor deck available</span>
-                            <h3 class="event-title">2026 M.I.F.E Vendor Deck</h3>
-                            <p class="event-meta">Vendor presentation ready to review.</p>
-                            <p class="event-copy">
-                                Open or download the M.I.F.E vendor deck to review brand participation details and event presentation material.
-                            </p>
-                            <div class="event-actions">
+                        <div class="deck-content">
+                            <span class="deck-tag">Vendor deck available</span>
+                            <h3 class="deck-title">2026 M.I.F.E Vendor Deck</h3>
+                            <p class="deck-meta">Banner and PDF presentation available.</p>
+
+                            <div class="pdf-preview">
+                                <div class="pdf-topbar">
+                                    <span class="pdf-label">2026 M.I.F.E VENDOR DECK (5)_compressed (1).pdf</span>
+                                </div>
+                                <iframe
+                                    class="pdf-frame"
+                                    src="./assets/2026 M.I.F.E VENDOR DECK (5)_compressed (1).pdf"
+                                    title="2026 M.I.F.E Vendor Deck PDF"
+                                ></iframe>
+                            </div>
+
+                            <div class="deck-actions">
                                 <a class="btn-primary" href="./assets/2026 M.I.F.E VENDOR DECK (5)_compressed (1).pdf" target="_blank" rel="noopener noreferrer">View PDF</a>
                                 <a class="btn-secondary" href="./assets/2026 M.I.F.E VENDOR DECK (5)_compressed (1).pdf" download>Download PDF</a>
                             </div>
-                            <p class="event-note">Banner: ChatGPT Image 23 abr 2026, 13_35_26.png · PDF: 2026 M.I.F.E VENDOR DECK (5)_compressed (1).pdf</p>
                         </div>
                     </article>
                 </div>
