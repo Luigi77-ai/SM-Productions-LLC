@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SM Productions LLC | Brand Opportunities</title>
-    <meta name="description" content="Brand partnership and sponsorship opportunities with SM Productions LLC in South Florida fashion and live events." />
+    <meta name="description" content="Upcoming SM Productions events with sponsor decks, event banners, and partnership opportunities." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -51,24 +51,24 @@
             max-width: 100%;
         }
 
-        button {
-            font: inherit;
-        }
-
         .page {
             min-height: 100vh;
-            display: flex;
-            align-items: stretch;
         }
 
-        .sidebar {
-            width: 280px;
-            padding: 28px 24px;
-            border-right: 1px solid var(--border);
-            background: radial-gradient(circle at top left, rgba(214,164,58,0.14), transparent 58%);
+        .topbar {
+            border-bottom: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(8px);
+        }
+
+        .topbar-inner {
+            width: min(calc(100% - 32px), var(--max));
+            margin: 0 auto;
+            min-height: 84px;
             display: flex;
-            flex-direction: column;
-            gap: 24px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
         }
 
         .brand-logo {
@@ -77,111 +77,15 @@
         }
 
         .brand-logo img {
-            height: 46px;
+            height: 50px;
             width: auto;
             object-fit: contain;
         }
 
-        .sidebar h1 {
-            font-family: "Outfit", sans-serif;
-            font-size: 1.45rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            margin-top: 10px;
-        }
-
-        .sidebar p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(214,164,58,0.6);
-            color: var(--gold-light);
-            font-size: 0.8rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .sidebar-nav {
+        .top-actions {
             display: flex;
-            flex-direction: column;
-            gap: 6px;
-            margin-top: 10px;
-        }
-
-        .sidebar-nav a {
-            font-size: 0.92rem;
-            color: var(--muted);
-        }
-
-        .sidebar-nav a:hover {
-            color: var(--gold-light);
-        }
-
-        .sidebar-footer {
-            margin-top: auto;
-            font-size: 0.8rem;
-            color: var(--faint);
-        }
-
-        .content {
-            flex: 1;
-            padding: 32px 32px 32px 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .content-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 16px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 18px;
-        }
-
-        .content-title {
-            max-width: 560px;
-        }
-
-        .eyebrow {
-            display: inline-block;
-            margin-bottom: 8px;
-            color: var(--muted);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-        }
-
-        .display-title {
-            font-family: "Outfit", sans-serif;
-            font-size: clamp(1.9rem, 3vw, 2.4rem);
-            letter-spacing: -0.03em;
-            text-transform: uppercase;
-        }
-
-        .display-title span {
-            color: var(--gold);
-        }
-
-        .content-sub {
-            margin-top: 10px;
-            color: var(--muted);
-            font-size: 0.96rem;
-        }
-
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .btn-primary,
@@ -190,10 +94,10 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 11px 18px;
+            padding: 12px 18px;
             border-radius: 999px;
-            font-size: 0.88rem;
-            font-weight: 600;
+            font-size: 0.86rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             border: 1px solid transparent;
@@ -208,259 +112,310 @@
         .btn-primary:hover {
             background: var(--gold-soft);
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(214,164,58,0.25);
+            box-shadow: 0 8px 18px rgba(214,164,58,0.2);
         }
 
         .btn-secondary {
             background: transparent;
-            border-color: var(--border);
             color: var(--muted);
+            border-color: var(--border);
         }
 
         .btn-secondary:hover {
-            border-color: var(--gold-light);
             color: var(--gold-light);
+            border-color: rgba(214,164,58,0.45);
         }
 
-        .preview-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-            gap: 22px;
-            align-items: flex-start;
+        .hero {
+            padding: 54px 0 28px;
         }
 
-        .pdf-wrapper {
-            border-radius: 18px;
-            border: 1px solid var(--border);
-            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-            overflow: hidden;
-            position: relative;
-            min-height: 420px;
+        .container {
+            width: min(calc(100% - 32px), var(--max));
+            margin: 0 auto;
         }
 
-        .pdf-header {
-            display: flex;
+        .badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 10px 14px;
-            border-bottom: 1px solid var(--border);
-            background: rgba(0,0,0,0.45);
-        }
-
-        .pdf-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .pdf-dot {
-            width: 9px;
-            height: 9px;
+            gap: 8px;
+            padding: 7px 12px;
             border-radius: 999px;
-            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(214,164,58,0.5);
+            color: var(--gold-light);
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
-        .pdf-dot:first-child {
-            background: #ff5f57;
+        .display-title {
+            margin-top: 18px;
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(2.2rem, 5vw, 4.7rem);
+            line-height: 0.98;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            max-width: 12ch;
         }
 
-        .pdf-dot:nth-child(2) {
-            background: #febc2e;
+        .display-title span {
+            color: var(--gold);
         }
 
-        .pdf-dot:nth-child(3) {
-            background: #28c840;
+        .hero-copy {
+            margin-top: 16px;
+            max-width: 64ch;
+            color: var(--muted);
+            font-size: 1rem;
         }
 
-        .pdf-title {
-            font-size: 0.8rem;
+        .section {
+            padding: 24px 0 72px;
+        }
+
+        .section-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .section-head h2 {
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .section-head p {
+            max-width: 58ch;
             color: var(--muted);
         }
 
-        .pdf-frame {
+        .event-list {
+            display: grid;
+            gap: 22px;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            gap: 22px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+            overflow: hidden;
+        }
+
+        .event-media {
+            background: #101010;
+            min-height: 340px;
+        }
+
+        .event-media img {
             width: 100%;
             height: 100%;
-            min-height: 380px;
-            border: none;
+            object-fit: cover;
             background: #111;
         }
 
-        .summary-card {
-            border-radius: 18px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.03);
-            padding: 18px 18px 20px;
+        .event-body {
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
-        .summary-card h2 {
-            font-family: "Outfit", sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
+        .event-tag {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            padding: 6px 11px;
+            border-radius: 999px;
+            background: rgba(214,164,58,0.12);
             color: var(--gold-light);
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .summary-card p {
+        .event-title {
+            font-family: "Outfit", sans-serif;
+            font-size: clamp(1.45rem, 2.3vw, 2rem);
+            line-height: 1.02;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+        }
+
+        .event-meta {
             color: var(--muted);
             font-size: 0.92rem;
         }
 
-        .summary-list {
-            list-style: none;
-            margin-top: 4px;
-        }
-
-        .summary-list li {
-            font-size: 0.9rem;
+        .event-copy {
             color: var(--muted);
-            padding-left: 14px;
-            position: relative;
-            margin-bottom: 4px;
+            font-size: 0.96rem;
         }
 
-        .summary-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--gold-soft);
-        }
-
-        .section-footer {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border);
+        .event-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            justify-content: space-between;
-            align-items: center;
+            margin-top: auto;
+            padding-top: 10px;
         }
 
-        .contact-tag {
-            font-size: 0.85rem;
+        .event-note {
+            font-size: 0.84rem;
             color: var(--faint);
         }
 
-        .contact-tag a {
-            color: var(--gold-light);
+        .footer-note {
+            margin-top: 30px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+            color: var(--faint);
+            font-size: 0.9rem;
         }
 
         @media (max-width: 960px) {
-            .page {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 18px;
-            }
-            .content {
-                padding: 20px 18px 24px;
-            }
-            .preview-layout {
+            .event-card {
                 grid-template-columns: 1fr;
             }
-            .pdf-wrapper {
-                min-height: 360px;
+
+            .event-media {
+                min-height: 280px;
             }
         }
 
-        @media (max-width: 600px) {
-            .actions {
-                width: 100%;
-                justify-content: flex-start;
+        @media (max-width: 640px) {
+            .topbar-inner {
+                padding: 14px 0;
+                min-height: auto;
+                align-items: flex-start;
+                flex-direction: column;
             }
+
+            .top-actions,
+            .event-actions {
+                width: 100%;
+            }
+
             .btn-primary,
             .btn-secondary {
                 width: 100%;
-                justify-content: center;
+            }
+
+            .event-body {
+                padding: 18px;
+            }
+
+            .event-media {
+                min-height: 220px;
             }
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <aside class="sidebar">
-            <a class="brand-logo" href="./main.html">
-                <img src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
-            </a>
-            <div>
+        <header class="topbar">
+            <div class="topbar-inner">
+                <a class="brand-logo" href="./index.html">
+                    <img src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
+                </a>
+
+                <div class="top-actions">
+                    <a class="btn-secondary" href="./index.html">Back to Main Site</a>
+                    <a class="btn-primary" href="mailto:smproductions2026@gmail.com">Contact for Sponsorship</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
                 <span class="badge">Brands & Sponsors</span>
-                <h1>Brand Opportunities</h1>
-                <p>
-                    A concise deck for sponsors and partners who want to understand how SM Productions LLC creates visibility inside South Florida fashion and live events.
+                <h1 class="display-title">Upcoming <span>events</span> and sponsor opportunities.</h1>
+                <p class="hero-copy">
+                    This page is a simple list of upcoming SM Productions events. Each event includes its visual banner and, where available, a sponsor deck you can view or download.
                 </p>
             </div>
-            <nav class="sidebar-nav">
-                <a href="./main.html">← Back to Main Site</a>
-                <a href="#pdf">View deck</a>
-                <a href="#summary">Highlights</a>
-            </nav>
-            <div class="sidebar-footer">
-                SM Productions LLC • South Florida • Fashion Shows & Live Productions
-            </div>
-        </aside>
+        </section>
 
-        <main class="content">
-            <header class="content-header">
-                <div class="content-title">
-                    <span class="eyebrow">For brands & sponsors</span>
-                    <h2 class="display-title">
-                        Visibility moments that feel <span>live</span>, local and on-brand.
-                    </h2>
-                    <p class="content-sub">
-                        Use this deck to review partnership tiers, brand activation ideas and how your sponsorship shows up in SM Productions experiences.
-                    </p>
-                </div>
-                <div class="actions">
-                    <a class="btn-primary" href="./assets/brands-opportunities.pdf" target="_blank" rel="noopener noreferrer">
-                        View PDF
-                    </a>
-                    <a class="btn-secondary" href="./assets/brands-opportunities.pdf" download>
-                        Download PDF
-                    </a>
-                </div>
-            </header>
-
-            <section id="pdf" class="preview-layout">
-                <div class="pdf-wrapper">
-                    <div class="pdf-header">
-                        <div class="pdf-dots">
-                            <span class="pdf-dot"></span>
-                            <span class="pdf-dot"></span>
-                            <span class="pdf-dot"></span>
-                        </div>
-                        <div class="pdf-title">brands-opportunities.pdf</div>
+        <main class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <h2>Event list</h2>
                     </div>
-                    <iframe
-                        class="pdf-frame"
-                        src="./assets/brands-opportunities.pdf"
-                        title="SM Productions LLC Brand Opportunities PDF"
-                    ></iframe>
-                </div>
-
-                <aside id="summary" class="summary-card">
-                    <h2>Inside this deck</h2>
                     <p>
-                        A quick overview of how SM Productions approaches sponsor visibility,
-                        audience connection and live fashion experiences across South Florida.
+                        Use these materials to review upcoming productions, identify the event that fits your brand, and access the sponsorship presentation when available.
                     </p>
-                    <ul class="summary-list">
-                        <li>Positioning of SM Productions LLC as a South Florida fashion platform.</li>
-                        <li>Concepts for brand activations and sponsor presence.</li>
-                        <li>Audience, event energy and moment-based visibility.</li>
-                        <li>Ways to collaborate on upcoming shows and productions.</li>
-                    </ul>
-                    <div class="section-footer">
-                        <span class="contact-tag">
-                            Ready to talk? Email <a href="mailto:smproductions2026@gmail.com">smproductions2026@gmail.com</a>
-                        </span>
-                    </div>
-                </aside>
-            </section>
+                </div>
+
+                <div class="event-list">
+                    <article class="event-card">
+                        <div class="event-media">
+                            <img src="./assets/ChatGPT Image 23 abr 2026, 13_35_26.png" alt="Fantasy Fashion Show Swim Week 2026 event banner" />
+                        </div>
+                        <div class="event-body">
+                            <span class="event-tag">Sponsor deck available</span>
+                            <h3 class="event-title">Fantasy Fashion Show • Swim Week 2026</h3>
+                            <p class="event-meta">Featured sponsor presentation currently available.</p>
+                            <p class="event-copy">
+                                This is the active sponsor presentation for brands and partners interested in visibility, activations and live audience presence through SM Productions.
+                            </p>
+                            <div class="event-actions">
+                                <a class="btn-primary" href="./assets/brands-opportunities.pdf" target="_blank" rel="noopener noreferrer">View presentation</a>
+                                <a class="btn-secondary" href="./assets/brands-opportunities.pdf" download>Download presentation</a>
+                            </div>
+                            <p class="event-note">File: brands-opportunities.pdf</p>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <div class="event-media">
+                            <img src="./assets/imagen 5.jpeg" alt="South Florida casting and live production momentum event banner" />
+                        </div>
+                        <div class="event-body">
+                            <span class="event-tag">Upcoming event</span>
+                            <h3 class="event-title">South Florida casting and live production momentum</h3>
+                            <p class="event-meta">Event banner included in repository.</p>
+                            <p class="event-copy">
+                                This event is listed as part of the upcoming production lineup. Add a dedicated sponsor presentation file here later if you prepare a separate deck for this activation.
+                            </p>
+                            <div class="event-actions">
+                                <a class="btn-secondary" href="./assets/imagen 5.jpeg" target="_blank" rel="noopener noreferrer">View banner</a>
+                            </div>
+                            <p class="event-note">Add a future PDF here if this event gets its own sponsor deck.</p>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <div class="event-media">
+                            <img src="./assets/imagen 5.jpeg" alt="Upcoming SM Productions event visual placeholder from repository" />
+                        </div>
+                        <div class="event-body">
+                            <span class="event-tag">Add next event</span>
+                            <h3 class="event-title">Next upcoming event from repository</h3>
+                            <p class="event-meta">Use this block for another upcoming banner already stored in assets.</p>
+                            <p class="event-copy">
+                                If you have another confirmed upcoming event banner in the repository, duplicate this card and replace the image, title, description and presentation links with that event’s final files.
+                            </p>
+                            <div class="event-actions">
+                                <a class="btn-secondary" href="./assets/imagen 5.jpeg" target="_blank" rel="noopener noreferrer">Open visual</a>
+                            </div>
+                            <p class="event-note">Replace this item with the real upcoming event banner file name.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="footer-note">
+                    For sponsorship inquiries, partnerships or custom brand activations, email
+                    <a href="mailto:smproductions2026@gmail.com" style="color: var(--gold-light);">smproductions2026@gmail.com</a>.
+                </div>
+            </div>
         </main>
     </div>
 </body>
