@@ -934,7 +934,7 @@
                         </article>
                         <article class="about-card">
                             <h3>What we do</h3>
-                            <p>We build fashion shows, live productions and brand activations with space for models, photographers and sponsors.</p>
+                            <p>We build fashion shows, live productions and brand activations with space for models, photographers and sponsors.</p>                     <div style="margin-top:20px;">                       <button onclick="document.getElementById('brandModal').style.display='flex'" class="btn-event" style="background:var(--gold);color:#111;cursor:pointer;border:none;">                         APPLY TO FEATURE YOUR BRAND                       </button>                     </div>
                         </article>
                         <article class="about-card">
                             <h3>Why it matters</h3>
@@ -1135,5 +1135,175 @@
             window.location.href = mailtoUrl;
         });
     </script>
+    <style>
+#brandModal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;overflow-y:auto;padding:20px 16px;}
+#brandModal .bm-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(4px);z-index:0;}
+#brandModal video.bm-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(14px) brightness(0.28) grayscale(0.4);z-index:1;pointer-events:none;transform:scale(1.08);}
+#brandModal .bm-box{position:relative;z-index:2;width:min(100%,780px);margin:auto;background:rgba(12,12,12,0.92);border:1px solid rgba(255,255,255,0.1);border-radius:28px;padding:40px 36px 48px;color:#fff;}
+#brandModal .bm-close{position:absolute;top:16px;right:20px;background:none;border:none;color:rgba(255,255,255,0.55);font-size:1.8rem;cursor:pointer;line-height:1;transition:color .2s;}
+#brandModal .bm-close:hover{color:#fff;}
+#brandModal .bm-header{text-align:center;margin-bottom:32px;}
+#brandModal .bm-logo{width:80px;height:80px;object-fit:contain;margin:0 auto 14px;display:block;border-radius:14px;}
+#brandModal .bm-title{font-family:'Outfit',sans-serif;font-size:clamp(1.5rem,3vw,2.4rem);text-transform:uppercase;letter-spacing:-0.03em;color:#fff;margin-bottom:6px;}
+#brandModal .bm-sub{color:rgba(244,239,228,0.6);font-size:0.96rem;}
+#brandModal .bm-form{display:grid;gap:14px;}
+#brandModal .bm-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+#brandModal .bm-field{display:grid;gap:6px;}
+#brandModal .bm-field label{font-size:0.88rem;color:rgba(244,239,228,0.75);text-transform:uppercase;letter-spacing:0.08em;}
+#brandModal .bm-field input,#brandModal .bm-field select,#brandModal .bm-field textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px 14px;color:#fff;font:inherit;outline:none;transition:border-color .2s,box-shadow .2s;}
+#brandModal .bm-field input::placeholder,#brandModal .bm-field textarea::placeholder{color:rgba(244,239,228,0.35);}
+#brandModal .bm-field input:focus,#brandModal .bm-field select:focus,#brandModal .bm-field textarea:focus{border-color:rgba(214,164,58,0.7);box-shadow:0 0 0 3px rgba(214,164,58,0.12);}
+#brandModal .bm-field select option{background:#1a1a1a;color:#fff;}
+#brandModal .bm-field textarea{min-height:90px;resize:vertical;}
+#brandModal .bm-radios{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+#brandModal .bm-radios label{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:0.93rem;color:rgba(244,239,228,0.8);padding:8px 14px;border:1px solid rgba(255,255,255,0.13);border-radius:999px;transition:all .2s;}
+#brandModal .bm-radios label:hover{border-color:rgba(214,164,58,0.5);color:#fff;}
+#brandModal .bm-radios input[type=radio]{accent-color:#d6a43a;}
+#brandModal .bm-checks{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+#brandModal .bm-checks label{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:0.93rem;color:rgba(244,239,228,0.8);padding:8px 14px;border:1px solid rgba(255,255,255,0.13);border-radius:999px;transition:all .2s;}
+#brandModal .bm-checks label:hover{border-color:rgba(214,164,58,0.5);color:#fff;}
+#brandModal .bm-checks input[type=checkbox]{accent-color:#d6a43a;}
+#brandModal .bm-divider{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:6px 0;}
+#brandModal .bm-section-label{font-family:'Outfit',sans-serif;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(214,164,58,0.8);margin-bottom:2px;}
+#brandModal .bm-consent{font-size:0.82rem;color:rgba(244,239,228,0.5);display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
+#brandModal .bm-consent input{margin-top:3px;accent-color:#d6a43a;flex-shrink:0;}
+#brandModal .bm-submit{width:100%;padding:16px;background:#d6a43a;color:#111;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border:none;border-radius:999px;cursor:pointer;transition:all .3s;margin-top:8px;}
+#brandModal .bm-submit:hover{background:#e1b85a;transform:translateY(-2px);box-shadow:0 10px 24px rgba(214,164,58,0.22);}
+@media(max-width:600px){#brandModal .bm-row{grid-template-columns:1fr;}#brandModal .bm-box{padding:28px 18px 36px;}}
+</style>
+    <div id="brandModal" role="dialog" aria-modal="true" aria-label="Apply to Feature Your Brand">
+  <div class="bm-overlay" onclick="document.getElementById('brandModal').style.display='none'"></div>
+  <video class="bm-bg" autoplay muted loop playsinline src="./assets/video.mp4"></video>
+  <div class="bm-box">
+    <button class="bm-close" onclick="document.getElementById('brandModal').style.display='none'" aria-label="Close">&times;</button>
+    <div class="bm-header">
+      <img class="bm-logo" src="./assets/SM-Logo.png" alt="SM Productions LLC" />
+      <h2 class="bm-title">SM Productions LLC</h2>
+      <p class="bm-sub">Brand & Sponsor Application &mdash; Apply to feature your brand at our productions</p>
+    </div>
+    <form class="bm-form" id="brandAppForm" onsubmit="bmSubmit(event)">
+      <p class="bm-section-label">Application Type</p>
+      <div class="bm-radios">
+        <label><input type="radio" name="appType" value="Sponsor" required /> Sponsor</label>
+        <label><input type="radio" name="appType" value="Designer" /> Designer</label>
+        <label><input type="radio" name="appType" value="Brand Partner" /> Brand Partner</label>
+        <label><input type="radio" name="appType" value="Vendor" /> Vendor</label>
+        <label><input type="radio" name="appType" value="Media Partner" /> Media Partner</label>
+        <label><input type="radio" name="appType" value="Other" /> Other</label>
+      </div>
+      <hr class="bm-divider" />
+      <div class="bm-row">
+        <div class="bm-field"><label>First Name *</label><input type="text" name="firstName" placeholder="First name" required /></div>
+        <div class="bm-field"><label>Last Name *</label><input type="text" name="lastName" placeholder="Last name" required /></div>
+      </div>
+      <div class="bm-field"><label>Company / Brand Name *</label><input type="text" name="company" placeholder="Your company or brand name" required /></div>
+      <div class="bm-row">
+        <div class="bm-field"><label>Email Address *</label><input type="email" name="email" placeholder="you@example.com" required /></div>
+        <div class="bm-field"><label>Phone Number</label><input type="tel" name="phone" placeholder="(000) 000-0000" /></div>
+      </div>
+      <div class="bm-row">
+        <div class="bm-field"><label>Website</label><input type="url" name="website" placeholder="https://yourbrand.com" /></div>
+        <div class="bm-field"><label>Instagram Handle</label><input type="text" name="instagram" placeholder="@yourbrand" /></div>
+      </div>
+      <div class="bm-row">
+        <div class="bm-field"><label>TikTok Handle</label><input type="text" name="tiktok" placeholder="@yourbrand" /></div>
+        <div class="bm-field"><label>City, State, Country</label><input type="text" name="location" placeholder="Miami, FL, USA" /></div>
+      </div>
+      <div class="bm-field"><label>Other Social Media Links</label><textarea name="socialLinks" placeholder="Twitter, YouTube, Facebook, etc."></textarea></div>
+      <hr class="bm-divider" />
+      <p class="bm-section-label">Business Details</p>
+      <div class="bm-row">
+        <div class="bm-field"><label>Business Category</label>
+          <select name="category">
+            <option value="">Select...</option>
+            <option>Fashion Designer</option>
+            <option>Brand</option>
+            <option>Sponsor</option>
+            <option>Vendor</option>
+            <option>Media</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="bm-field"><label>Sponsorship Budget Range</label>
+          <select name="budget">
+            <option value="">Select...</option>
+            <option>Under $5,000</option>
+            <option>$5,000 - $10,000</option>
+            <option>$10,000 - $25,000</option>
+            <option>$25,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="bm-field"><label>Company Bio</label><textarea name="bio" placeholder="Tell us about your brand, mission and what you do..."></textarea></div>
+      <div class="bm-field"><label>What type of collaboration are you interested in?</label><textarea name="collab" placeholder="Describe the type of partnership you're looking for..."></textarea></div>
+      <div class="bm-field"><label>Describe your target audience</label><textarea name="audience" placeholder="Who is your ideal customer / audience?"></textarea></div>
+      <hr class="bm-divider" />
+      <p class="bm-section-label">Event Participation</p>
+      <p style="font-size:0.85rem;color:rgba(244,239,228,0.55);margin-bottom:4px;">Type of event participation interested in:</p>
+      <div class="bm-checks">
+        <label><input type="checkbox" name="participation" value="Runway Show" /> Runway Show</label>
+        <label><input type="checkbox" name="participation" value="Presentation" /> Presentation</label>
+        <label><input type="checkbox" name="participation" value="Pop-Up" /> Pop-Up</label>
+        <label><input type="checkbox" name="participation" value="Networking" /> Networking</label>
+        <label><input type="checkbox" name="participation" value="Other" /> Other</label>
+      </div>
+      <div class="bm-row">
+        <div class="bm-field"><label>Number of Looks to Showcase</label><input type="number" name="looks" placeholder="e.g. 10" min="1" /></div>
+        <div class="bm-field"><label>Availability for Event</label><input type="text" name="availability" placeholder="e.g. May 28-30, 2026" /></div>
+      </div>
+      <div class="bm-field"><label>Designer Collection Details (if applicable)</label><textarea name="collection" placeholder="Describe your collection, theme, fabrics, etc."></textarea></div>
+      <div class="bm-field"><label>Past Events or Fashion Shows Participated In</label><textarea name="pastEvents" placeholder="List any previous fashion shows, runways or events you've been part of..."></textarea></div>
+      <div class="bm-field"><label>Video / Reel Link</label><input type="url" name="videoLink" placeholder="https://youtube.com/..." /></div>
+      <div class="bm-field"><label>Press or Media Links</label><textarea name="press" placeholder="Links to press coverage, features, articles..."></textarea></div>
+      <div class="bm-field"><label>Additional Notes or Comments</label><textarea name="notes" placeholder="Anything else you'd like us to know?"></textarea></div>
+      <hr class="bm-divider" />
+      <div class="bm-consent">
+        <input type="checkbox" id="bmConsent" required />
+        <label for="bmConsent">By submitting this application, I grant SM Productions LLC permission to use my submitted information and media for event promotion, marketing and media purposes. I understand my application will be reviewed and I may be contacted for further details.</label>
+      </div>
+      <button type="submit" class="bm-submit">Submit Application</button>
+    </form>
+  </div>
+</div>
+    <script>
+function bmSubmit(e){
+  e.preventDefault();
+  var f=document.getElementById('brandAppForm');
+  var fd=new FormData(f);
+  var lines=[];
+  lines.push('SM PRODUCTIONS LLC - Brand Application');
+  lines.push('======================================');
+  lines.push('Application Type: '+([...f.querySelectorAll('[name=appType]:checked')].map(r=>r.value).join(', ')||'N/A'));
+  lines.push('First Name: '+(fd.get('firstName')||''));
+  lines.push('Last Name: '+(fd.get('lastName')||''));
+  lines.push('Company/Brand: '+(fd.get('company')||''));
+  lines.push('Email: '+(fd.get('email')||''));
+  lines.push('Phone: '+(fd.get('phone')||''));
+  lines.push('Website: '+(fd.get('website')||''));
+  lines.push('Instagram: '+(fd.get('instagram')||''));
+  lines.push('TikTok: '+(fd.get('tiktok')||''));
+  lines.push('Location: '+(fd.get('location')||''));
+  lines.push('Other Social: '+(fd.get('socialLinks')||''));
+  lines.push('Business Category: '+(fd.get('category')||''));
+  lines.push('Budget Range: '+(fd.get('budget')||''));
+  lines.push('Company Bio: '+(fd.get('bio')||''));
+  lines.push('Collaboration Interest: '+(fd.get('collab')||''));
+  lines.push('Target Audience: '+(fd.get('audience')||''));
+  lines.push('Participation: '+([...f.querySelectorAll('[name=participation]:checked')].map(c=>c.value).join(', ')||'N/A'));
+  lines.push('Looks to Showcase: '+(fd.get('looks')||''));
+  lines.push('Availability: '+(fd.get('availability')||''));
+  lines.push('Collection Details: '+(fd.get('collection')||''));
+  lines.push('Past Events: '+(fd.get('pastEvents')||''));
+  lines.push('Video/Reel Link: '+(fd.get('videoLink')||''));
+  lines.push('Press Links: '+(fd.get('press')||''));
+  lines.push('Notes: '+(fd.get('notes')||''));
+  var body=lines.join('\n');
+  var subject='SM Productions LLC - Brand Application: '+(fd.get('company')||fd.get('firstName')||'New Applicant');
+  window.location.href='mailto:smproductions2026@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  document.getElementById('brandModal').style.display='none';
+  f.reset();
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.getElementById('brandModal').style.display='none';}});
+</script>
 </body>
 </html>
