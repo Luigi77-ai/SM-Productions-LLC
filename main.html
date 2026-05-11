@@ -577,10 +577,6 @@
     .event-stack-card img {
       width: 100%;
       height: 100%;
-    }
-
-    .event-feature img,
-    .event-stack-card img {
       object-fit: contain;
       object-position: center;
       background: #111;
@@ -1349,14 +1345,31 @@
                   <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" />
                 </div>
                 <div class="form-field">
+                  <label for="service">Service Interest</label>
+                  <select id="service" name="service">
+                    <option value="">Select a service</option>
+                    <option value="Brand Activations">Brand Activations</option>
+                    <option value="Runway Shows">Runway Shows</option>
+                    <option value="Social Media Campaigns">Social Media Campaigns</option>
+                    <option value="Artist Development">Artist Development</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
                   <label for="subject">Subject</label>
                   <input type="text" id="subject" name="subject" placeholder="How can we help?" value="SM Productions Inquiry" />
+                </div>
+                <div class="form-field">
+                  <label for="company">Company / Brand</label>
+                  <input type="text" id="company" name="company" placeholder="Your company or brand name" />
                 </div>
               </div>
 
               <div class="form-field">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us about your inquiry..."></textarea>
+                <textarea id="message" name="message" placeholder="Tell us about your inquiry, goals, and the service you are interested in..."></textarea>
               </div>
 
               <button class="btn-event" type="submit">Send Email</button>
@@ -1382,7 +1395,6 @@
 
     <div class="bm-box" role="dialog" aria-modal="true" aria-labelledby="brandModalTitle">
       <button class="bm-close" id="closeBrandModalBtn" aria-label="Close brand application form">×</button>
-
       <div class="bm-header">
         <img class="bm-logo" src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
         <span class="bm-kicker">SM Productions LLC</span>
@@ -1603,13 +1615,17 @@
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value.trim();
       const subject = document.getElementById("subject").value.trim() || "SM Productions Inquiry";
+      const company = document.getElementById("company").value.trim();
       const message = document.getElementById("message").value.trim();
 
       const body = [
         "Name: " + name,
         "Email: " + email,
         "Phone: " + phone,
+        "Service Interest: " + service,
+        "Company / Brand: " + company,
         "",
         "Message:",
         message
