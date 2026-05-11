@@ -856,6 +856,21 @@
       line-height: 1;
     }
 
+    .bm-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .bm-logo {
+      width: auto;
+      height: 76px;
+      object-fit: contain;
+      margin-bottom: 18px;
+    }
+
     .bm-kicker {
       display: inline-block;
       margin-bottom: 14px;
@@ -876,7 +891,7 @@
 
     .bm-copy {
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 0;
       max-width: 62ch;
     }
 
@@ -1056,6 +1071,10 @@
 
       .bm-options {
         grid-template-columns: 1fr;
+      }
+
+      .bm-logo {
+        height: 60px;
       }
     }
   </style>
@@ -1364,11 +1383,14 @@
     <div class="bm-box" role="dialog" aria-modal="true" aria-labelledby="brandModalTitle">
       <button class="bm-close" id="closeBrandModalBtn" aria-label="Close brand application form">×</button>
 
-      <span class="bm-kicker">SM Productions LLC</span>
-      <h2 class="bm-title" id="brandModalTitle">Brand & Sponsor Application</h2>
-      <p class="bm-copy">
-        Please fill out this application to showcase your brand, collaborate with SM Productions LLC, or explore sponsorship, media and activation opportunities aligned with our productions.
-      </p>
+      <div class="bm-header">
+        <img class="bm-logo" src="./assets/SM-Logo.png" alt="SM Productions LLC logo" />
+        <span class="bm-kicker">SM Productions LLC</span>
+        <h2 class="bm-title" id="brandModalTitle">Brand & Sponsor Application</h2>
+        <p class="bm-copy">
+          Please fill out this application to showcase your brand, collaborate with SM Productions LLC, or explore sponsorship, media and activation opportunities aligned with our productions.
+        </p>
+      </div>
 
       <form class="bm-form" id="brandApplicationForm">
         <fieldset class="bm-fieldset">
