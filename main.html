@@ -763,6 +763,15 @@
       color: var(--white);
       padding: 14px 16px;
       outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    .form-field select,
+    .form-field select option {
+      background: #111111;
+      color: #ffffff;
     }
 
     .form-field input::placeholder,
@@ -785,6 +794,23 @@
     .form-note {
       color: var(--faint);
       font-size: 0.9rem;
+    }
+
+    .form-success-message,
+    .bm-success-message {
+      display: none;
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(214,164,58,0.28);
+      background: rgba(214,164,58,0.12);
+      color: var(--white);
+      font-size: 0.96rem;
+    }
+
+    .form-success-message.active,
+    .bm-success-message.active {
+      display: block;
     }
 
     footer {
@@ -1090,7 +1116,6 @@
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#services">Opportunities</a>
-        <a href="#">Investors</a>
         <a href="#events">Events</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1331,9 +1356,18 @@
         <div class="contact-form-section" id="contactFormSection">
           <div class="contact-form-wrap">
             <h3>Contact Form</h3>
-            <p>Fill out the form below and your email app will open a message addressed to smproductions2026@gmail.com.</p>
+            <p>Fill out the form below and we’ll send your information directly to SM Productions LLC.</p>
 
-            <form class="contact-form" id="contactForm">
+            <form
+              class="contact-form"
+              id="contactForm"
+              action="https://formsubmit.co/ajax/smproductions2026@gmail.com"
+              method="POST"
+            >
+              <input type="hidden" name="_subject" value="SM Productions Inquiry" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+
               <div class="form-grid">
                 <div class="form-field">
                   <label for="name">Name</label>
@@ -1378,10 +1412,13 @@
                 <textarea id="message" name="message" placeholder="Tell us about your inquiry, goals, and the service you are interested in..."></textarea>
               </div>
 
-              <button class="btn-event" type="submit">Send Email</button>
+              <button class="btn-event" type="submit">Send Form</button>
               <p class="form-note">
-                This simple form uses your device’s default email app to compose the message.
+                Your information will be sent to SM Productions LLC.
               </p>
+              <div class="form-success-message" id="contactSuccessMessage">
+                Thank you. Your information was sent successfully. We appreciate your interest and will review your submission soon.
+              </div>
             </form>
           </div>
         </div>
@@ -1410,7 +1447,16 @@
         </p>
       </div>
 
-      <form class="bm-form" id="brandApplicationForm">
+      <form
+        class="bm-form"
+        id="brandApplicationForm"
+        action="https://formsubmit.co/ajax/smproductions2026@gmail.com"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="SM Productions LLC Brand & Sponsor Application" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+
         <fieldset class="bm-fieldset">
           <legend>Application Type</legend>
           <div class="bm-options">
@@ -1452,7 +1498,7 @@
           </div>
           <div class="bm-field">
             <label for="brandWebsite">Website</label>
-            <input type="url" id="brandWebsite" name="brandWebsite" placeholder="https://yourbrand.com" />
+            <input type="text" id="brandWebsite" name="brandWebsite" placeholder="Website or text" />
           </div>
         </div>
 
@@ -1470,7 +1516,7 @@
         <div class="bm-grid">
           <div class="bm-field">
             <label for="brandSocials">Other Social Media Links</label>
-            <textarea id="brandSocials" name="brandSocials" placeholder="Other social media links"></textarea>
+            <textarea id="brandSocials" name="brandSocials" placeholder="Other social media links or text"></textarea>
           </div>
           <div class="bm-field">
             <label for="brandLocation">City, State, Country</label>
@@ -1553,7 +1599,7 @@
 
         <div class="bm-field">
           <label for="pressLinks">Press or Media Links</label>
-          <textarea id="pressLinks" name="pressLinks" placeholder="Links to press coverage, features, articles..."></textarea>
+          <textarea id="pressLinks" name="pressLinks" placeholder="Links or text for press coverage, features, articles..."></textarea>
         </div>
 
         <div class="bm-grid-3">
@@ -1579,7 +1625,7 @@
           </div>
           <div class="bm-field">
             <label for="videoLink">Video / Reel Link</label>
-            <input type="url" id="videoLink" name="videoLink" placeholder="Paste an Instagram, TikTok, YouTube, Vimeo, Google Drive, Dropbox, or portfolio video link" />
+            <input type="text" id="videoLink" name="videoLink" placeholder="Paste a link or write text" />
           </div>
         </div>
 
@@ -1596,6 +1642,9 @@
         </label>
 
         <button type="submit" class="bm-submit">Submit Application</button>
+        <div class="bm-success-message" id="brandSuccessMessage">
+          Thank you. Your information was sent successfully. We appreciate your interest and will review your submission soon.
+        </div>
       </form>
     </div>
   </div>
@@ -1604,6 +1653,7 @@
     const openContactFormBtn = document.getElementById("openContactForm");
     const contactFormSection = document.getElementById("contactFormSection");
     const contactForm = document.getElementById("contactForm");
+    const contactSuccessMessage = document.getElementById("contactSuccessMessage");
 
     openContactFormBtn.addEventListener("click", function () {
       contactFormSection.classList.toggle("active");
@@ -1612,34 +1662,35 @@
       }
     });
 
-    contactForm.addEventListener("submit", function (event) {
+    async function submitFormAjax(form, successElement) {
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successElement.classList.add("active");
+          successElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          return;
+        }
+
+        alert("There was a problem sending your information. Please try again.");
+      } catch (error) {
+        alert("There was a problem sending your information. Please try again.");
+      }
+    }
+
+    contactForm.addEventListener("submit", async function (event) {
       event.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const service = document.getElementById("service").value.trim();
-      const subject = document.getElementById("subject").value.trim() || "SM Productions Inquiry";
-      const company = document.getElementById("company").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      const body = [
-        "Name: " + name,
-        "Email: " + email,
-        "Phone: " + phone,
-        "Service Interest: " + service,
-        "Company / Brand: " + company,
-        "",
-        "Message:",
-        message
-      ].join("\n");
-
-      const mailtoUrl =
-        "mailto:smproductions2026@gmail.com" +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-
-      window.location.href = mailtoUrl;
+      contactSuccessMessage.classList.remove("active");
+      await submitFormAjax(contactForm, contactSuccessMessage);
     });
 
     const brandModal = document.getElementById("brandModal");
@@ -1647,6 +1698,7 @@
     const closeBrandModalBtn = document.getElementById("closeBrandModalBtn");
     const closeBrandModalOverlay = document.getElementById("closeBrandModalOverlay");
     const brandApplicationForm = document.getElementById("brandApplicationForm");
+    const brandSuccessMessage = document.getElementById("brandSuccessMessage");
 
     function openBrandModal() {
       brandModal.style.display = "flex";
@@ -1670,77 +1722,10 @@
       }
     });
 
-    brandApplicationForm.addEventListener("submit", function (event) {
+    brandApplicationForm.addEventListener("submit", async function (event) {
       event.preventDefault();
-
-      const getValue = (id) => document.getElementById(id)?.value?.trim() || "";
-      const selectedApplicationType = document.querySelector('input[name="applicationType"]:checked')?.value || "";
-      const selectedParticipation = Array.from(document.querySelectorAll('input[name="eventParticipation"]:checked'))
-        .map((item) => item.value)
-        .join(", ");
-
-      const body = [
-        "SM PRODUCTIONS LLC — BRAND & SPONSOR APPLICATION",
-        "",
-        "Application Type: " + selectedApplicationType,
-        "First Name: " + getValue("brandFirstName"),
-        "Last Name: " + getValue("brandLastName"),
-        "Company / Brand Name: " + getValue("brandCompany"),
-        "Email Address: " + getValue("brandEmail"),
-        "Phone Number: " + getValue("brandPhone"),
-        "Website: " + getValue("brandWebsite"),
-        "Instagram Handle: " + getValue("brandInstagram"),
-        "TikTok Handle: " + getValue("brandTikTok"),
-        "Other Social Media Links: " + getValue("brandSocials"),
-        "City, State, Country: " + getValue("brandLocation"),
-        "Business Category: " + getValue("businessCategory"),
-        "Sponsorship Budget Range: " + getValue("budgetRange"),
-        "",
-        "Company Bio:",
-        getValue("companyBio"),
-        "",
-        "Collaboration Interest:",
-        getValue("collaborationInterest"),
-        "",
-        "Target Audience:",
-        getValue("targetAudience"),
-        "",
-        "Event Participation:",
-        selectedParticipation,
-        "",
-        "Number of Looks to Showcase:",
-        getValue("looksToShowcase"),
-        "",
-        "Availability for Event:",
-        getValue("eventAvailability"),
-        "",
-        "Collection / Activation Details:",
-        getValue("collectionDetails"),
-        "",
-        "Past Events or Productions Participated In:",
-        getValue("pastEvents"),
-        "",
-        "Press or Media Links:",
-        getValue("pressLinks"),
-        "",
-        "Video / Reel Link:",
-        getValue("videoLink"),
-        "",
-        "Additional Notes or Comments:",
-        getValue("additionalNotes"),
-        "",
-        "Consent Checked: " + (document.getElementById("brandConsent").checked ? "Yes" : "No"),
-        "",
-        "Note: File uploads cannot be attached through mailto. If needed, the applicant can send files manually after contact."
-      ].join("\n");
-
-      const subject = encodeURIComponent("SM Productions LLC Brand & Sponsor Application");
-      const mailtoUrl =
-        "mailto:smproductions2026@gmail.com" +
-        "?subject=" + subject +
-        "&body=" + encodeURIComponent(body);
-
-      window.location.href = mailtoUrl;
+      brandSuccessMessage.classList.remove("active");
+      await submitFormAjax(brandApplicationForm, brandSuccessMessage);
     });
   </script>
 </body>
